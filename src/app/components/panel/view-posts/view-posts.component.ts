@@ -10,7 +10,7 @@ import { faUpRightAndDownLeftFromCenter } from '@fortawesome/free-solid-svg-icon
   selector: 'app-view-posts',
   templateUrl: './view-posts.component.html',
   styleUrls: ['./view-posts.component.css',
-  
+
   ],
   styles: [` :host {
     display: block;
@@ -85,12 +85,12 @@ export class ViewPostsComponent   implements OnInit{
 
   // close(){
   //   this.dialogRef.close();
-  
+
   // }
-   
+
   aceptada(id:bigint){
     this.preview.solicitudId = id;
-    this.preview.estado = 1; 
+    this.preview.estado = 1;
     Swal.fire({
       toast: true,
       position: 'top-end',
@@ -103,14 +103,14 @@ export class ViewPostsComponent   implements OnInit{
         toast.addEventListener('mouseenter', Swal.stopTimer)
         toast.addEventListener('mouseleave', Swal.resumeTimer)
       }
-      
-      
+
+
     })
     this.putEstado(id,1);
   }
   rechazada(id:bigint){
     this.preview.solicitudId = id;
-    this.preview.estado = 2; 
+    this.preview.estado = 2;
     Swal.fire({
       toast: true,
       position: 'top-end',
@@ -123,9 +123,9 @@ export class ViewPostsComponent   implements OnInit{
         toast.addEventListener('mouseenter', Swal.stopTimer)
         toast.addEventListener('mouseleave', Swal.resumeTimer)
       }
-      
+
     })
     this.putEstado(id,2);
   }
-  
+
 }

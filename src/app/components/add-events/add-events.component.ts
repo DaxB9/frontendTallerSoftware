@@ -107,8 +107,44 @@ export class AddEventsComponent implements OnInit {
   }
 
   postEvent(titulo:string, descripcion:string, lldata:string){
-    this.testimagen();
-
+    //this.testimagen();
+    console.log(this.image);
+    this.eventService.postImagen(this.image).subscribe(resp =>{
+        console.log(resp);
+        this.imageid=resp.id;
+        console.log(this.imageid);
+        //Nuevo evento
+        this.nevent.ep_id=0;
+        this.nevent.titulo=titulo;
+        this.nevent.descripcion=descripcion;
+        this.nevent.id_imagen=this.imageid;
+        if (this.selectedModality==='Presencial'){
+          this.nevent.lugar=lldata;
+          this.nevent.link='';
+        }else {
+          this.nevent.lugar='';
+          this.nevent.link=lldata;
+        }
+        //this.nevent.categoriaDTOS=this.category;
+        this.nevent.interesesDTOS=this.categoryaux;
+        //this.nevent.categoriaDTOS=[]
+        this.nevent.publico=this.publicoAux;
+        console.log('Categorias  seleccionadas en el push: ',this.nevent.interesesDTOS);
+        console.log(this.nevent);
+        this.eventService.postTarjeta(this.nevent).subscribe({
+          next:(response) => {
+            console.log('paso');
+          },
+          error:(errorResponse) => {
+            console.log('error');
+          }
+        });
+      },
+      error => {
+        console.log('error');
+      });
+    console.log('post exitoso');
+/*
     this.nevent.ep_id=0;
     this.nevent.titulo=titulo;
     this.nevent.descripcion=descripcion;
@@ -120,7 +156,6 @@ export class AddEventsComponent implements OnInit {
       this.nevent.lugar='';
       this.nevent.link=lldata;
     }
-
     //this.nevent.categoriaDTOS=this.category;
     this.nevent.interesesDTOS=this.categoryaux;
     //this.nevent.categoriaDTOS=[]
@@ -130,15 +165,13 @@ export class AddEventsComponent implements OnInit {
     this.eventService.postTarjeta(this.nevent).subscribe({
       next:(response) => {
         console.log('paso');
-
-
       },
       error:(errorResponse) => {
         console.log('error');
       }
-
     });
     console.log('post exitoso');
+ */
   }
 
   testimagen(){
