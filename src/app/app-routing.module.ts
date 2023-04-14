@@ -15,20 +15,20 @@ import { SesionComponent } from './layout/publico/sesion/sesion.component';
 
 
 const routes: Routes = [
-  { path: 'add-posts',    component: AddPostsComponent}, //canActivate: [PermisosRutasService]
-  { path: 'add-events', component: AddEventsComponent}, //canActivate: [PermisosRutasService]
+  { path: 'add-posts',    component: AddPostsComponent, canActivate: [PermisosRutasService]}, //canActivate: [PermisosRutasService]
+  { path: 'add-events', component: AddEventsComponent, canActivate: [PermisosRutasService]}, //canActivate: [PermisosRutasService]
   { path: 'inicio',       component:  InicioComponent }, //canActivate: [PermisosRutasService]
-  { path: 'panel',        component: PanelComponent}, //, canActivate: [PermisosRutasService]: ESTE CÓDIGO COMENTADO SIRVE PARA USAR RUTA SOLO SI ESTÁ LOGEADO
+  { path: 'panel',        component: PanelComponent, canActivate: [PermisosRutasService]}, //, canActivate: [PermisosRutasService]: ESTE CÓDIGO COMENTADO SIRVE PARA USAR RUTA SOLO SI ESTÁ LOGEADO
   
   //EJEMPLO DE USO:
   // { path: 'panel', component: PanelComponent, canActivate: [PermisosRutasService]},
   
-  { path: 'view-posts', component: ViewPostsComponent}, //canActivate: [PermisosRutasService]
+  { path: 'view-posts', component: ViewPostsComponent, canActivate: [PermisosRutasService]}, //canActivate: [PermisosRutasService]
   {
-    path:'edit-profile',component:EditProfileComponent
+    path:'edit-profile',component:EditProfileComponent, canActivate: [PermisosRutasService]
   }, //canActivate: [PermisosRutasService]
   {
-    path:'select-interest',component:SelectInterestComponent 
+    path:'select-interest',component:SelectInterestComponent, canActivate: [PermisosRutasService]
   }, //canActivate: [PermisosRutasService]
   {
     path:'sinsesion',component:SesionComponent,loadChildren:()=>import('./modules/login/login.module').then(m=>m.loginModule)
