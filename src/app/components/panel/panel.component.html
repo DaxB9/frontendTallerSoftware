@@ -1,42 +1,38 @@
 <div class="panel">
-    <h2 class="title-panel" >Solicitudes</h2>
-    <table class="table">
-      <thead>
-        <tr class="tr-colum-indicadores">
-          <th class="th-ind-num" >Número</th>
-          <th class="th-ind">Nombre</th>
-          <th class="th-ind">Asunto</th>
-          <th class="th-ind-fecha">Fecha</th>
-          <th class="th-ind-hora">Hora</th>
-          <th class="th-ind-detalle">Detalle</th>
-          <th class="th-ind">Estado</th>
+  <h2 class="title-panel" >Solicitudes</h2>
+  <table class="table">
+    <thead>
+      <tr class="tr-colum-indicadores">
+        <th class="th-ind-num" >Número</th>
+        <th class="th-ind-detalle">Detalle</th>
+        <!-- <th class="th-ind">Nombre</th>
+        <th class="th-ind">Asunto</th> -->
+        <th class="th-ind-fecha">Fecha Solicitud</th>
+        <th class="th-ind-fecha">Fecha Revisado</th>
+        <!-- <th class="th-ind-hora">Hora</th> -->
+        <th class="th-ind-detalle">Detalle</th>
+        <th class="th-ind">Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="tr-solicitudes" *ngFor="let solicitud of solicitudes" [ngClass]="solicitud.referencia">
+        <td class="tr-cont-num">{{ solicitud.solicitudid }}</td>
+        <td class="tr-cont">{{ solicitud.descripcion }}</td>
+        <td class="tr-cont">{{ solicitud.fecha_solicitud }}</td>
+        <td class="tr-cont">{{ solicitud.fecha_revisado }}</td>
+        <!-- <td class="tr-cont">{{ solicitud.asunto }}</td> -->
+        <!-- <td class="tr-cont">{{ obtenerFecha(solicitud.fecha) }}</td>
+        <td class="tr-cont">{{ solicitud.hora }}</td> -->
+
+         <!-- Cambie openPopup() por openDialog  -->
+       
+        <td><button name="{{solicitud.solicitudid}}" class="btn-view-Detail"  (click)="openDialog(solicitud.solicitudid )">Ver Detalle</button></td>
+        <td [ngClass]="getEstadoClass(solicitud.estado)">{{solicitud.estado}}</td>
+
         </tr>
-      </thead>
-      <tbody>
-        <tr class="tr-solicitudes" *ngFor="let solicitud of solicitudes" [ngClass]="solicitud.referencia">
-          <td class="tr-cont-num">{{ solicitud.solicitudid }}</td>
-          <td class="tr-cont">{{ solicitud.descripcion }}</td>
-          <!-- <td class="tr-cont">{{ solicitud.asunto }}</td> -->
-          <!-- <td class="tr-cont">{{ obtenerFecha(solicitud.fecha) }}</td>
-          <td class="tr-cont">{{ solicitud.hora }}</td> -->
-
-          <!–- Cambie openPopup() por openDialog –->
-
-          <td><button class="btn-view-Detail" (click)="openDialog()">Ver Detalle</button></td>
-          <td [ngClass]="getEstadoClass(solicitud.estado)">{{solicitud.estado}}</td>
+      </tbody>
+    </table>
 
 
 
-
-
-
-
-
-
-          </tr>
-        </tbody>
-      </table>
-
-
-
-  </div>
+</div>

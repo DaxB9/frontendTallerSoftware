@@ -101,15 +101,15 @@
 
 
   <section class="post">
-
-    <div class="post__header" *ngFor="let previews of preview">
+    {{solicitudId}}
+    <div class="post__header">
       <div class="post__header__avatar">
-        <h1 class="postTitle">{{ previews.titulo }}</h1>
+        <h1 class="postTitle">{{ preview.titulo }}</h1>
         <!-- <h2 class="postSubtitle">Subtitulo</h2> -->
         <img class="postImage" src="https://scontent.flpb2-2.fna.fbcdn.net/v/t1.6435-9/127719094_3832766390077461_598558803227660376_n.png?_nc_cat=106&ccb=1-7&_nc_sid=730e14&_nc_ohc=MRiy7YCLZssAX-CwE77&_nc_ht=scontent.flpb2-2.fna&oh=00_AfCgmgLpjNK_1Zk8fyUvZETIzfu_fIu7b7Jd4gNCO2uBlQ&oe=645AB2F6" alt="avatar">
 
         <p class="postDescripction">
-          {{ previews.descripcion }}
+          {{ preview.descripcion }}
         </p>
       </div>
       <div class="post__header__info">
@@ -131,7 +131,12 @@
 
 </div>
 
-  <button type="button" class="btn btn-success" (click)="aceptada()"> Aceptar</button>
-  <button type="button" class="btn btn-danger" (click)="rechazada()">Rechazar</button>
+<!-- <button class="btn btn-success" type="submit" (click)="postEvent(titlePost.value, descriptionPost.value, lldata)">Agregar Publicación</button>
+              </div> -->
+
+
+
+  <button type="button" class="btn btn-success" (click)="aceptada(solicitudId)"> Aceptar</button>
+  <button type="button" class="btn btn-danger" (click)="rechazada(solicitudId)">Rechazar</button>
   <button type="button" class="btn btn-warning">Solicitar Modificación</button>
 </div>

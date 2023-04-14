@@ -79,26 +79,31 @@ export class PanelComponent implements OnInit{
   getEstadoClass(estado : String): String{
 
     switch (estado) {
-      case 'Aprobado':
+      case '1':
         return 'estado-aprobado';
       case 'Rechazado':
         return 'estado-rechazado';
-      case 'Pendiente':
+      case '2':
         return 'estado-pendiente';
-      case  'Enviado':
+      case  '0':
         return 'estado-enviado';
       default:
         return 'black';
     }
   }
 
-  openDialog(){
-    this.dialog2.open(ViewPostsComponent,{
+  openDialog(solicitudId: bigint){
+    const dialogRef = this.dialog2.open(ViewPostsComponent,{
       width: '50vw',
       height: '50vh',
       // maxHeight: '80vh', // Aquí estableces la altura máxima
       // overflowY: 'auto' // Agrega scroll cuando sea necesario
     });
+    const instance = dialogRef.componentInstance
+    if(instance){
+      instance.solicitudId = solicitudId
+      console.log(instance.solicitudId)
+    } 
   }
 
 

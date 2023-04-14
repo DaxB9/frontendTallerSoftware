@@ -1,7 +1,9 @@
 
 import { PreviewService } from 'src/app/services/preview.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
+import { NonNullableFormBuilder } from '@angular/forms';
+import { faUpRightAndDownLeftFromCenter } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -32,11 +34,30 @@ export class ViewPostsComponent   implements OnInit{
 
   ngOnInit(): void {
       console.log('El componente se ha inicializado');
-      this.previewService.GetSolicitud()
+      this.previewService.getById(this.solicitudId)
       .subscribe(Response => {
         this.preview = Response
      });
   }
+
+
+  putEstado(id:bigint,estado:number){
+    console.log(this.preview.solicitudId);
+    this.previewService.putById(this.preview.solicitudId,this.preview.estado).subscribe({
+      next:() => {
+        console.log('paso');
+
+      },
+      error:(errorResponse) => {
+        console.log('error');
+      }
+    });
+    console.log('post exitoso');
+  }
+
+
+  @Input()
+  solicitudId!:bigint;
 
   preview: any = []
 
@@ -67,7 +88,9 @@ export class ViewPostsComponent   implements OnInit{
   
   // }
    
-  aceptada(){
+  aceptada(id:bigint){
+    this.preview.solicitudId = id;
+    this.preview.estado = 1; 
     Swal.fire({
       toast: true,
       position: 'top-end',
@@ -81,9 +104,13 @@ export class ViewPostsComponent   implements OnInit{
         toast.addEventListener('mouseleave', Swal.resumeTimer)
       }
       
+      
     })
+    this.putEstado(id,1);
   }
-  rechazada(){
+  rechazada(id:bigint){
+    this.preview.solicitudId = id;
+    this.preview.estado = 2; 
     Swal.fire({
       toast: true,
       position: 'top-end',
@@ -98,6 +125,7 @@ export class ViewPostsComponent   implements OnInit{
       }
       
     })
+    this.putEstado(id,2);
   }
   
 }
