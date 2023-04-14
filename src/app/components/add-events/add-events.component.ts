@@ -5,6 +5,7 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 import Swal from'sweetalert2';
 import {EventService} from "../../services/event.service";
 import {Event} from "../../models/event";
+import {FileSend} from "../../models/file";
 
 @Component({
   selector: 'app-add-events',
@@ -17,8 +18,15 @@ export class AddEventsComponent implements OnInit {
 
   category: Category[]=[];
   categoryaux: Category[]=[];
+  publicoAux!:string;
   nevent: Event=new Event();
   lldata!: string;
+
+  image!:any;
+  file!:FileSend;
+  cardImageBase64!: string;
+
+  imageid!:string;
   constructor(private categoryService:CategoryService, private eventService:EventService){}
 
   public newEventForm = new FormGroup({
@@ -40,6 +48,22 @@ export class AddEventsComponent implements OnInit {
   };
   ngOnInit(): void {
     this.getCategory();
+  }
+
+  imagenmod(event:any){
+    console.log(event.target.files[0]);
+    this.image=event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = (e: any) => {
+      const image = new Image();
+      image.src = e.target.result;
+      image.onload = rs => {
+          const imgBase64Path = e.target.result;
+          this.cardImageBase64 = imgBase64Path;
+          // this.previewImagePath = imgBase64Path;
+      };
+    };
+    reader.readAsDataURL(event.target.files[0]);
   }
   getCategory(){
     console.log('Categorys');
@@ -63,15 +87,32 @@ export class AddEventsComponent implements OnInit {
       this.categoryaux.push(cat);
     }
   }
+
+  cambiaPublico(){
+    this.publicoAux=this.selectedScope;
+    //console.log(this.publicoAux);
+  }
+  addPublic(publico:string){
+    if(this.publicoAux.includes(publico)){
+      let aux= this.publicoAux.split('-'+publico);
+      this.publicoAux=aux[0]+aux[1];
+      //console.log(this.publicoAux);
+    }else{
+      this.publicoAux=this.publicoAux+'-'+publico;
+      //console.log(this.publicoAux);
+    }
+  }
   delCategory(cat:Category){
     this.categoryaux=this.categoryaux.filter((item) => item !== cat);
   }
 
   postEvent(titulo:string, descripcion:string, lldata:string){
+    this.testimagen();
+
     this.nevent.ep_id=0;
     this.nevent.titulo=titulo;
     this.nevent.descripcion=descripcion;
-    this.nevent.id_imagen='test';
+    this.nevent.id_imagen=this.imageid;
     if (this.selectedModality==='Presencial'){
       this.nevent.lugar=lldata;
       this.nevent.link='';
@@ -79,21 +120,38 @@ export class AddEventsComponent implements OnInit {
       this.nevent.lugar='';
       this.nevent.link=lldata;
     }
-    //this.nevent.categoriaDTOS=this.category;
-    //this.nevent.categoriaDTOS=this.categoryaux;  
-    this.nevent.categoriaDTOS=[]
 
-    console.log(this.nevent.categoriaDTOS);
+    //this.nevent.categoriaDTOS=this.category;
+    this.nevent.interesesDTOS=this.categoryaux;
+    //this.nevent.categoriaDTOS=[]
+    this.nevent.publico=this.publicoAux;
+    console.log('Categorias  seleccionadas en el push: ',this.nevent.interesesDTOS);
     console.log(this.nevent);
     this.eventService.postTarjeta(this.nevent).subscribe({
-      next:() => {
+      next:(response) => {
         console.log('paso');
+
 
       },
       error:(errorResponse) => {
         console.log('error');
       }
+
     });
+    console.log('post exitoso');
+  }
+
+  testimagen(){
+    console.log(this.image);
+    //this.file.file=this.image;
+    this.eventService.postImagen(this.image).subscribe(resp =>{
+      console.log(resp);
+      this.imageid=resp.id;
+        console.log(this.imageid);
+    },
+      error => {
+        console.log('error');
+      });
     console.log('post exitoso');
   }
 
@@ -113,4 +171,5 @@ export class AddEventsComponent implements OnInit {
       confirmButtonText: 'Ok',
     })
   }
+
 }

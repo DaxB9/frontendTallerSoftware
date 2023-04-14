@@ -26,7 +26,9 @@
               </div>
               <div class="mb-3">
                 <label for="imagesPost" class="form-label">Subir Imágenes</label>
-                <input class="form-control" type="file" id="imagesPost" multiple>
+                <input class="form-control" type="file" id="imagesPost" multiple accept="image/png, .jpeg, .jpg" (change)="imagenmod($event)">
+                <img [src]="cardImageBase64" />
+
               </div>
               <div class="mb-3">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -54,6 +56,7 @@
               </div>
               <div class="d-grid gap-2">
                 <button class="btn btn-success" type="submit" (click)="postEvent(titlePost.value, descriptionPost.value, lldata)">Agregar Publicación</button>
+                <!--<button class="btn btn-success" type="submit" (click)="testimagen()">Testimagen</button>-->
               </div>
             </form>
           </mat-card-content>
@@ -153,30 +156,30 @@
               <h4>Alcance</h4>
               <div class="row">
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="scope1" value="Edad" [(ngModel)]="selectedScope">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="scope1" value="Edad" [(ngModel)]="selectedScope" (change)="cambiaPublico()">
                   <label class="form-check-label" for="scope1">Edad</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="scope2" value="Público" [(ngModel)]="selectedScope">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="scope2" value="Público" [(ngModel)]="selectedScope" (change)="cambiaPublico()">
                   <label class="form-check-label" for="scope2">Público</label>
                 </div>
               </div>
               <div class="row">
                 <div class="col-6" *ngIf="selectedScope === 'Edad'">
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="age1">
+                    <input class="form-check-input" type="checkbox" value="" id="age1" (change)="addPublic('2')">
                     <label class="form-check-label" for="age1">
                       16 - 30
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="age2">
+                    <input class="form-check-input" type="checkbox" value="" id="age2" (change)="addPublic('3')">
                     <label class="form-check-label" for="age2">
                       30 - 60
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="age3">
+                    <input class="form-check-input" type="checkbox" value="" id="age3" (change)="addPublic('4')">
                     <label class="form-check-label" for="age3">
                       60 - 99
                     </label>
@@ -184,25 +187,25 @@
                 </div>
                 <div class="col-6" *ngIf="selectedScope === 'Público'">
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="student">
+                    <input class="form-check-input" type="checkbox" value="" id="student" (change)="addPublic('2')">
                     <label class="form-check-label" for="student">
                       Estudiantes
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="teacher">
+                    <input class="form-check-input" type="checkbox" value="" id="teacher" (change)="addPublic('3')">
                     <label class="form-check-label" for="teacher">
                       Docente
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="thirdAge">
+                    <input class="form-check-input" type="checkbox" value="" id="thirdAge" (change)="addPublic('4')">
                     <label class="form-check-label" for="thirdAge">
                       Tercera Edad
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="administrative">
+                    <input class="form-check-input" type="checkbox" value="" id="administrative" (change)="addPublic('5')">
                     <label class="form-check-label" for="administrative">
                       Administrativo
                     </label>
