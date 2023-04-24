@@ -24,7 +24,7 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
 import { SelectInterestComponent } from './components/edit-profile/select-interest/select-interest.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SelectPostComponent } from './components/select-post/select-post.component';
-
+import { RecommendedPostComponent } from './components/recommended-post/recommended-post.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +42,7 @@ import { SelectPostComponent } from './components/select-post/select-post.compon
     EditProfileComponent,
     SelectInterestComponent,
     SelectPostComponent,
-    
+    RecommendedPostComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +60,7 @@ import { SelectPostComponent } from './components/select-post/select-post.compon
     SlickCarouselModule,
     MatSnackBarModule,
   ],
-  
+
   providers: [],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],

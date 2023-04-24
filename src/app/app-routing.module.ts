@@ -9,7 +9,7 @@ import { PermisosRutasService } from './core/permisosRutas/permisos-rutas.servic
 import { ContenidoComponent } from './layout/privado/contenido/contenido.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { SelectInterestComponent } from './components/edit-profile/select-interest/select-interest.component';
-
+import { RecommendedPostComponent } from './components/recommended-post/recommended-post.component';
 
 import { SesionComponent } from './layout/publico/sesion/sesion.component';
 
@@ -18,11 +18,12 @@ const routes: Routes = [
   { path: 'add-posts',    component: AddPostsComponent, canActivate: [PermisosRutasService]}, //canActivate: [PermisosRutasService]
   { path: 'add-events', component: AddEventsComponent, canActivate: [PermisosRutasService]}, //canActivate: [PermisosRutasService]
   { path: 'inicio',       component:  InicioComponent }, //canActivate: [PermisosRutasService]
+  { path:"rec-posts", component: RecommendedPostComponent },
   { path: 'panel',        component: PanelComponent, canActivate: [PermisosRutasService]}, //, canActivate: [PermisosRutasService]: ESTE CÓDIGO COMENTADO SIRVE PARA USAR RUTA SOLO SI ESTÁ LOGEADO
-  
+
   //EJEMPLO DE USO:
   // { path: 'panel', component: PanelComponent, canActivate: [PermisosRutasService]},
-  
+
   { path: 'view-posts', component: ViewPostsComponent, canActivate: [PermisosRutasService]}, //canActivate: [PermisosRutasService]
   {
     path:'edit-profile',component:EditProfileComponent, canActivate: [PermisosRutasService]
@@ -38,7 +39,10 @@ const routes: Routes = [
   }, //canActivate: [PermisosRutasService]
   {
     path:"**",redirectTo:'sinsesion/login'
-  }];
+  },
+
+
+];
  // { path: '', redirectTo: '/inicio', pathMatch: 'full' },
 
 

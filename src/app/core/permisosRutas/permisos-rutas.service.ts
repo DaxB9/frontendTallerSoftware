@@ -10,7 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class PermisosRutasService implements CanActivate {
 
   constructor(private router:Router,private autenticacionPrd:AutentifacionService,private snackBar: MatSnackBar ) { }
-  
+
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
     if(!Boolean(this.autenticacionPrd.getAutenticationByToken())){
       this.snackBar.open('Debe iniciar sesión para acceder a esta página', 'Cerrar', {
@@ -20,5 +20,5 @@ export class PermisosRutasService implements CanActivate {
     }
     return Boolean(this.autenticacionPrd.getAutenticationByToken());
   }
-  
+
 }
