@@ -23,6 +23,8 @@ import { ContenidoComponent } from './layout/privado/contenido/contenido.compone
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { SelectInterestComponent } from './components/edit-profile/select-interest/select-interest.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SelectPostComponent } from './components/select-post/select-post.component';
+
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ContenidoComponent,
     EditProfileComponent,
     SelectInterestComponent,
+    SelectPostComponent,
+    
   ],
   imports: [
     BrowserModule,
