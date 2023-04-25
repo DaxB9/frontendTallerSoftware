@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="ll-section-head text-left mb-5">
+      <h2 class="ll-section-head__heaidng">Publicaciones recomendadas</h2>
+    </div>
+    <div class="grid grid-cols-6 gap-6 xxl:gap-6">
+      <div *ngFor="let post of posts" class="col-span-6 md:col-span-6 xl:col-span-2">
+        <mat-card class="ll-post">
+          <mat-card-content class="flex">
+            <div class="row">
+              <div class="col-6">
+                <img mat-card-image [src]="post.image" alt="{{ post.title }}" style="width: 200px; height:200px; margin: 0 0 20px" />
+              </div>
+              <div class="col-6">
+                <h1 class="ll-post__title">
+                  {{ post.title }}
+                </h1>
+                <div class="flex justify-between mt-5">
+                  <h4 class="ll-post_description-label">Breve descripción:</h4>
+                  <div class="ll-post_description text-accent font-bold">{{  post.description }}</div>
+                </div>
+                <div class="flex justify-between mt-5">
+                  <div class="ll-post_date-label">Fecha:</div>
+                  <div class="ll-post_date text-accent font-bold">{{ post.fecha }}</div>
+                </div>
+                <div class="flex-1 text-center">
+                  <a [routerLink]="['/posts', post.title]" mat-raised-button color="warn" class="px-4">Ver mas</a>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+
+        </mat-card>
+      </div>
+    </div>
+</div>

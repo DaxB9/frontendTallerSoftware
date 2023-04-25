@@ -23,7 +23,12 @@ import { ContenidoComponent } from './layout/privado/contenido/contenido.compone
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { SelectInterestComponent } from './components/edit-profile/select-interest/select-interest.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 import { DataService } from './core/data.service';
+
+import { SelectPostComponent } from './components/select-post/select-post.component';
+import { RecommendedPostComponent } from './components/recommended-post/recommended-post.component';
+
 
 @NgModule({
   declarations: [
@@ -40,6 +45,8 @@ import { DataService } from './core/data.service';
     ContenidoComponent,
     EditProfileComponent,
     SelectInterestComponent,
+    SelectPostComponent,
+    RecommendedPostComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +64,7 @@ import { DataService } from './core/data.service';
     SlickCarouselModule,
     MatSnackBarModule,
   ],
+
   
   providers: [DataService],
   bootstrap: [AppComponent],
