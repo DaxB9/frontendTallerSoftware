@@ -30,6 +30,8 @@ export class AddPostsComponent implements OnInit{
   docentes: string = "";
   tercera_edad: string = "";
   administrativo: string = "";
+  image!:any;
+  cardImageBase64!: string;
 
 
   category: Category[]=[];
@@ -50,6 +52,21 @@ export class AddPostsComponent implements OnInit{
       error => {
         console.log(error);
       });
+  }
+  imagenmod(event:any){
+    console.log(event.target.files[0]);
+    this.image=event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = (e: any) => {
+      const image = new Image();
+      image.src = e.target.result;
+      image.onload = rs => {
+          const imgBase64Path = e.target.result;
+          this.cardImageBase64 = imgBase64Path;
+          // this.previewImagePath = imgBase64Path;
+      };
+    };
+    reader.readAsDataURL(event.target.files[0]);
   }
 
 }

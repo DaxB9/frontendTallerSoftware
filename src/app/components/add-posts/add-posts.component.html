@@ -26,7 +26,8 @@
               </div>
               <div class="mb-3">
                 <label for="imagesPost" class="form-label">Subir Imágenes</label>
-                <input class="form-control" type="file" id="imagesPost" multiple>
+                <input class="form-control" type="file" id="imagesPost" multiple accept="image/png, .jpeg, .jpg" (change)="imagenmod($event)">
+                <img [src]="cardImageBase64" />
               </div>
               <div class="mb-3">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
