@@ -31,7 +31,6 @@ export class AddEventsComponent implements OnInit {
 
   public newEventForm = new FormGroup({
     titlePost: new FormControl('', Validators.required),
-    subtitlePost: new FormControl('', Validators.required),
     descriptionPost: new FormControl('', Validators.required),
     //modality: new FormControl('', Validators.required),
     //scope: new FormControl('', Validators.required),
