@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../../core/data.service';
 
 @Component({
   selector: 'app-contenido',
@@ -8,12 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class ContenidoComponent implements OnInit {
   public objetounico:any = {};
 
-  constructor() { }
+  constructor(public dataService: DataService) { }
 
   ngOnInit(): void {
     let token = sessionStorage.getItem("token") as string;
     this.objetounico = this.decodificarJwt(token);
-    console.log("mi objeto",this.objetounico);
+    console.log("mi objeto",this.objetounico);//información de cliente
   }
 
   private decodificarJwt(token:string):any
@@ -25,5 +26,10 @@ export class ContenidoComponent implements OnInit {
     }).join(''));
 
     return JSON.parse(jsonPayload);
+  }
+
+  sendDataToBackend() {
+    this.dataService.sendData(this.objetounico)
+      .subscribe(() => console.log('Objeto enviado al backend'));
   }
 }

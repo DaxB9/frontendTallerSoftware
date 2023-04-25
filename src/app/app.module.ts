@@ -23,6 +23,7 @@ import { ContenidoComponent } from './layout/privado/contenido/contenido.compone
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { SelectInterestComponent } from './components/edit-profile/select-interest/select-interest.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { DataService } from './core/data.service';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatSnackBarModule,
   ],
   
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 })
