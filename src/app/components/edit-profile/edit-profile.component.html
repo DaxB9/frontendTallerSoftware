@@ -1,33 +1,12 @@
-<div class="category-container">
-    <div class="category-card">
-      <img src="https://64.media.tumblr.com/43a29135d3d5be5e0a8b58b938810ccc/tumblr_nbkma4tjTG1qha0swo2_1280.jpg" alt="Categoría 1" />
-      <h2>Arte Escénico</h2>
-      <a class="btn btn-primary" routerLink="/select-interest">Ver más</a>
-    </div>
-    <div class="category-card">
-      <img src="https://th.bing.com/th/id/R.402f324ed214ee1efac035ce5304441e?rik=mZUTEWXAoxzL6w&riu=http%3a%2f%2f3.bp.blogspot.com%2f-PD_uxLauxSc%2fT94n1g9gW2I%2fAAAAAAAAAPU%2fvmnKK4Qboks%2fs1600%2fencanta-dos.JPG&ehk=l%2bRWjZJTfG1NhPb5cHoXsKCjp3SJGFfdXGHsph4%2bYMg%3d&risl=&pid=ImgRaw&r=0" alt="Categoría 2" />
-      <h3>Arte Visual</h3>
-      <a routerLink="/select-interest">Ver más</a>
-    </div>
-    <div class="category-card">
-      <img src="https://www.lovethesat.com/wp-content/uploads/2016/08/shutterstock_149736146.jpg" alt="Categoría 3" />
-      <h3>Literatura</h3>
-      <a routerLink="/select-interest">Ver más</a>
-    </div>
-    <div class="category-card">
-      <img src="https://i.pinimg.com/originals/1b/cd/ff/1bcdffd0dda6f665d51d1cb268940698.jpg" alt="Categoría 1" />
-      <h3>Cine</h3>
-      <a routerLink="/select-interest">Ver más</a>
-    </div>
-    <div class="category-card">
-      <img src="https://st3.depositphotos.com/11496498/19549/v/450/depositphotos_195499020-stock-illustration-connected-high-technology-abstract-background.jpg" alt="Categoría 2" />
-      <h3>Tecnología</h3>
-      <a routerLink="/select-interest">Ver más</a>
-    </div>
-    <div class="category-card">
-      <img src="https://th.bing.com/th/id/OIP.07Hz6iAbC4z27q3rN0P_lgHaFf?pid=ImgDet&rs=1" alt="Categoría 3" />
-      <h3>Cultura</h3>
-      <a routerLink="/select-interest">Ver más</a>
-    </div>
-  </div>
+<div class="row">
+  <div class="col" *ngFor="let interest of interests">
+    <div class="category-container">
+      <div class="category-card">
+        <img src="{{interest.image_url}}" alt="Categoría 1" />
+        <h2>{{interest.name}}</h2>
+        <a class="btn btn-primary" routerLink="/select-interest/{{interest.name}}">Ver más</a>
+      </div>
+    </div>  
+  </div>  
+</div>
   

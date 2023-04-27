@@ -29,7 +29,7 @@ const routes: Routes = [
     path:'edit-profile',component:EditProfileComponent, canActivate: [PermisosRutasService]
   }, //canActivate: [PermisosRutasService]
   {
-    path:'select-interest',component:SelectInterestComponent, canActivate: [PermisosRutasService]
+    path:'select-interest/:name',component:SelectInterestComponent, canActivate: [PermisosRutasService]
   }, //canActivate: [PermisosRutasService]
   {
     path:'sinsesion',component:SesionComponent,loadChildren:()=>import('./modules/login/login.module').then(m=>m.loginModule)
