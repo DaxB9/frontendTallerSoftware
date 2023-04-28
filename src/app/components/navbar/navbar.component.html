@@ -46,12 +46,12 @@
 
 <mat-toolbar class="nav" color="primary">
   <mat-toolbar-row>
-    <button class="btn-inicio" mat-button [matMenuTriggerFor]="menu">Inicio</button>
-    <mat-menu  #menu="matMenu">
+    <button class="btn-inicio" mat-button [matMenuTriggerFor]="inicio">Inicio</button>
+    <mat-menu  #inicio="matMenu">
       <button mat-menu-item routerLink="/add-events"> Nuevos </button>
       <button mat-menu-item routerLink="/recomm-posts"> Recomendados </button>
       <button mat-menu-item routerLink="/add-posts"> Categoria 
-        <mat-menu  #menu="matMenu">
+        <mat-menu  #categorias="matMenu">
           <button mat-menu-item routerLink="/add-events"> titulo1 </button>
           <button mat-menu-item routerLink="/add-posts"> titulo2 </button>
           <button mat-menu-item routerLink="/add-posts"> titulo 3 </button>
