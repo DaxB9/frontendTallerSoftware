@@ -46,18 +46,32 @@
 
 <mat-toolbar class="nav" color="primary">
   <mat-toolbar-row>
-    <button class="btn-inicio" mat-button [matMenuTriggerFor]="menu">Inicio</button>
-    <mat-menu  #menu="matMenu">
-      <button mat-menu-item routerLink="/add-events"> Nuevos </button>
-      <button mat-menu-item routerLink="/add-posts"> Recomendados </button>
-      <button mat-menu-item routerLink="/add-posts"> Categoria 
-        <mat-menu  #menu="matMenu">
-          <button mat-menu-item routerLink="/add-events"> titulo1 </button>
-          <button mat-menu-item routerLink="/add-posts"> titulo2 </button>
-          <button mat-menu-item routerLink="/add-posts"> titulo 3 </button>
-        </mat-menu>
-      </button>
-      
+    <button style="padding-left: 20px;" class="btn-item" mat-button [matMenuTriggerFor]="menu1">Inicio</button>
+    <mat-menu  #menu1="matMenu">
+      <button mat-menu-item routerLink="/Nuevos"> Nuevos  </button>
+      <button mat-menu-item routerLink="/recomendados"> Recomendados  </button>
+      <button mat-menu-item [matMenuTriggerFor]="menuCategorias">Categorías</button>
+    </mat-menu>
+    <mat-menu #menuCategorias="matMenu">
+      <button mat-menu-item [matMenuTriggerFor]="menuDeporte">Deporte</button>
+      <button mat-menu-item [matMenuTriggerFor]="menuArte">Arte</button>
+      <button mat-menu-item [matMenuTriggerFor]="menuFormacion">Formación</button>
+    </mat-menu>
+    <mat-menu #menuDeporte="matMenu">
+      <button mat-menu-item>Fútbol</button>
+      <button mat-menu-item>Baloncesto</button>
+      <button mat-menu-item>Atletismo</button>
+    </mat-menu>
+    <mat-menu #menuArte="matMenu">
+      <button mat-menu-item>Música</button>
+      <button mat-menu-item>Pintura</button>
+      <button mat-menu-item>Fotografía</button>
+    </mat-menu>
+  
+    <mat-menu #menuFormacion="matMenu">
+      <button mat-menu-item>Idiomas</button>
+      <button mat-menu-item>Programación</button>
+      <button mat-menu-item>Marketing</button>
     </mat-menu>
 
     <button style="padding-left: 20px;" class="btn-item" mat-button routerLink="/panel">Panel</button>
