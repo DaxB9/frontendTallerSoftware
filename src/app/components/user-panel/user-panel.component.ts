@@ -29,7 +29,8 @@ export class UserPanelComponent {
   dataSource = ELEMENT_DATA;
 
   obtenerFecha(fecha: Date): string {
-    return fecha.toLocaleDateString();
+    const date = new Date(fecha);
+    return date.toLocaleDateString();
   }
 
 }

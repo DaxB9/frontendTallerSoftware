@@ -18,8 +18,8 @@ ng<div class="panel">
       <tr class="tr-solicitudes" *ngFor="let solicitud of solicitudes" [ngClass]="solicitud.referencia">
         <td class="tr-cont-num">{{ solicitud.solicitudid }}</td>
         <td class="tr-cont">{{ solicitud.descripcion }}</td>
-        <td class="tr-cont">{{ solicitud.fecha_solicitud }}</td>
-        <td class="tr-cont">{{ solicitud.fecha_revisado }}</td>
+        <td class="tr-cont">{{ obtenerFecha1(solicitud.fecha_solicitud) }}</td>
+        <td class="tr-cont">{{ obtenerFecha1(solicitud.fecha_revisado) }}</td>
         <!-- <td class="tr-cont">{{ solicitud.asunto }}</td> -->
         <!-- <td class="tr-cont">{{ obtenerFecha(solicitud.fecha) }}</td>
         <td class="tr-cont">{{ solicitud.hora }}</td> -->
@@ -27,7 +27,10 @@ ng<div class="panel">
          <!-- Cambie openPopup() por openDialog  -->
        
         <td><button name="{{solicitud.solicitudid}}" class="btn-view-Detail"  (click)="openDialog(solicitud.solicitudid )">Ver Detalle</button></td>
-        <td [ngClass]="getEstadoClass(solicitud.estado)">{{solicitud.estado}}</td>
+        <td [ngClass]="getEstadoClass(solicitud.estado)">
+          <ng-container *ngIf="solicitud.estado === 1; else rechazado">Aprobado</ng-container>
+          <ng-template #rechazado>Rechazado</ng-template>
+        </td>
 
         </tr>
       </tbody>

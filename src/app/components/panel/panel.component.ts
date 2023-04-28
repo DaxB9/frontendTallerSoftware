@@ -71,10 +71,6 @@ export class PanelComponent implements OnInit{
   verDetalle(solicitud: Solicitud, verDetalle:'Ver Detalle '){
     solicitud.referencia = verDetalle;
   }
-  obtenerFecha(fecha: Date): string {
-    return fecha.toLocaleDateString();
-  }
-
 
   getEstadoClass(estado : String): String{
 
@@ -105,6 +101,15 @@ export class PanelComponent implements OnInit{
       console.log(instance.solicitudId)
     } 
   }
+
+  obtenerFecha1(timestamp: Date): string {
+    const date = new Date(timestamp);
+    const year = date.getFullYear();
+    const month = ('0' + (date.getMonth() + 1)).slice(-2);
+    const day = ('0' + date.getDate()).slice(-2);
+    return `${year}-${month}-${day}`;
+  }
+  
 
 
 
