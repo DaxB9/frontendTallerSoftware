@@ -50,8 +50,8 @@
     <mat-menu  #inicio="matMenu">
       <button mat-menu-item routerLink="/add-events"> Nuevos </button>
       <button mat-menu-item routerLink="/recomm-posts"> Recomendados </button>
-      <button mat-menu-item routerLink="/add-posts"> Categoria 
-        <mat-menu  #categorias="matMenu">
+      <button mat-menu-item [matMenuTriggerFor]="categorias"> Categoria 
+        <mat-menu  #categorias="matMenu" >
           <button mat-menu-item routerLink="/add-events"> titulo1 </button>
           <button mat-menu-item routerLink="/add-posts"> titulo2 </button>
           <button mat-menu-item routerLink="/add-posts"> titulo 3 </button>
