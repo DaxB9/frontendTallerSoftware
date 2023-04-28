@@ -10,6 +10,7 @@ import { ContenidoComponent } from './layout/privado/contenido/contenido.compone
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { SelectInterestComponent } from './components/edit-profile/select-interest/select-interest.component';
 import { RecommendedPostComponent } from './components/recommended-post/recommended-post.component';
+import { SelectPostComponent } from './components/select-post/select-post.component'
 
 import { SesionComponent } from './layout/publico/sesion/sesion.component';
 
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'add-posts',    component: AddPostsComponent, canActivate: [PermisosRutasService]}, //canActivate: [PermisosRutasService]
   { path: 'add-events', component: AddEventsComponent, canActivate: [PermisosRutasService]}, //canActivate: [PermisosRutasService]
   { path: 'inicio',       component:  InicioComponent }, //canActivate: [PermisosRutasService]
-  { path:"recomm-posts", component: RecommendedPostComponent },
+  { path:"recomm-posts", component: RecommendedPostComponent},
+  { path:"posts/:id", component: SelectPostComponent},
   { path: 'panel',        component: PanelComponent, canActivate: [PermisosRutasService]}, //, canActivate: [PermisosRutasService]: ESTE CÓDIGO COMENTADO SIRVE PARA USAR RUTA SOLO SI ESTÁ LOGEADO
 
   //EJEMPLO DE USO:
