@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { PreviewService } from 'src/app/services/preview.service';
+import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 
 @Component({
@@ -6,8 +7,8 @@ import {MatDialog} from '@angular/material/dialog';
   templateUrl: './select-post.component.html',
   styleUrls: ['./select-post.component.css']
 })
-export class SelectPostComponent {
-  constructor(public dialog: MatDialog) {}
+export class SelectPostComponent implements OnInit {
+  constructor(public dialog: MatDialog, private previewService: PreviewService) {}
 
   openDialog() {
     const dialogRef = this.dialog.open(DialogContentExampleDialog);
@@ -15,6 +16,17 @@ export class SelectPostComponent {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+
+  preview: any = []
+
+  ngOnInit(): void {
+    const id1:any = localStorage.getItem('id');
+    console.log('El componente se ha inicializado');
+    this.previewService.getById(id1)
+    .subscribe(Response => {
+      this.preview = Response
+   });
   }
 
 }

@@ -1,22 +1,25 @@
 <h2 mat-dialog-title>
 </h2>
 <mat-dialog-content class="mat-typography">
-  <h3>Descripcion</h3>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores ut dolores exercitationem officia labore omnis ullam quis placeat quod. Rem odit aliquam alias libero laudantium? Esse possimus ut repellendus repellat!</p>
+  <h1>{{preview.titulo}}</h1>
 
-  <h3>Fecha</h3>
-  <input type="date" name="" id=""> 
+  <h5>{{preview.id_imagen}}</h5>
+  <h3>Descripcion</h3>
+  <p>{{preview.descripcion}}</p>
+
+  <!-- <h3>Fecha</h3>
+  <input type="date" name="" id="">  -->
 
   <h3>Link:</h3>
 
-  <p>Google/meet</p>
+  <p>{{preview.link}}</p>
   
   <h3>Ubicación</h3>
 
-  <p>Auditorio 3</p>
+  <p>{{preview.lugar}}</p>
   
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cerrar</button>
+  <button mat-button mat-dialog-close routerLink="/recomm-posts">Cerrar</button>
   <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Inscribirse</button>
 </mat-dialog-actions>

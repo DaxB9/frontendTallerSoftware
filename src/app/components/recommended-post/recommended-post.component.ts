@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-recommended-post',
   templateUrl: './recommended-post.component.html',
+  template: '',
   styleUrls: ['./recommended-post.component.css']
 })
 export class RecommendedPostComponent implements OnInit{
@@ -34,6 +35,9 @@ export class RecommendedPostComponent implements OnInit{
    public page!: number;
 
   
+   viewPost(id:any){
 
+    localStorage.setItem('id',JSON.stringify(id))
+   }
   
 }
