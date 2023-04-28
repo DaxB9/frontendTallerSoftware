@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'add-posts',    component: AddPostsComponent, canActivate: [PermisosRutasService]}, //canActivate: [PermisosRutasService]
   { path: 'add-events', component: AddEventsComponent, canActivate: [PermisosRutasService]}, //canActivate: [PermisosRutasService]
   { path: 'inicio',       component:  InicioComponent }, //canActivate: [PermisosRutasService]
-  { path:"rec-posts", component: RecommendedPostComponent },
+  { path:"recomm-posts", component: RecommendedPostComponent },
   { path: 'panel',        component: PanelComponent, canActivate: [PermisosRutasService]}, //, canActivate: [PermisosRutasService]: ESTE CÓDIGO COMENTADO SIRVE PARA USAR RUTA SOLO SI ESTÁ LOGEADO
 
   //EJEMPLO DE USO:

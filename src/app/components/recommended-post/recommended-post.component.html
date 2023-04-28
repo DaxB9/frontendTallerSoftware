@@ -7,23 +7,23 @@
         <mat-card class="ll-post mt-3">
           <mat-card-content class="flex">
             <div class="row">
-              <div class="col-6">
-                <img mat-card-image [src]="post.image" alt="{{ post.title }}" style="width: 200px; height:200px; margin: 0 0 20px" />
+              <div class="col-6 mt-1 text-center" *ngIf="post.image">
+                <img mat-card-image [src]="post.image"  style="width: 250px; height:250px; margin: 0 0 20px" />
               </div>
-              <div class="col-6">
-                <h1 class="ll-post__title">
+              <div class="col-6 mt-1">
+                <h1 class="ll-post__title text-primary text-center">
                   {{ post.title }}
                 </h1>
-                <div class="flex justify-between mt-5">
-                  <h4 class="ll-post_description-label">Breve descripción:</h4>
-                  <div class="ll-post_description text-accent font-bold">{{  post.description }}</div>
+                <div class="flex justify-between mt-3">
+                  <h4 class="ll-post_description-label text-success">Breve descripción:</h4>
+                  <div class="ll-post_description text-accent">{{  post.description }}</div>
                 </div>
-                <div class="flex justify-between mt-5">
-                  6<div class="ll-post_date-label">Fecha:</div>
-                  <div class="ll-post_date text-accent font-bold">{{ post.fecha }}</div>
+                <div class="flex justify-between mt-3">
+                  <h4 class="ll-post_date-label text-success">Fecha: </h4>
+                  <div class="ll-post_date-label">{{ post.fecha }}</div>
                 </div>
                 <div class="flex-1 text-center">
-                  <a [routerLink]="['/posts', post.title]" mat-raised-button color="warn" class="px-4">Ver mas</a>
+                  <a [routerLink]="['/posts', post.title]" mat-raised-button color="primary" class="px-4">Ver mas</a>
                 </div>
               </div>
             </div>
