@@ -23,6 +23,7 @@ import { ContenidoComponent } from './layout/privado/contenido/contenido.compone
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { SelectInterestComponent } from './components/edit-profile/select-interest/select-interest.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { NgxPaginationModule } from "ngx-pagination";
 
 import { DataService } from './core/data.service';
 
@@ -63,9 +64,10 @@ import { RecommendedPostComponent } from './components/recommended-post/recommen
     FontAwesomeModule,
     SlickCarouselModule,
     MatSnackBarModule,
+    NgxPaginationModule
   ],
 
-  
+
   providers: [DataService],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
