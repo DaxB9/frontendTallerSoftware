@@ -28,6 +28,5 @@ export class SelectPostComponent implements OnInit {
       this.preview = Response
    });
   }
-
 }
 export class DialogContentExampleDialog {}

@@ -42,7 +42,8 @@ export class ViewPostsComponent   implements OnInit{
 
 
   putEstado(id:bigint,estado:number){
-    console.log(this.preview.solicitudId);
+    console.log('aaaaaaaa'+this.preview.solicitudId);
+
     this.previewService.putById(this.preview.solicitudId,this.preview.estado).subscribe({
       next:() => {
         console.log('paso');
@@ -54,7 +55,9 @@ export class ViewPostsComponent   implements OnInit{
     });
     console.log('post exitoso');
   }
-
+  obtenerURLImagen(base64: string): string {
+    return `data:image/jpeg;base64,${base64}`;
+  }
 
   @Input()
   solicitudId!:bigint;

@@ -21,22 +21,8 @@
                 </h1>
                 <div class="flex justify-between mt-3">
                   <h4 class="ll-post_description-label text-success">Breve descripción:</h4>
-
-                  <script>
-                    function ellipsis_box(elemento, max_chars){
-	limite_text = $(elemento).text();
-	if (limite_text.length > max_chars)
-	{
-	limite = limite_text.substr(0, max_chars)+" ...";
-	$(elemento).text(limite);
-	}
-	}
-	$(function()
-	{
-	ellipsis_box(".limitado", 1);
-	});
-                  </script>
-                  <div  class="limitado">{{  post.descripcion }}</div>
+                  
+                  <div class="ll-post_description text-accent" class="text">{{  post.descripcion }}</div>
                 </div>
                 <!-- QUITAREMOS LA FECHA DE MOMENTO, NO HAY EN LA BASE DE DATOS -->
                 <!-- <div class="flex justify-between mt-3">
