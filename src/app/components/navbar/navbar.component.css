@@ -89,8 +89,6 @@
   background-color: #004070;
   height: 80px;
   width: 100%;
-
-
   left: 0;
   z-index: 100;
   transition: all 0.5s ease;
@@ -121,6 +119,12 @@
   padding: 10px 20px;
   border-radius: 5px;
   transition: all 0.5s ease;
+  /* espacio entre items */
+
+  margin-left: 10px;
+  margin-right: 10px;
+
+
 
 }
 
@@ -132,4 +136,6 @@
 ::ng-deep .mat-menu-panel {
   padding: 0 10px!important;
   width: 100%!important;
+  max-width: 100%!important;
+  box-sizing: border-box!important;
 }
