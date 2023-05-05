@@ -36,14 +36,8 @@ interface Detalle{
   // template: `
   //   <button class="btn-view-Detail" (click)="openPopup()">Ver Detalle</button>
   // `
-
-
 })
 export class PanelComponent implements OnInit{
-
-
-
-
 
   // openPopup() {
   //   const dialogRef = this.dialog.open(Component);
@@ -51,29 +45,57 @@ export class PanelComponent implements OnInit{
   constructor(private panelService: PanelService, private dialog2: Dialog){
     console.log('El componente se a creado');
   }
-
   ngOnInit(): void {
       console.log('El componente se ha inicializado');
+    this.sortTable('solicitudid');
       this.panelService.GetSolicitud()
       .subscribe(Response => {
         this.solicitudes = Response
         console.log(this.solicitudes)
      });
   }
+  // Definir la propiedad 'sortDirection' en el componente
+  sortColumn: string = 'solicitudid';
+  sortDirection: string = 'asc';
 
+// Función para cambiar la dirección del ordenamiento
+  toggleSortDirection() {
+    this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+  }
+
+// Función para ordenar la tabla por la columna especificada
+  sortTable(column: string) {
+    // Si se hace clic en la misma columna, cambiar la dirección del ordenamiento
+    if (column === this.sortColumn) {
+      this.toggleSortDirection();
+    } else {
+      // Si se hace clic en una columna diferente, ordenar en orden ascendente
+      this.sortColumn = column;
+      this.sortDirection = 'asc';
+    }
+
+    // Ordenar la tabla utilizando la columna y la dirección del ordenamiento
+    this.solicitudes = this.solicitudes.sort((a: { [x: string]: any; }, b: { [x: string]: any; }) => {
+      const columnA = a[column];
+      const columnB = b[column];
+
+      if (columnA < columnB) {
+        return this.sortDirection === 'asc' ? -1 : 1;
+      } else if (columnA > columnB) {
+        return this.sortDirection === 'asc' ? 1 : -1;
+      } else {
+        return 0;
+      }
+    });
+  }
   solicitudes: any = [];
-
   cambiarEstado(solicitud: Detalle, nuevoEstado: 'Rechazado' | 'Aprobado' | 'Pendiente'| 'Enviado') {
     solicitud.estado = nuevoEstado;
   }
-
-
   verDetalle(solicitud: Solicitud, verDetalle:'Ver Detalle '){
     solicitud.referencia = verDetalle;
   }
-
   getEstadoClass(estado : String): String{
-
     switch (estado) {
       case '1':
         return 'estado-aprobado';

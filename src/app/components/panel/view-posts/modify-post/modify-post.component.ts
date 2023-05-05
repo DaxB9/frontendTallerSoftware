@@ -3,6 +3,7 @@ import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 import {NgForm} from "@angular/forms";
 import './modify-post.component.css';
 import { PreviewService } from 'src/app/services/preview.service';
+import Swal from "sweetalert2";
 @Component({
   selector: 'app-modify-post',
   templateUrl: './modify-post.component.html',
@@ -37,6 +38,11 @@ export class ModifyPostComponent implements OnInit {
           console.log('Ha ocurrido un error al enviar la solicitud:', errorResponse);
         }
       });
+    Swal.fire({
+      icon: 'success',
+      title: 'Solicitud Enviada!',
+      text: 'Los datos del formulario han sido enviados con éxito.'
+    });
     this.activeModal.close();
   }
 

@@ -1,22 +1,52 @@
-ng<div class="panel">
+<div class="panel">
   <h2 class="title-panel" >Solicitudes</h2>
   <table class="table">
     <thead>
       <tr class="tr-colum-indicadores">
-        <th class="th-ind-num" >Número</th>
-        <th class="th-ind-detalle">Detalle</th>
-        <!-- <th class="th-ind">Nombre</th>
-        <th class="th-ind">Asunto</th> -->
+        <!--<th class="th-ind-num" >Número</th>
+        <th class="th-ind-detalle">Descripción</th>
         <th class="th-ind-fecha">Fecha Solicitud</th>
         <th class="th-ind-fecha">Fecha Revisado</th>
-        <!-- <th class="th-ind-hora">Hora</th> -->
         <th class="th-ind-detalle">Detalle</th>
-        <th class="th-ind">Estado</th>
+        <th class="th-ind">Estado</th>-->
+
+        <th class="th-ind-num" (click)="sortTable('solicitudid')">
+          Número
+          <span *ngIf="sortColumn === 'solicitudid'">
+            <i class="fa fa-chevron-{{sortDirection === 'asc' ? 'up' : 'down'}}"></i>
+          </span>
+        </th>
+        <th class="th-ind-detalle" (click)="sortTable('descripcion')">
+          Descripción
+          <span *ngIf="sortColumn === 'descripcion'">
+            <i class="fa fa-chevron-{{sortDirection === 'asc' ? 'up' : 'down'}}"></i>
+          </span>
+        </th>
+        <th class="th-ind-fecha" (click)="sortTable('fecha_solicitud')">
+          Fecha Solicitud
+          <span *ngIf="sortColumn === 'fecha_solicitud'">
+            <i class="fa fa-chevron-{{sortDirection === 'asc' ? 'up' : 'down'}}"></i>
+          </span>
+        </th>
+        <th class="th-ind-fecha" (click)="sortTable('fecha_revisado')">
+          Fecha Revisado
+          <span *ngIf="sortColumn === 'fecha_revisado'">
+            <i class="fa fa-chevron-{{sortDirection === 'asc' ? 'up' : 'down'}}"></i>
+          </span>
+        </th>
+        <th class="th-ind-detalle">Detalle</th>
+        <th class="th-ind" (click)="sortTable('estado')">
+          Estado
+          <span *ngIf="sortColumn === 'estado'">
+            <i class="fa fa-chevron-{{sortDirection === 'asc' ? 'up' : 'down'}}"></i>
+          </span>
+        </th>
 
       </tr>
     </thead>
     <tbody>
       <tr class="tr-solicitudes" *ngFor="let solicitud of solicitudes" [ngClass]="solicitud.referencia">
+
         <td class="tr-cont-num">{{ solicitud.solicitudid }}</td>
         <td class="tr-cont">{{ solicitud.descripcion }}</td>
         <td class="tr-cont">{{ obtenerFecha1(solicitud.fecha_solicitud) }}</td>
