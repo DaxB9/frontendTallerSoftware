@@ -43,7 +43,7 @@ export class PanelComponent implements OnInit{
 
 
 
-  
+
 
   // openPopup() {
   //   const dialogRef = this.dialog.open(Component);
@@ -99,7 +99,7 @@ export class PanelComponent implements OnInit{
     if(instance){
       instance.solicitudId = solicitudId
       console.log(instance.solicitudId)
-    } 
+    }
   }
 
   obtenerFecha1(timestamp: Date): string {
@@ -109,7 +109,9 @@ export class PanelComponent implements OnInit{
     const day = ('0' + date.getDate()).slice(-2);
     return `${year}-${month}-${day}`;
   }
-  
+
+
+
 
 
 

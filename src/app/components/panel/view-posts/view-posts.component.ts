@@ -1,9 +1,11 @@
 
 import { PreviewService } from 'src/app/services/preview.service';
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import Swal from 'sweetalert2';
 import { NonNullableFormBuilder } from '@angular/forms';
 import { faUpRightAndDownLeftFromCenter } from '@fortawesome/free-solid-svg-icons';
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {ModifyPostComponent} from "./modify-post/modify-post.component";
 
 
 @Component({
@@ -27,8 +29,8 @@ import { faUpRightAndDownLeftFromCenter } from '@fortawesome/free-solid-svg-icon
 })
 
 export class ViewPostsComponent   implements OnInit{
-
-  constructor(private previewService: PreviewService){
+  isModify = false;
+  constructor(private previewService: PreviewService, public modalService: NgbModal){
     console.log('El componente se a creado');
   }
 
@@ -39,7 +41,21 @@ export class ViewPostsComponent   implements OnInit{
         this.preview = Response
      });
   }
-
+  openModifyPostDialog(): void {
+    const modalRef = this.modalService.open(ModifyPostComponent); // 3. Abre el componente ModifyPostComponent en un modal
+    modalRef.componentInstance.solicitudId = this.solicitudId; // Pasamos el ID de la solicitud al componente ModifyPostComponent
+    modalRef.componentInstance.preview.estado = this.preview; // Pasamos la solicitud al componente ModifyPostComponent
+    modalRef.result.then(
+      (result) => {
+        console.log('Modal closed with result:', result);
+        // Lógica para manejar el resultado del modal cuando se cierre
+      },
+      (reason) => {
+        console.log('Modal dismissed with reason:', reason);
+        // Lógica para manejar el cierre del modal cuando se descarte
+      }
+    );
+  }
 
   putEstado(id:bigint,estado:number){
     console.log('aaaaaaaa'+this.preview.solicitudId);

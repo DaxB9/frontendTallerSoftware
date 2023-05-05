@@ -9,6 +9,10 @@ export class PreviewService {
   constructor(private http:HttpClient) {
     console.log('Servicio HTTP:');
    }
+  public updatePost(id: string, title: string, content: string, date: Date) {
+    const postData = { id, title, content, date };
+    return this.http.post(`http://localhost:8080/posts/${id}`, postData);
+  }
 
    GetSolicitud(){
     return this.http.get('http://localhost:8080/eventosol/');

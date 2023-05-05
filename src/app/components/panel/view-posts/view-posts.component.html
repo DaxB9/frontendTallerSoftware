@@ -105,7 +105,7 @@
     <div class="post__header">
       <div class="post__header__avatar">
         <h1 style="padding-bottom: 30px;"> Título: {{ preview.titulo }}</h1>
-        <!-- <h2 class="postSubtitle">Subtitulo</h2> --> 
+        <!-- <h2 class="postSubtitle">Subtitulo</h2> -->
         <h3>Imagen: </h3>
         <img class="postImage" src="{{obtenerURLImagen(preview.id_imagen)}}" alt="avatar">
 
@@ -139,5 +139,5 @@
 
   <button type="button" class="btn btn-success" (click)="aceptada(solicitudId)"> Aceptar</button>
   <button type="button" class="btn btn-danger" (click)="rechazada(solicitudId)">Rechazar</button>
-  <button type="button" class="btn btn-warning">Solicitar Modificación</button>
+  <button name="{{ solicitudId}}" class="btn btn-warning" (click)="openModifyPostDialog()">Solicitar modificación</button>
 </div>

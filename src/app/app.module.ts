@@ -29,7 +29,8 @@ import { DataService } from './core/data.service';
 
 import { SelectPostComponent } from './components/select-post/select-post.component';
 import { RecommendedPostComponent } from './components/recommended-post/recommended-post.component';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import {ModifyPostComponent} from "./components/panel/view-posts/modify-post/modify-post.component";
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { RecommendedPostComponent } from './components/recommended-post/recommen
     EditProfileComponent,
     SelectInterestComponent,
     SelectPostComponent,
-    RecommendedPostComponent
+    RecommendedPostComponent,
+    ModifyPostComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,8 @@ import { RecommendedPostComponent } from './components/recommended-post/recommen
     FontAwesomeModule,
     SlickCarouselModule,
     MatSnackBarModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgbModule,
   ],
 
 
