@@ -11,10 +11,9 @@ import Swal from "sweetalert2";
 })
 export class ModifyPostComponent implements OnInit {
 
-  @Input() solicitudId!: string;
+  @Input() solicitudId!: bigint;
   preview: any = [];
   date!:Date;
-  title: string = '';
   body: string = '';
 
   constructor(private previewService: PreviewService, public activeModal: NgbActiveModal) { }
@@ -24,11 +23,10 @@ export class ModifyPostComponent implements OnInit {
 
   onSubmit(form: NgForm): void {
     const solicitudId = this.solicitudId;
-    const title = form.value.title;
     const content = form.value.content;
     const date = this.date;
 
-    this.previewService.updatePost(solicitudId, title, content, date)
+    this.previewService.updatePost(solicitudId, content, date)
       .subscribe({
         next: (response) => {
           console.log('La solicitud se ha enviado correctamente:', response);

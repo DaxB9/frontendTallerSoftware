@@ -1,7 +1,7 @@
-<div class="panel">
+<div class="panel" xmlns:cursor="http://www.w3.org/1999/xhtml">
   <h2 class="title-panel" >Solicitudes</h2>
-  <table class="table">
-    <thead>
+  <table class="table" >
+    <thead class="text-center align-middle">
       <tr class="tr-colum-indicadores">
         <!--<th class="th-ind-num" >Número</th>
         <th class="th-ind-detalle">Descripción</th>
@@ -12,43 +12,43 @@
 
         <th class="th-ind-num" (click)="sortTable('solicitudid')">
           Número
-          <span *ngIf="sortColumn === 'solicitudid'">
-            <i class="fa fa-chevron-{{sortDirection === 'asc' ? 'up' : 'down'}}"></i>
+          <span >
+            <i class="fa fa-chevron-{{sortDirection === 'asc' ? 'up' : 'down'}}" style="font-size:15px; cursor: pointer;"></i>
           </span>
         </th>
         <th class="th-ind-detalle" (click)="sortTable('descripcion')">
           Descripción
-          <span *ngIf="sortColumn === 'descripcion'">
-            <i class="fa fa-chevron-{{sortDirection === 'asc' ? 'up' : 'down'}}"></i>
+          <span >
+            <i class="fa fa-chevron-{{sortDirection === 'asc' ? 'up' : 'down'}}" style="font-size:15px; cursor: pointer;"></i>
           </span>
         </th>
         <th class="th-ind-fecha" (click)="sortTable('fecha_solicitud')">
           Fecha Solicitud
-          <span *ngIf="sortColumn === 'fecha_solicitud'">
-            <i class="fa fa-chevron-{{sortDirection === 'asc' ? 'up' : 'down'}}"></i>
+          <span >
+            <i class="fa fa-chevron-{{sortDirection === 'asc' ? 'up' : 'down'}}" style="font-size:15px; cursor: pointer;"></i>
           </span>
         </th>
         <th class="th-ind-fecha" (click)="sortTable('fecha_revisado')">
           Fecha Revisado
-          <span *ngIf="sortColumn === 'fecha_revisado'">
-            <i class="fa fa-chevron-{{sortDirection === 'asc' ? 'up' : 'down'}}"></i>
+          <span >
+            <i class="fa fa-chevron-{{sortDirection === 'asc' ? 'up' : 'down'}}" style="font-size:15px; cursor: pointer;"></i>
           </span>
         </th>
         <th class="th-ind-detalle">Detalle</th>
-        <th class="th-ind" (click)="sortTable('estado')">
+        <th class="th-ind" (click)="sortTable('estado')" style="max-height: max-content; max-width: max-content">
           Estado
-          <span *ngIf="sortColumn === 'estado'">
-            <i class="fa fa-chevron-{{sortDirection === 'asc' ? 'up' : 'down'}}"></i>
+          <span >
+            <i class="fa fa-chevron-{{sortDirection === 'asc' ? 'up' : 'down'}}" style="font-size:15px; cursor: pointer;"></i>
           </span>
         </th>
 
       </tr>
     </thead>
-    <tbody>
+    <tbody class="text-center align-middle">
       <tr class="tr-solicitudes" *ngFor="let solicitud of solicitudes" [ngClass]="solicitud.referencia">
 
         <td class="tr-cont-num">{{ solicitud.solicitudid }}</td>
-        <td class="tr-cont">{{ solicitud.descripcion }}</td>
+        <td style="text-align: justify"class="tr-cont">{{ solicitud.descripcion }}</td>
         <td class="tr-cont">{{ obtenerFecha1(solicitud.fecha_solicitud) }}</td>
         <td class="tr-cont">{{ obtenerFecha1(solicitud.fecha_revisado) }}</td>
 
@@ -59,7 +59,7 @@
          <!-- Cambie openPopup() por openDialog  -->
 
         <td><button name="{{solicitud.solicitudid}}" class="btn-view-Detail"  (click)="openDialog(solicitud.solicitudid )">Ver Detalle</button></td>
-        <td [ngClass]="getEstadoClass(solicitud.estado)">
+        <td class="tr-cont" style="font-style: italic; font-size:18px; font-weight: bold;"[ngClass]="getEstadoClass(solicitud.estado) ">
           <ng-container *ngIf="solicitud.estado === 1; else rechazado">Aprobado</ng-container>
           <ng-template #rechazado>Rechazado</ng-template>
         </td>

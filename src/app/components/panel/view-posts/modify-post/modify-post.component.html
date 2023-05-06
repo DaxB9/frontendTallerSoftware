@@ -1,11 +1,11 @@
 <form #modifyPostForm="ngForm" (ngSubmit)="onSubmit(modifyPostForm)" class="my-4">
   <h1 class="text-center">Solicitar Modificación</h1>
-  <div class="form-group" style="padding: 25px">
+  <!--<div class="form-group" style="padding: 25px">
     <label for="title">Título</label>
     <input type="text" id="title" name="title" [(ngModel)]="title" required class="form-control">
-  </div>
+  </div>-->
   <div class="form-group" style="padding: 25px">
-    <label for="body">Contenido</label>
+    <label for="body">Descripción de la modificación</label>
     <textarea style="max-height: 400px" id="body" name="body" [(ngModel)]="body" required class="form-control"></textarea>
   </div>
 
