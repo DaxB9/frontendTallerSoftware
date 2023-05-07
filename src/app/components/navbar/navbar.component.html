@@ -68,10 +68,13 @@
 
     <button  style="padding-left: 20px;" class="btn-item" routerLink="/edit-profile" mat-button>Blog</button>
     <button style="padding-left: 20px;" class="btn-item" mat-button>Contacto</button>
+    <button style="padding-left: 20px;" class="btn-item"  routerLink="/profile" mat-button>Perfil</button>
     <button style="padding-left: 20px;" class="btn-item" mat-button [matMenuTriggerFor]="menu">Formularios</button>
+
     <mat-menu  #menu="matMenu">
       <button mat-menu-item routerLink="/add-events"> Eventos </button>
       <button mat-menu-item routerLink="/add-posts"> Publicaciones </button>
+
     </mat-menu>
 
     <span class="spacer"></span>

@@ -24,7 +24,6 @@ const ELEMENT_DATA: TableElement[] = [
   styleUrls: ['./user-panel.component.css']
 })
 export class UserPanelComponent {
-
   displayedColumns: string[] = ['position', 'title', 'tipo', 'fechaSolicitud', 'fechaUltimaRevicion', 'estado', 'comentario'];
   dataSource = ELEMENT_DATA;
 
