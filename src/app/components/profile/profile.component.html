@@ -3,8 +3,10 @@
 
     <img class="img-profile" src="https://freesvg.org/img/abstract-user-flat-4.png">
     <h1 class="lbl-name-profile">Jose Armando Pozo Silva</h1>
-    <button class="btn-interest">EDITAR INTERESES</button>
-
+    <!-- <button class="btn-interest">EDITAR INTERESES</button> -->
+    <button type="button" class="btn-interest" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      EDITAR INTERESES
+    </button>
   </section>
   <section class="personal-Information">
     <!-- hacer un formualario, el cual extraera datos de la base de datos
@@ -63,7 +65,8 @@
     <br><br>
     <div>
       <button class="btn-edit-personal-info"> EDITAR INFORMACION PERSONAL</button>
-    </div>
+
+      </div>
     <h1 class="address-info">DATOS DE DOMICILIO</h1>
 
     <section class="address">
@@ -125,6 +128,42 @@
 
     </section>
     <h1 class="intereses">INTERESES</h1>
+    <div>
+
+    </div>
 
   </section>
 </section>
+
+<div class="modal modal-xl fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="staticBackdropLabel">Agregar intereses</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-6">
+            <h4>Añadir Categorias</h4>
+            <div class="row">
+              <div class="col-6">
+                <div class="form-check" *ngFor="let or of category; let i=index">
+                  <input class="form-check-input" type="checkbox" value="{{or.nombre_interes}}" >
+                  <label class="form-check-label">
+
+                  </label>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn-btn-primary" >Agregar</button>
+      </div>
+    </div>
+  </div>
+</div>
