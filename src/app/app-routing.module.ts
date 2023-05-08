@@ -14,6 +14,7 @@ import { SelectPostComponent } from './components/select-post/select-post.compon
 
 import { SesionComponent } from './layout/publico/sesion/sesion.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { EditInterestComponent } from './components/profile/edit-interest/edit-interest.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path:"posts/:id", component: SelectPostComponent , canActivate: [PermisosRutasService]}, //canActivate: [PermisosRutasService]},
   { path: 'panel',        component: PanelComponent, canActivate: [PermisosRutasService]}, //, canActivate: [PermisosRutasService]: ESTE CÓDIGO COMENTADO SIRVE PARA USAR RUTA SOLO SI ESTÁ LOGEADO
   { path: 'profile', component: ProfileComponent, canActivate: [PermisosRutasService]},
+  { path: 'edit-interest', component: EditInterestComponent, canActivate: [PermisosRutasService]},
 
   //EJEMPLO DE USO:
   // { path: 'panel', component: PanelComponent, canActivate: [PermisosRutasService]},
