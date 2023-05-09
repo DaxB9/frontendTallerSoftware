@@ -1,1 +1,101 @@
-<p>ed-profile works!</p>
+<div class="container">
+  <figure class="text-center">
+    <blockquote class="blockquote">
+      <h1>Editar Perfil de Usuario</h1>
+    </blockquote>
+  </figure>
+  <mat-card flex flex-gt-xs="30">
+    <figure class="text-center">
+      <h2>Información del Usuario</h2>
+    </figure>
+    <mat-card-content>
+      <div class="row">
+        <div class="col-4">
+
+        </div>
+        <div class="col-8">
+          <figure class="text-center">
+            <h2>Datos Personales</h2>
+          </figure>
+          <form>
+            <div class="mb-3">
+              <label for="correo" class="form-label">Correo Electrónico Asociado a la Cuenta</label>
+              <input type="text" name="correo" [(ngModel)]="correo" class="form-control" id="correo" disabled>
+            </div>
+            <div class="row">
+              <div class="mb-3 col-6">
+                <label for="nombres" class="form-label">Nombres</label>
+                <input type="text" name="nombre" [(ngModel)]="nombres" class="form-control" id="nombres">
+              </div>
+              <div class="mb-3 col-6">
+                <label for="apellidos" class="form-label">Apellidos</label>
+                <input type="text" name="apellidos" [(ngModel)]="apellidos" class="form-control" id="apellidos">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="mb-3 col-6">
+                <label for="nacimiento" class="form-label">Fecha de Nacimiento</label>
+                <input type="text" name="nacimiento" [(ngModel)]="nacimiento" class="form-control" id="nacimiento">
+              </div>
+              <div class="mb-3 col-6">
+                <label for="genero" class="form-label">Genero</label>
+                <select class="form-select" name="genero" [(ngModel)]="genero" class="form-control" id="genero" aria-label="Default select example">
+                  <option value="hombre">Hombre</option>
+                  <option value="mujer">Mujer</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="carrera" class="form-label">Carrera</label>
+              <input type="text" name="carrera" [(ngModel)]="carrera" class="form-control" id="carrera" >
+            </div>
+
+            <figure class="text-center">
+              <h2>Datos Domicilio</h2>
+            </figure>
+
+            <div class="row">
+              <div class="mb-3 col-6">
+                <label for="zona" class="form-label">Zona</label>
+                <input type="text" name="zona" [(ngModel)]="zona" class="form-control" id="zona">
+              </div>
+              <div class="mb-3 col-6">
+                <label for="direccion" class="form-label">Dirección</label>
+                <input type="text" name="direccion" [(ngModel)]="direccion" class="form-control" id="direccion">
+              </div>
+            </div>
+            <div class="row">
+              <div class="mb-3 col-6">
+                <label for="telefono" class="form-label">Teléfono</label>
+                <input type="text" name="telefono" [(ngModel)]="telefono" class="form-control" id="telefono">
+              </div>
+              <div class="mb-3 col-6">
+                <label for="correoPersonal" class="form-label">Correo Personal</label>
+                <input type="text" name="correoPersonal" [(ngModel)]="correoPersonal" class="form-control" id="correoPersonal">
+              </div>
+            </div>
+            <div class="flex-1 text-center row">
+              <div class="d-grid gap-2 col-6">
+                <button class="btn btn-primary" type="button">Editar Perfil</button>
+              </div>
+              <div class="d-grid gap-2 col-6">
+                <button class="btn btn-danger" type="button">Cancelar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <div class="row">
+
+    <div class="col-4">
+
+    </div>
+    <div class="col-8">
+
+    </div>
+  </div>
+</div>
