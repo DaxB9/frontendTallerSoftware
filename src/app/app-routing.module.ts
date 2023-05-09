@@ -7,10 +7,11 @@ import { AddEventsComponent } from './components/add-events/add-events.component
 import { ViewPostsComponent } from './components/panel/view-posts/view-posts.component';
 import { PermisosRutasService } from './core/permisosRutas/permisos-rutas.service';
 import { ContenidoComponent } from './layout/privado/contenido/contenido.component';
-import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+//import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { SelectInterestComponent } from './components/edit-profile/select-interest/select-interest.component';
 import { RecommendedPostComponent } from './components/recommended-post/recommended-post.component';
 import { SelectPostComponent } from './components/select-post/select-post.component'
+import { EdProfileComponent } from './components/ed-profile/ed-profile.component';
 
 import { SesionComponent } from './layout/publico/sesion/sesion.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -32,8 +33,8 @@ const routes: Routes = [
 
   { path: 'view-posts', component: ViewPostsComponent, canActivate: [PermisosRutasService]}, //canActivate: [PermisosRutasService]
   {
-    path:'edit-profile',component:EditProfileComponent, canActivate: [PermisosRutasService]
-  }, //canActivate: [PermisosRutasService]
+    path: 'edit-profile', component: EdProfileComponent
+  },
   {
     path:'select-interest/:name',component:SelectInterestComponent, canActivate: [PermisosRutasService]
   }, //canActivate: [PermisosRutasService]
