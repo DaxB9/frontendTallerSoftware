@@ -31,6 +31,7 @@ import { SelectPostComponent } from './components/select-post/select-post.compon
 import { RecommendedPostComponent } from './components/recommended-post/recommended-post.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import {ModifyPostComponent} from "./components/panel/view-posts/modify-post/modify-post.component";
+import { ModalInterestComponent } from './components/ed-profile/modal-interest/modal-interest.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {ModifyPostComponent} from "./components/panel/view-posts/modify-post/mod
     SelectPostComponent,
     RecommendedPostComponent,
     ModifyPostComponent,
-    EdProfileComponent
+    EdProfileComponent,
+    ModalInterestComponent
   ],
   imports: [
     BrowserModule,

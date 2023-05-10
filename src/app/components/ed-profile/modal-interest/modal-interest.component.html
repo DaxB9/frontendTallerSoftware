@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="d-flex flex-wrap">
+        <div class="card text-center" style="width: 18rem;" *ngFor="let i of intereses">
+            <img class="card-img-top" [src]="i.image" style="width: auto; height: 100px;">
+            <div class="card-body">
+              <h5 class="card-title">{{i.title}}</h5>
+              <button mat-raised-button>Agregar</button>
+              <button mat-raised-button>Ver Subintereses</button>
+            </div>
+        </div>
+    </div>
+  </div>

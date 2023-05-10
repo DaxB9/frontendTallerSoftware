@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalInterestComponent } from './modal-interest/modal-interest.component';
 
 @Component({
   selector: 'app-ed-profile',
@@ -17,4 +19,9 @@ export class EdProfileComponent {
   direccion: string = " Calle 2 Nro 1"
   telefono: string = "77788999"
   correoPersonal: string ="personal@gmail.com"
+
+  constructor(private matDialog:MatDialog){}
+  openEdit(){
+    this.matDialog.open(ModalInterestComponent);
+  }
 }
