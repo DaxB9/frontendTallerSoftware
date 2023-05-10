@@ -42,6 +42,13 @@
           </span>
         </th>
 
+        <th class="th-ind" (click)="sortTable('audiencia')" style="max-height: max-content; max-width: max-content">
+          Audiencia
+          <span >
+            <i class="fa fa-chevron-{{sortDirection === 'asc' ? 'up' : 'down'}}" style="font-size:15px; cursor: pointer;"></i>
+          </span>
+        </th>
+
       </tr>
     </thead>
     <tbody class="text-center align-middle">
@@ -63,7 +70,7 @@
           <ng-container *ngIf="solicitud.estado === 1; else rechazado">Aprobado</ng-container>
           <ng-template #rechazado>Rechazado</ng-template>
         </td>
-
+        <td class="tr-cont" style="font-style: italic; font-size:18px; font-weight: bold;">Audiencia ...</td>
         </tr>
       </tbody>
     </table>
