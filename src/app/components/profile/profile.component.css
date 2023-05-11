@@ -1,4 +1,4 @@
-*
+/* *
 {
     margin: 0;
     padding: 0;
@@ -191,4 +191,39 @@ h2{
   color: #000;
 }
 
+ */
+ .lbl-title {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 50px;
+}
 
+.container {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.row {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.col {
+  flex: 1;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.txt {
+  font-size: 18px;
+}
