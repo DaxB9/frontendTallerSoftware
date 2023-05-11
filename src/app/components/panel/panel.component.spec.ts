@@ -1,6 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PanelComponent } from './panel.component';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class BackendService {
+  private endpoint = 'http://localhost:8080/solicitud/aceptadas';
+
+  constructor(private http: HttpClient) {}
+
+  updateFilter(accepted: boolean, rejected: boolean) {
+    return this.http.post(this.endpoint, {accepted, rejected});
+  }
+}
+export default BackendService;
 
 describe('PanelComponent', () => {
   let component: PanelComponent;
@@ -21,3 +36,4 @@ describe('PanelComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

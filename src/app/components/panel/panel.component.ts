@@ -1,12 +1,24 @@
 import { PanelService } from 'src/app/services/panel.service';
+//import { BackendService } from './services/backend.service';
 import { Component, OnInit } from '@angular/core';
 //import { MatDialog } from '@angular/material/dialog';
 import { Dialog } from '@angular/cdk/dialog';
 //import {TodoDialogComponent} from '../../components/todo-dialog/todo-dialog.component'
 import { ViewPostsComponent } from './view-posts/view-posts.component';
 import { bottom } from '@popperjs/core';
+import { MatExpansionPanel } from '@angular/material/expansion';
 
 
+// export class FilterComponent {
+//   acceptar: boolean = false;
+//   rechazar: boolean = false;
+
+//   constructor(private backendService : BackendService) {}
+
+//   updateFilter() {
+//     this.backendService.updateFilter(this.acceptar, this.rechazar).subscribe();
+//   }
+// }
 interface Solicitud {
   numero: number;
   nombre: string;
@@ -37,7 +49,10 @@ interface Detalle{
   //   <button class="btn-view-Detail" (click)="openPopup()">Ver Detalle</button>
   // `
 })
+
+
 export class PanelComponent implements OnInit{
+  
 
   // openPopup() {
   //   const dialogRef = this.dialog.open(Component);
@@ -45,6 +60,8 @@ export class PanelComponent implements OnInit{
   constructor(private panelService: PanelService, private dialog2: Dialog){
     console.log('El componente se a creado');
   }
+
+
   ngOnInit(): void {
       console.log('El componente se ha inicializado');
     this.sortTable('solicitudid');
@@ -132,14 +149,5 @@ export class PanelComponent implements OnInit{
     return `${year}-${month}-${day}`;
   }
 
-
-
-
-
-
-
-
-
-
-
 }
+
