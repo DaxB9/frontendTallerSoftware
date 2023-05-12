@@ -1,4 +1,6 @@
 import { Component, OnInit} from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalSubinteresesComponent } from './modal-subintereses/modal-subintereses.component';
 
 @Component({
   selector: 'app-modal-interest',
@@ -6,6 +8,13 @@ import { Component, OnInit} from '@angular/core';
   styleUrls: ['./modal-interest.component.css']
 })
 export class ModalInterestComponent implements OnInit{
+
+  
+
+  constructor(private matDialog:MatDialog){}
+  openSubEdit(){
+    this.matDialog.open(ModalSubinteresesComponent);
+  }
 
   intereses:Array<any> | undefined
 
