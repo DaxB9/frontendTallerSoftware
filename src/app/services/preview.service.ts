@@ -30,6 +30,10 @@ export class PreviewService {
     return this.http.put('http://localhost:8080/solicitud/'+id,{estado: estado});
    }
 
+   public getImagen(imagen: string){
+    return this.http.get('http://localhost:8080/solicitud/image2/'+imagen);
+   }
+
   //  public getPersona(id: bigint){
   //   return this.http.get(this.Url+id ,
   //     { responseType: 'json' })

@@ -106,8 +106,12 @@
       <div class="post__header__avatar">
         <h1 style="padding-bottom: 30px;"> Título: {{ preview.titulo }}</h1>
         <!-- <h2 class="postSubtitle">Subtitulo</h2> -->
-        <h3>Imagen: </h3>
-        <img class="postImage" src="{{obtenerURLImagen(preview.id_imagen)}}" alt="avatar">
+        <!-- <h3>Imagen: </h3>
+        <img class="postImage" src="{{obtenerURLImagen(preview.id_imagen)}}" alt="avatar"> -->
+
+        <h3>Imagen: {{this.path}}</h3>
+        <img class="postImage" src="{{this.path}}">
+
 
         <p class="postDescripction">
           Descripción: {{ preview.descripcion }}

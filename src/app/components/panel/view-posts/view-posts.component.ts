@@ -6,6 +6,8 @@ import { NonNullableFormBuilder } from '@angular/forms';
 import { faUpRightAndDownLeftFromCenter } from '@fortawesome/free-solid-svg-icons';
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {ModifyPostComponent} from "./modify-post/modify-post.component";
+import { data } from 'jquery';
+import { ɵafterNextNavigation } from '@angular/router';
 
 
 @Component({
@@ -39,7 +41,10 @@ export class ViewPostsComponent   implements OnInit{
       this.previewService.getById(this.solicitudId)
       .subscribe(Response => {
         this.preview = Response
+        this.getImagen(this.preview.id_imagen);
      });
+     
+     
   }
   openModifyPostDialog(): void {
     const modalRef = this.modalService.open(ModifyPostComponent); // 3. Abre el componente ModifyPostComponent en un modal
@@ -146,5 +151,22 @@ export class ViewPostsComponent   implements OnInit{
     })
     this.putEstado(id,2);
   }
+
+  getImagen(imagen:string){
+    this.previewService.getImagen(imagen).subscribe({
+      next:() => {
+        this.path=data.toString;
+        console.log('paso', data.toString);
+
+      },
+      error:(errorResponse) => {
+        console.log('error', errorResponse);
+      }
+    });
+    console.log('post exitoso');
+    
+  }
+
+  path:any;
 
 }
