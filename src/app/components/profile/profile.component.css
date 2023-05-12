@@ -192,38 +192,45 @@ h2{
 }
 
  */
- .lbl-title {
-  font-size: 36px;
+/* Estilos para la sección de información personal */
+.lbl-title {
+  font-size: 2.5rem;
   font-weight: bold;
-  text-align: center;
-  margin-top: 50px;
+  color: #1E1E1E;
+  margin-bottom: 2rem;
 }
 
 .container {
-  background-color: #f2f2f2;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  margin-top: 30px;
-  padding: 20px;
+  background-color: #F8F8F8;
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 0.5rem solid #c0bfbc;
 }
 
 .row {
   display: flex;
-  margin-bottom: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
 }
 
 .col {
   flex: 1;
-  margin-right: 10px;
-  margin-left: 10px;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+.col:last-child {
+  margin-right: 0;
 }
 
 h2 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: #F2545B;
+  margin-bottom: 0.5rem;
 }
 
 .txt {
-  font-size: 18px;
+  font-size: 1.25rem;
+  color: #3D3D3D;
+  font-weight: bold;
 }
