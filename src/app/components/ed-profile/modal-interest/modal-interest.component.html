@@ -4,13 +4,12 @@
         <div class="card text-center" style="width: 18rem; margin: 10px;" *ngFor="let i of interests">
             <img class="card-img-top" [src]="i.imagen" style="width: auto; height: 100px;">
             <div class="card-body">
-<<<<<<< HEAD
-              <h5 class="card-title fw-semibold fs-5">{{i.title}}</h5>
+
+              <!-- <h5 class="card-title fw-semibold fs-5">{{i.title}}</h5>   No existe en el model title -->
               <button class="btn btn-primary" type="button" (click)="openSubEdit()">Ver Subintereses</button>
-=======
+
               <h5 class="card-title fw-semibold fs-5">{{i.nombre_interes}}</h5>
               <button mat-raised-button>Ver Subintereses</button>
->>>>>>> 40462756f3a9c224371a736eead76c3e13c0bb9d
             </div>
         </div>
     </div>
