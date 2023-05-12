@@ -1,10 +1,10 @@
 <div class="container mw-100" style="padding: 0.5rem; height: 30rem; width: 41rem">
   <p class="fs-2 text-center fw-bold">Intereses</p>
     <div class="d-flex flex-wrap justify-content-center" >
-        <div class="card text-center" style="width: 18rem; margin: 10px;" *ngFor="let i of intereses">
-            <img class="card-img-top" [src]="i.image" style="width: auto; height: 100px;">
+        <div class="card text-center" style="width: 18rem; margin: 10px;" *ngFor="let i of interests">
+            <img class="card-img-top" [src]="i.imagen" style="width: auto; height: 100px;">
             <div class="card-body">
-              <h5 class="card-title fw-semibold fs-5">{{i.title}}</h5>
+              <h5 class="card-title fw-semibold fs-5">{{i.nombre_interes}}</h5>
               <button mat-raised-button>Ver Subintereses</button>
             </div>
         </div>
