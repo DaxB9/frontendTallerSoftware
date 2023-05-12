@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ModalInterestComponent } from './modal-interest/modal-interest.component';
 import Swal from'sweetalert2';
 import { ProfileService } from 'src/app/services/profile.service';
+import { Timestamp } from 'rxjs';
 
 
 @Component({
@@ -31,6 +32,8 @@ export class EdProfileComponent implements OnInit{
 
   intereses:any = [];
 
+  datos: any = [];
+
   ngOnInit(): void{
     console.log('El componente se ha inicializado');
       this.profile.GetProfileById(this.profileId)
@@ -39,10 +42,10 @@ export class EdProfileComponent implements OnInit{
      });
      
 
-    //  this.profile.GetSubInteresesById(this.datosPerfil.userid)
-    //   .subscribe(Response => {
-    //     this.intereses = Response
-    //  });
+     this.profile.GetSubInteresesById(this.profileId)
+      .subscribe(Response => {
+        this.intereses = Response
+     });
   }
 
   
@@ -72,6 +75,18 @@ export class EdProfileComponent implements OnInit{
   }
 
   successUpdateProfile(){
+
+    // this.profile.postProfile(this.profileId,this.datos).subscribe({
+    //   next:() => {
+        console.log(this.datosPerfil);
+
+    //   },
+    //   error:(errorResponse) => {
+    //     console.log('error');
+    //   }
+    // });
+    // console.log('post exitoso');
+
     Swal.fire({
       title: 'Exito',
       text: 'Perfil actualizado correctamente',
