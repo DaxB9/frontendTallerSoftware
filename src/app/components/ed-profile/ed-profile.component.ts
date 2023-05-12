@@ -13,16 +13,16 @@ import { Timestamp } from 'rxjs';
   styleUrls: ['./ed-profile.component.css']
 })
 export class EdProfileComponent implements OnInit{
-  correo: string= "ejemplo@gmail.com"
-  nombres: string= "Pedro"
-  apellidos: string= "Perez Perez"
-  genero:string= "hombre"
-  nacimiento: string= "01-01-2023"
-  carrera: string = "Ingenieria de Sistemas"
-  zona: string = "Obrajes"
-  direccion: string = " Calle 2 Nro 1"
-  telefono: string = "77788999"
-  correoPersonal: string ="personal@gmail.com"
+  // correo: string= "ejemplo@gmail.com"
+  // nombres: string= "Pedro"
+  // apellidos: string= "Perez Perez"
+  // genero:string= "hombre"
+  // nacimiento: string= "01-01-2023"
+  // carrera: string = "Ingenieria de Sistemas"
+  // zona: string = "Obrajes"
+  // direccion: string = " Calle 2 Nro 1"
+  // telefono: string = "77788999"
+  // correoPersonal: string ="personal@gmail.com"
 
   constructor(private matDialog:MatDialog, private profile: ProfileService){}
 
@@ -75,17 +75,18 @@ export class EdProfileComponent implements OnInit{
   }
 
   successUpdateProfile(){
+  
 
-    // this.profile.postProfile(this.profileId,this.datos).subscribe({
-    //   next:() => {
+    this.profile.postProfile(this.profileId,this.datosPerfil).subscribe({
+      next:() => {
         console.log(this.datosPerfil);
 
-    //   },
-    //   error:(errorResponse) => {
-    //     console.log('error');
-    //   }
-    // });
-    // console.log('post exitoso');
+      },
+      error:(errorResponse) => {
+        console.log('error');
+      }
+    });
+    console.log('post exitoso');
 
     Swal.fire({
       title: 'Exito',
