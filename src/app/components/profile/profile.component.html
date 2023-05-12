@@ -1,14 +1,14 @@
 <section class="all">
-  
-    
+
+
     <img class="img-profile" src="https://freesvg.org/img/abstract-user-flat-4.png">
-    
+
     <!-- <button class="btn-interest">EDITAR INTERESES</button> -->
     <button type="button" class="btn-interest" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
       EDITAR INTERESES
     </button>
-  
-  
+
+
   <section class="personal-Information">
     <!-- hacer un formualario, el cual extraera datos de la base de datos
       nombre:                    jose
@@ -16,11 +16,11 @@
       Fehca de Nac               12:abril:2000
     -->
     <h1 class="lbl-title">Información Personal</h1>
-    
-    
+
+
     <div class="container">
       <div class="row">
-        
+
         <div class="col">
           <mat-icon>account_circle</mat-icon>
           <h2>Nombre: </h2>
@@ -58,12 +58,12 @@
      </div>
 
     </div>
-    
+
     <div>
       <button class="btn-edit-personal-info"> EDITAR INFORMACION PERSONAL</button>
 
       </div>
-    
+
     <h1 class="lbl-title">DATOS DE DOMICILIO</h1>
 
     <section class="address">
@@ -118,7 +118,7 @@
           </div>
         </div>
       </div>
-      
+
       <div>
         <button class="btn-edit-address-info">EDITAR INFORMACION DOMICILIARIA</button>
       </div>
@@ -143,16 +143,102 @@
         <div class="row">
           <div class="col-6">
             <h4>Añadir Categorias</h4>
-            <div class="row">
-              <div class="col-6">
-                <!-- <div class="form-check" *ngFor="let or of category; let i=index">
-                  <input class="form-check-input" type="checkbox" value="{{or.nombre_interes}}" >
-                  <label class="form-check-label">
-                  </label>
-                </div> -->
+              <!-- Panel con checklist, en 3 columnas, y 5 filas -->
 
+              <!-- <div class="container">
+                <h2>Lista de opciones culturales</h2>
+                <hr>
+
+                <form>
+                  <div class="form-group" *ngFor="let row of rows">
+                    <div class="row">
+                      <div class="col">
+                        <input type="checkbox" name="{{ row[0] }}" [(ngModel)]="selectedOptions">
+                        <label>{{ row[0] }}</label>
+                      </div>
+                      <div class="col">
+                        <input type="checkbox" name="{{ row[1] }}" [(ngModel)]="selectedOptions">
+                        <label>{{ row[1] }}</label>
+                      </div>
+                      <div class="col">
+                        <input type="checkbox" name="{{ row[2] }}" [(ngModel)]="selectedOptions">
+                        <label>{{ row[2] }}</label>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+
+                <hr>
+
+                <button class="btn btn-primary" (click)="submitOptions()">Guardar</button>
+              </div> -->
+
+              <div class="container">
+                <h2>Lista de Intereses Culturales</h2>
+                <hr>
+
+                <form>
+                  <div class="form-group" *ngFor="let row of rows; let i = index">
+                    <div class="row">
+                      <div class="col">
+                        <input type="radio" name="{{ i }}" [ngModel]="selected[i]" (ngModelChange)="selected[i] " value="{{ row[0] }}">
+                        <label>{{ row[0] }}</label>
+                      </div>
+                      <div class="col">
+                        <input type="radio" name="{{ i }}" [ngModel]="selected[i]" (ngModelChange)="selected[i] " value="{{ row[1] }}">
+                        <label>{{ row[1] }}</label>
+                      </div>
+                      <div class="col">
+                        <input type="radio" name="{{ i }}" [ngModel]="selected[i]" (ngModelChange)="selected[i] " value="{{ row[2] }}">
+                        <label>{{ row[2] }}</label>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+
+                <hr>
+
+                <button class="btn btn-success" (click)="submitOptions()">GUARDAR</button>
+                <!-- btn cancel -->
+
+                <button class="btn btn-danger" (click)="submitOptions()">CANCELAR</button>
               </div>
-            </div>
+
+
+              <div class="container">
+                <h2>Lista de Subintereses </h2>
+                <hr>
+
+                <form>
+                  <div class="form-group" *ngFor="let row of rows; let i = index">
+                    <div class="row">
+                      <div class="col">
+                        <input type="radio" name="{{ i }}" [ngModel]="selected[i]" (ngModelChange)="selectedSubInteres[i] " value="{{ row[0] }}">
+                        <label>{{ row[0] }}</label>
+                      </div>
+                      <div class="col">
+                        <input type="radio" name="{{ i }}" [ngModel]="selected[i]" (ngModelChange)="selectedSubInteres[i] " value="{{ row[1] }}">
+                        <label>{{ row[1] }}</label>
+                      </div>
+                      <div class="col">
+                        <input type="radio" name="{{ i }}" [ngModel]="selected[i]" (ngModelChange)="selectedSubInteres[i] " value="{{ row[2] }}">
+                        <label>{{ row[2] }}</label>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+
+                <hr>
+
+                <button class="btn btn-success" (click)="submitOptions()">GUARDAR</button>
+                <!-- btn cancel -->
+
+                <button class="btn btn-danger" (click)="submitOptions()">CANCELAR</button>
+              </div>
+
+
+
+
           </div>
         </div>
       </div>

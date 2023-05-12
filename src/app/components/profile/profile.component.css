@@ -229,3 +229,7 @@ h2 {
   color: #3D3D3D;
   font-weight: bold;
 }
+.container {
+  max-width: 600px;
+  margin: 0
+}
