@@ -22,39 +22,43 @@
           <form>
             <div class="mb-3">
               <label for="correo" class="form-label">Correo Electrónico Asociado a la Cuenta</label>
-              <input type="text" name="correo" [(ngModel)]="correo" class="form-control" id="correo" disabled>
+              <input type="text" name="correo" [(ngModel)]="datosPerfil.email" class="form-control" id="correo" disabled>
             </div>
             <div class="row">
               <div class="mb-3 col-6">
                 <label for="nombres" class="form-label">Nombres</label>
-                <input type="text" name="nombre" [(ngModel)]="nombres" class="form-control" id="nombres">
+                <input type="text" name="nombre" [(ngModel)]="datosPerfil.given_name" class="form-control" id="nombres" disabled>
               </div>
               <div class="mb-3 col-6">
                 <label for="apellidos" class="form-label">Apellidos</label>
-                <input type="text" name="apellidos" [(ngModel)]="apellidos" class="form-control" id="apellidos">
+                <input type="text" name="apellidos" [(ngModel)]="datosPerfil.family_name" class="form-control" id="apellidos" disabled>
               </div>
             </div>
 
             <div class="row">
               <div class="mb-3 col-6">
-                <label for="nacimiento" class="form-label">Fecha de Nacimiento</label>
-                <input type="text" name="nacimiento" [(ngModel)]="nacimiento" class="form-control" id="nacimiento">
+                <label for="apodo" class="form-label">Apodo</label>
+                <input type="text" name="apodo" [(ngModel)]="datosPerfil.nickname" class="form-control" id="apodo">
               </div>
               <div class="mb-3 col-6">
+                <label for="nacimiento" class="form-label">Fecha de Nacimiento</label>
+                <input type="date" name="nacimiento" [(ngModel)]="datosPerfil.birthday" class="form-control" id="nacimiento">
+              </div>
+              <!-- <div class="mb-3 col-6">
                 <label for="genero" class="form-label">Genero</label>
                 <select class="form-select" name="genero" [(ngModel)]="genero" class="form-control" id="genero" aria-label="Default select example">
                   <option value="hombre">Hombre</option>
                   <option value="mujer">Mujer</option>
                 </select>
-              </div>
+              </div> -->
             </div>
 
             <div class="mb-3">
               <label for="carrera" class="form-label">Carrera</label>
-              <input type="text" name="carrera" [(ngModel)]="carrera" class="form-control" id="carrera" >
+              <input type="text" name="carrera" [(ngModel)]="datosPerfil.career" class="form-control" id="carrera" >
             </div>
 
-            <figure class="text-center">
+            <!-- <figure class="text-center">
               <h2>Datos Domicilio</h2>
             </figure>
 
@@ -77,7 +81,7 @@
                 <label for="correoPersonal" class="form-label">Correo Personal</label>
                 <input type="text" name="correoPersonal" [(ngModel)]="correoPersonal" class="form-control" id="correoPersonal">
               </div>
-            </div>
+            </div> -->
             <div class="flex-1 text-center row">
               <div class="d-grid gap-2 col-6">
                 <button class="btn btn-primary" type="button" (click)="confirmationPerfilUpdate()">Editar Perfil</button>
@@ -93,7 +97,9 @@
               <h2>intereses</h2>
             </figure>
             <div>
-              <label class="form-label">SubInteres 1, SubIntere 2, SubInteres 3</label>
+              <ul class="list-interest">
+                <li *ngFor="let interest of intereses">{{interest.nombre}}</li>
+              </ul>
             </div>
             <div class="flex-1 text-center row">
               <div class="d-grid gap-2 col-4">

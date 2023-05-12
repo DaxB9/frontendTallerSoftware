@@ -1,0 +1,9 @@
+.list-interest{
+    display: flex;
+    flex-direction: row;
+    padding-left: 0px;
+}
+li{
+    list-style: none;
+    margin-right: 20px; 
+}
