@@ -82,10 +82,13 @@
               <div class="row">
                 <div class="col-6">
                   <div class="form-check" *ngFor="let or of category; let i=index">
-                    <input class="form-check-input" type="checkbox" value="{{or.nombre_interes}}" (change)="addCategory(or)" >
-                    <label class="form-check-label">
-                      {{or.nombre_interes}}
-                    </label>
+                    <h3>{{or.nombre_interes}}</h3>
+                    <div class="form-check" *ngFor="let sub of or.subIntereses; let i=index">
+                      <input class="form-check-input" type="checkbox" value="{{or.nombre_interes}}" (change)="addCategory(or)" >
+                      <label class="form-check-label">
+                        {{sub.nombre}}
+                      </label>
+                    </div>
                   </div>
                   <!--
                   <div class="form-check">
@@ -145,7 +148,7 @@
                     <label class="form-check-label" for="thirdCheckbox">Categoría 3</label>
                   </li>
                 </ul>
-              </div>-->
+              </div>--> 
             </div>
             <div class="col-6">
               <h4>Alcance</h4>

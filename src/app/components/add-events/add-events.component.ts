@@ -16,7 +16,7 @@ export class AddEventsComponent implements OnInit {
   selectedModality: string= "";
   selectedScope: string = "";
 
-  category: Category[]=[];
+  category: Category[]=[];  
   categoryaux: Category[]=[];
   publicoAux!:string;
   nevent: Event=new Event();
@@ -69,6 +69,7 @@ export class AddEventsComponent implements OnInit {
     this.categoryService.getCategory().subscribe(
       data => {
         this.category = data;
+        // make a loop 
         console.log('data');
         console.log(this.category);
       },

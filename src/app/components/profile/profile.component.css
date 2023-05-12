@@ -5,32 +5,27 @@
     box-sizing: border-box;
     font-size: 62.5%;
 }
-
+*/
 body
 {
     font-family: 'Roboto', sans-serif;
     font-size: 1.6rem;
     background-color: #f5f5f5;
 }
-
+/*
 .all{
   width: 100%;
   height: 100%;
 }
-
-.photo-profile{
-  float: left;
-  width: 30%;
-  height: 100%;
-}
+*/
 
 .img-profile{
+  align-items: center;
   width: 280px;
   height: 280px;
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
+/*
 .lbl-name-profile{
   font-size: 1.5rem;
   font-weight: bold;

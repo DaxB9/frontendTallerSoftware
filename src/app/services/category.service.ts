@@ -10,7 +10,7 @@ export class CategoryService {
   constructor(private http:HttpClient) { }
 
   getCategory(): Observable<Category[]>{
-    return this.http.get<Category[]>('http://localhost:8080/v1/intereses/');
+    return this.http.get<Category[]>('http://localhost:8080/v1/intereses/mostrar');
   }
 
 }
