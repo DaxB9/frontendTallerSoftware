@@ -32,6 +32,7 @@ interface Solicitud {
 
 
 interface Detalle{
+  id:bigint;
   numero: number;
   nombre: string;
   asunto: string;
@@ -58,6 +59,7 @@ export class PanelComponent implements OnInit{
   //   const dialogRef = this.dialog.open(Component);
   // }
   public page!: number;
+  audiencias: any = [];
 
   constructor(private panelService: PanelService, private dialog2: Dialog){
     console.log('El componente se a creado');
@@ -72,6 +74,7 @@ export class PanelComponent implements OnInit{
         this.solicitudes = Response
         console.log(this.solicitudes)
      });
+
   }
   // Definir la propiedad 'sortDirection' en el componente
   sortColumn: string = 'solicitudid';
@@ -150,6 +153,14 @@ export class PanelComponent implements OnInit{
     const day = ('0' + date.getDate()).slice(-2);
     return `${year}-${month}-${day}`;
   }
+
+  /*getAudiencia(id : bigint):any {
+      this.panelService.GetAudiencia(id)
+      .subscribe(Response => {
+      this.solicitudes = Response
+      console.log(this.solicitudes)
+   });
+  }*/
 
 }
 

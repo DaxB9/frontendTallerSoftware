@@ -13,4 +13,8 @@ export class PanelService {
    GetSolicitud(){
     return this.http.get('http://localhost:8080/solicitud/test');
    }
+
+   GetAudiencia(id: bigint){
+    return this.http.get('http://localhost:8080/solicitud/publico/'+id);
+   }
 }
