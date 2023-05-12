@@ -52,11 +52,13 @@ interface Detalle{
 
 
 export class PanelComponent implements OnInit{
-  
+
 
   // openPopup() {
   //   const dialogRef = this.dialog.open(Component);
   // }
+  public page!: number;
+
   constructor(private panelService: PanelService, private dialog2: Dialog){
     console.log('El componente se a creado');
   }
