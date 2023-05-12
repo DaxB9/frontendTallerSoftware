@@ -15,4 +15,9 @@ export class PublicationsSubcategoriesService {
     return this.http.get<SubCategory[]>(this.apiUrlGet);
   }
   
+  // send a list of subcategories to the backend to save them in the database
+  private apiUrlPost = 'http://localhost:8080/api/subinterest/save';
+  postSubCategories(subCategories: SubCategory[]) {
+    return this.http.post(this.apiUrlPost, subCategories);
+  }
 }
