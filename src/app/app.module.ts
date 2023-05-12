@@ -33,6 +33,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import {ModifyPostComponent} from "./components/panel/view-posts/modify-post/modify-post.component";
 import { ModalInterestComponent } from './components/ed-profile/modal-interest/modal-interest.component';
 import { UserViewComponent } from './user-view/user-view.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { UserViewComponent } from './user-view/user-view.component';
     ModifyPostComponent,
     EdProfileComponent,
     ModalInterestComponent,
-    UserViewComponent
+    UserViewComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

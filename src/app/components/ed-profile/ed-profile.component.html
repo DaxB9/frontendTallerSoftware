@@ -11,7 +11,9 @@
     <mat-card-content>
       <div class="row">
         <div class="col-4">
-
+          <div class="text-center">
+            <img src="https://picsum.photos/200"  style="width: 225px; height:225px; margin: 0 0 20px" class="rounded">
+          </div>
         </div>
         <div class="col-8">
           <figure class="text-center">
@@ -78,7 +80,7 @@
             </div>
             <div class="flex-1 text-center row">
               <div class="d-grid gap-2 col-6">
-                <button class="btn btn-primary" type="button">Editar Perfil</button>
+                <button class="btn btn-primary" type="button" (click)="confirmationPerfilUpdate()">Editar Perfil</button>
               </div>
               <div class="d-grid gap-2 col-6">
                 <button class="btn btn-danger" type="button">Cancelar</button>
@@ -99,7 +101,6 @@
               </div>
             </div>
           </div>
-          
         </div>
       </div>
     </mat-card-content>
