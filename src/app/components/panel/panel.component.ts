@@ -71,10 +71,10 @@ export class PanelComponent implements OnInit{
     this.sortTable('solicitudid');
       this.panelService.GetSolicitud()
       .subscribe(Response => {
+
         this.solicitudes = Response
         console.log(this.solicitudes)
      });
-
   }
   // Definir la propiedad 'sortDirection' en el componente
   sortColumn: string = 'solicitudid';
@@ -161,6 +161,17 @@ export class PanelComponent implements OnInit{
       console.log(this.solicitudes)
    });
   }*/
+
+  filtrar(filtro: number) {
+    this.sortTable('solicitudid');
+    console.log("El filtro es:", filtro);
+    this.panelService.GetSolicitud().subscribe(Response => {
+      // Filtrar las solicitudes según el estado seleccionado
+      this.solicitudes = this.solicitudes.filter((solicitud: { estado: number; }) => solicitud.estado === filtro);
+      console.log(this.solicitudes);
+    });
+  }
+
 
 }
 
