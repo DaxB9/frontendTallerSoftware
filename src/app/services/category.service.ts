@@ -13,4 +13,8 @@ export class CategoryService {
     return this.http.get<Category[]>('http://localhost:8080/v1/intereses/mostrar');
   }
 
+  getSubCategory(id: number): Observable<any>{
+    return this.http.get<any>('http://localhost:8080/v1/intereses/mostrar/'+id);
+  }
+
 }
