@@ -1,32 +1,30 @@
 import { Component } from '@angular/core';
-
-
-
+import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'],
 })
-
 export class ProfileComponent {
-  rows = [    ['Opción 1', 'Opción 2', 'Opción 3'],
-  ['Opción 4', 'Opción 5', 'Opción 6'],
-  ['Opción 7', 'Opción 8', 'Opción 9'],
-  ['Opción 10', 'Opción 11', 'Opción 12'],
-  ['Opción 13', 'Opción 14', 'Opción 15']
-];
-selected = [];
+  rows: string[][] = [];
+  selected: boolean[][] = [];
 
+  constructor() {
+    this.rows = [
+      ['Opción 1', 'Opción 2', 'Opción 3'],
+      ['Opción 4', 'Opción 5', 'Opción 6'],
+      // ...
+    ];
 
-rowsSubinteres = [    ['Opción 1', 'Opción 2', 'Opción 3'],
-  ['Opción 4', 'Opción 5', 'Opción 6'],
-  ['Opción 7', 'Opción 8', 'Opción 9'],
-  ['Opción 10', 'Opción 11', 'Opción 12'],
-  ['Opción 13', 'Opción 14', 'Opción 15']
-];
-selectedSubInteres = [];
+    this.selected = this.rows.map(row => Array(row.length).fill(false));
+  }
 
-submitOptions() {
-  console.log(this.selected);
+  onCheckboxChange(rowIdx: number, optionIdx: number) {
+    this.selected[rowIdx][optionIdx] = !this.selected[rowIdx][optionIdx];
+  }
+  submitOptions() {
+    // Aquí puedes realizar las acciones necesarias con las opciones seleccionadas
+    console.log(this.selected);
+  }
 }
-}
+
