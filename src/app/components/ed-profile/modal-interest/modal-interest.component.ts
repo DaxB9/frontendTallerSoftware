@@ -1,11 +1,7 @@
 import { Component, OnInit} from '@angular/core';
-
-import { MatDialog } from '@angular/material/dialog';
-import { ModalSubinteresesComponent } from './modal-subintereses/modal-subintereses.component';
-
 import { CategoryService } from 'src/app/services/category.service';
 import { Category } from 'src/app/models/category';
-
+import { SubCategory } from 'src/app/models/subCategory';
 
 @Component({
   selector: 'app-modal-interest',
@@ -14,26 +10,18 @@ import { Category } from 'src/app/models/category';
 })
 export class ModalInterestComponent implements OnInit{
   interests: Category[] = [];
-  
+  subInterests: SubCategory[] = [];
 
-  constructor(private matDialog:MatDialog,private CategoryService: CategoryService){}
-  openSubEdit(){
-    this.matDialog.open(ModalSubinteresesComponent);
-  }
-
-  intereses:Array<any> | undefined
-
-  // constructor(private CategoryService: CategoryService){}
-
+  constructor(private CategoryService: CategoryService){}
 
   ngOnInit(): void {
     this.getInterests();
+    
   }
 
   getInterests(){
     this.CategoryService.getCategory().subscribe(
-      (interests) => { this.interests = interests; }
+      (interests) => { this.interests = interests; console.log(this.interests)}
     );
   }
-
 }

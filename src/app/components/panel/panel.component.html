@@ -7,6 +7,7 @@
 
   <button class="btn btn-danger mx-2" style="font-size: 20px; margin-left: 750px;"(click)="filtrar(2)">Rechazado</button>
   <button class="btn btn-success mx-2" style="font-size: 20px;" (click)="filtrar(1)">Aprobado</button>
+  <button class="btn btn-warning mx-2" style="font-size: 20px;" (click)="filtrar(0)">Pendiente</button>
 
   <!-- <div>
     <button (click)="null">Aceptar  </button>
@@ -84,7 +85,7 @@
           <ng-container *ngIf="solicitud.estado === 1; else rechazado">Aprobado</ng-container>
           <ng-template #rechazado>Rechazado</ng-template>
         </td>
-        <td class="tr-cont" style="font-style: italic; font-size:18px; font-weight: bold;">Audiencia ...</td>
+        <td class="tr-cont" style="font-style: italic; font-size:18px; font-weight: bold;">{{solicitud.publico}}</td>
         </tr>
       </tbody>
     </table>

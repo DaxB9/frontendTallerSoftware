@@ -68,12 +68,15 @@ export class PanelComponent implements OnInit{
 
   ngOnInit(): void {
       console.log('El componente se ha inicializado');
-    this.sortTable('solicitudid');
+      this.sortTable('solicitudid');
       this.panelService.GetSolicitud()
       .subscribe(Response => {
-
-        this.solicitudes = Response
-        console.log(this.solicitudes)
+        this.solicitudes = Response;
+        this.solicitudes_aprobadas = this.solicitudes.filter((solicitud: { estado: number; }) => solicitud.estado === 1);
+        this.solicitudes_rechazadas = this.solicitudes.filter((solicitud: { estado: number; }) => solicitud.estado === 2);
+        this.solicitudes_pendientes = this.solicitudes.filter((solicitud: { estado: number; }) => solicitud.estado === 0);
+        this.solicitudes = this.solicitudes_aprobadas
+        console.log(this.solicitudes_aprobadas)
      });
   }
   // Definir la propiedad 'sortDirection' en el componente
@@ -111,6 +114,9 @@ export class PanelComponent implements OnInit{
     });
   }
   solicitudes: any = [];
+  solicitudes_aprobadas : any = [];
+  solicitudes_rechazadas : any = [];
+  solicitudes_pendientes : any = [];
   cambiarEstado(solicitud: Detalle, nuevoEstado: 'Rechazado' | 'Aprobado' | 'Pendiente'| 'Enviado') {
     solicitud.estado = nuevoEstado;
   }
@@ -165,11 +171,23 @@ export class PanelComponent implements OnInit{
   filtrar(filtro: number) {
     this.sortTable('solicitudid');
     console.log("El filtro es:", filtro);
-    this.panelService.GetSolicitud().subscribe(Response => {
+    if (filtro == 1)
+    {
+      this.solicitudes = this.solicitudes_aprobadas
+    }
+    if (filtro == 2)
+    {
+      this.solicitudes = this.solicitudes_rechazadas
+    }
+    if (filtro == 0)
+    {
+      this.solicitudes = this.solicitudes_pendientes
+    }
+    /*this.panelService.GetSolicitud().subscribe(Response => {
       // Filtrar las solicitudes según el estado seleccionado
       this.solicitudes = this.solicitudes.filter((solicitud: { estado: number; }) => solicitud.estado === filtro);
       console.log(this.solicitudes);
-    });
+    });*/
   }
 
 
