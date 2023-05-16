@@ -1,19 +1,20 @@
 <div class="container mw-100" style="padding: 0.5rem; height: 30rem; width: 41rem">
   <p class="fs-2 text-center fw-bold">Intereses</p>
-    <div class="d-flex flex-wrap justify-content-center" >
-      <div class="card text-center" style="width: 18rem; margin: 10px;" *ngFor="let i of interests">
-        <img class="card-img-top" [src]="i.imagen" style="width: auto; height: 100px;">
-        <div class="card-body">
-          <h5 class="card-title fw-semibold fs-5">{{i.nombre_interes}}</h5>
-          
-          <p class="fs-4 text-center fw-bold">Subintereses</p>
-          
-            <div *ngFor="let si of i.subIntereses">
-              <input type="checkbox" class="btn-check" id="{{i.nombre_interes}}{{si.id_subinteres}}" autocomplete="off">
-              <label class="btn btn-outline-primary" for="btncheck1">{{si.nombre}}</label>
-            </div>
-          
-        </div>
+  <div class="d-flex flex-wrap justify-content-center" >
+    <div class="card text-center" style="width: 18rem; margin: 10px;" *ngFor="let i of interests">
+      <img class="card-img-top" [src]="i.imagen" style="width: auto; height: 100px;">
+      <div class="card-body">
+        <h5 class="card-title fw-semibold fs-5">{{i.nombre_interes}}</h5>
+        <p class="fs-5 text-center ">Subintereses</p>
+          <div *ngFor="let si of i.subIntereses">
+            <input type="checkbox" class="btn-check" id={{si.nombre}} autocomplete="off" [checked]="si.check">
+            <label class="btn btn-outline-primary" for={{si.nombre}}>{{si.nombre}}</label>
+          </div>
+      </div>
     </div>
   </div>
 </div>
+
+
+
+

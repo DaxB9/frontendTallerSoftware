@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class ProfileService {
     public GetProfileById(id: number){
         return this.http.get('http://localhost:8080/v1/usuarios/'+id);
     }
-    public GetSubInteresesById(id: number){
+    public GetSubInteresesById(id: number): Observable<any>{
         return this.http.get('http://localhost:8080/v1/usuarios/subintereses/'+id);
     }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
 import { Category } from 'src/app/models/category';
-import { SubCategory } from 'src/app/models/subCategory';
+import { ProfileService } from 'src/app/services/profile.service';
 
 @Component({
   selector: 'app-modal-interest',
@@ -10,18 +10,46 @@ import { SubCategory } from 'src/app/models/subCategory';
 })
 export class ModalInterestComponent implements OnInit{
   interests: Category[] = [];
-  subInterests: SubCategory[] = [];
+  interestsUser:[]=[];
 
-  constructor(private CategoryService: CategoryService){}
+  aux:number=0 
+
+  constructor(private CategoryService: CategoryService, private profileService: ProfileService){}
 
   ngOnInit(): void {
+    this.GetSubInteresesByid(1);
     this.getInterests();
-    
   }
-
+  
   getInterests(){
     this.CategoryService.getCategory().subscribe(
-      (interests) => { this.interests = interests; console.log(this.interests)}
+      (interests) => { 
+        this.interests = interests; 
+        console.log(this.interests);
+        console.log(interests.length);
+
+        this.SelectUser();
+
+    });
+  }
+  GetSubInteresesByid(id:number){
+    this.profileService.GetSubInteresesById(id).subscribe(
+      (interests) => { this.interestsUser = interests; console.log(this.interestsUser);}
     );
   }
+
+  SelectUser(){
+    this.interests.forEach(async (int) => {
+      int.subIntereses.forEach(async (sub) => {
+        sub.check=false
+        this.interestsUser.forEach(async (subU:any) => {
+          if(subU.nombre===sub.nombre){
+            sub.check=true
+          }
+        });        
+      });
+    });
+    console.log(this.interests)
+  }
+
 }
