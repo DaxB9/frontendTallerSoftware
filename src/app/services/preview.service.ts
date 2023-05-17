@@ -9,9 +9,8 @@ export class PreviewService {
   constructor(private http:HttpClient) {
     console.log('Servicio HTTP:');
    }
-  public updatePost(id: bigint, content: string, date: Date) {
-    const postData = { id, content, date };
-    return this.http.post(`http://localhost:8080/posts/${id}`, postData);
+  public updatePost(id: bigint, comentario: string) {
+    return this.http.post(`http://localhost:8080/solicitud/comentario/${id}`, {comentario: comentario});
   }
 
    GetSolicitud(){
