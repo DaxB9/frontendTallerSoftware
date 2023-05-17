@@ -17,7 +17,7 @@ export class ModalInterestComponent implements OnInit{
   constructor(private CategoryService: CategoryService, private profileService: ProfileService){}
 
   ngOnInit(): void {
-    this.GetSubInteresesByid(1);
+    this.GetSubInteresesByid(123465);
     this.getInterests();
   }
   
@@ -25,8 +25,8 @@ export class ModalInterestComponent implements OnInit{
     this.CategoryService.getCategory().subscribe(
       (interests) => { 
         this.interests = interests; 
-        console.log(this.interests);
-        console.log(interests.length);
+        //console.log(this.interests);
+        //console.log(interests.length);
 
         this.SelectUser();
 
@@ -37,6 +37,7 @@ export class ModalInterestComponent implements OnInit{
       (interests) => { this.interestsUser = interests; console.log(this.interestsUser);}
     );
   }
+
 
   SelectUser(){
     this.interests.forEach(async (int) => {
@@ -49,7 +50,33 @@ export class ModalInterestComponent implements OnInit{
         });        
       });
     });
-    console.log(this.interests)
+    //console.log(this.interests)
   }
+
+  onChange($event: any){
+    this.interests.forEach(async (int) => {
+      int.subIntereses.forEach(async (sub) => {
+        if(sub.nombre===$event.target.id){
+          sub.check=$event.target.checked
+        }
+      });
+    });
+  }
+
+  /*Guardar(){
+    this.interests.forEach(async (int) => {
+      int.subIntereses.forEach(async (sub) => {
+
+        if(sub.check){
+          console.log(sub.nombre)
+          console.log("actualizar")
+          
+        }
+        
+        
+
+      });
+    });
+  }*/
 
 }
