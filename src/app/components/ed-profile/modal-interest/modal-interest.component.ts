@@ -2,6 +2,8 @@ import { Component, OnInit} from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
 import { Category } from 'src/app/models/category';
 import { ProfileService } from 'src/app/services/profile.service';
+import { SubCategoryPost } from 'src/app/models/SubCategoryPost';
+import { SubCategory } from 'src/app/models/subCategory';
 
 @Component({
   selector: 'app-modal-interest',
@@ -10,14 +12,20 @@ import { ProfileService } from 'src/app/services/profile.service';
 })
 export class ModalInterestComponent implements OnInit{
   interests: Category[] = [];
+
   interestsUser:[]=[];
 
+  SubCategory2:SubCategoryPost=new SubCategoryPost();
+
   aux:number=0 
+  profileId:number = 123465;
+
+  subcategorias: Array<any>=[];
 
   constructor(private CategoryService: CategoryService, private profileService: ProfileService){}
 
   ngOnInit(): void {
-    this.GetSubInteresesByid(123465);
+    this.GetSubInteresesByid(this.profileId);
     this.getInterests();
   }
   
@@ -63,20 +71,38 @@ export class ModalInterestComponent implements OnInit{
     });
   }
 
-  /*Guardar(){
+  Guardar(){
     this.interests.forEach(async (int) => {
       int.subIntereses.forEach(async (sub) => {
 
         if(sub.check){
-          console.log(sub.nombre)
+
+          console.log(sub)
           console.log("actualizar")
+          console.log()
+
+
+          this.subcategorias.push(sub.id_subinteres);
           
         }
-        
-        
 
       });
     });
-  }*/
+    this.SubCategory2.usuarioId=this.profileId;
+    this.SubCategory2.subInteresId=this.subcategorias;
+
+    this.CategoryService.postSubInteresrs(this.SubCategory2).subscribe({
+      next:() => {
+        console.log();
+
+      },
+      error:(errorResponse) => {
+        console.log('error');
+      }
+    });
+    console.log('post exitoso');
+    window.location.reload();
+
+  }
 
 }
