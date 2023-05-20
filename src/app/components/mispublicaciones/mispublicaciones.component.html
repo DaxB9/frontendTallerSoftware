@@ -1,0 +1,69 @@
+<div class="container">
+  <h1>MIS PUBLICACIONES</h1>
+  <div class="card-container">
+    <div class="card" *ngFor="let publicacion of publicaciones" (click)="abrirModal(publicacion)">
+      <img src="{{ publicacion.imagen }}" alt="{{ publicacion.titulo }}">
+      <div class="card-content">
+        <h2>{{ publicacion.titulo }}</h2>
+        <p>{{ publicacion.descripcion }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" *ngIf="modalVisible">
+  <div class="modal-content">
+    <h2>{{ publicacionSeleccionada?.titulo }}</h2>
+    <form>
+      <div class="form-group">
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" [(ngModel)]="publicacionSeleccionada.titulo" name="titulo" required>
+      </div>
+      <div class="form-group">
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" [(ngModel)]="publicacionSeleccionada.descripcion" name="descripcion" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="edad">Edad:</label>
+        <select id="edad" [(ngModel)]="publicacionSeleccionada.edad" name="edad" (change)="mostrarRangosEdad()" required>
+          <option value="16-30">16-30</option>
+          <option value="31-60">31-60</option>
+          <option value="61+">61+</option>
+        </select>
+      </div>
+
+
+      <!--<div class="form-group" *ngIf="publicacionSeleccionada.edad === '16-30'">
+        <label>Rango de edad seleccionado: 16-30</label>
+        <input type="checkbox" id="checkbox1" name="checkbox1">
+        <label for="checkbox1">Checkbox 1</label>
+      </div>
+
+      <div class="form-group" *ngIf="publicacionSeleccionada.edad === '31-60'">
+        <label>Rango de edad seleccionado: 31-60</label>
+        <input type="checkbox" id="checkbox2" name="checkbox2">
+        <label for="checkbox2">Checkbox 2</label>
+      </div>
+
+      <div class="form-group" *ngIf="publicacionSeleccionada.edad === '61+'">
+        <label>Rango de edad seleccionado: 61+</label>
+        <input type="checkbox" id="checkbox3" name="checkbox3">
+        <label for="checkbox3">Checkbox 3</label>
+      </div>-->
+
+      <div class="form-group">
+        <label for="publico">Público:</label>
+        <select id="publico" [(ngModel)]="publicacionSeleccionada.publico" name="publico" required>
+          <option value="general">General</option>
+          <option value="adulto">Adulto</option>
+          <option value="infantil">Infantil</option>
+        </select>
+      </div>
+      <button className="btng" type="submit">Guardar</button>
+    </form>
+    <button (click)="cerrarModal()">Cerrar</button>
+  </div>
+</div>
+
+
+
