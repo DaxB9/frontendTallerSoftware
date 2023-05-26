@@ -7,12 +7,17 @@ import {EventService} from "../../services/event.service";
 import {Event} from "../../models/event";
 import {FileSend} from "../../models/file";
 
+
+
 @Component({
   selector: 'app-add-events',
   templateUrl: './add-events.component.html',
   styleUrls: ['./add-events.component.css']
 })
 export class AddEventsComponent implements OnInit {
+  titulo: string = "";
+  subtitulo: string = "";
+  descripcion: string = "";
   selectedModality: string= "";
   selectedScope: string = "";
 
@@ -43,6 +48,8 @@ export class AddEventsComponent implements OnInit {
     }else{
       this.wrongNotification("Llene todos los campos");
     }
+    const title = this.newEventForm.get('titlePost')?.value;
+  const description = this.newEventForm.get('descriptionPost')?.value;
 
   };
   ngOnInit(): void {
