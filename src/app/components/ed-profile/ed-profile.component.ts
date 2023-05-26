@@ -50,7 +50,8 @@ export class EdProfileComponent implements OnInit{
 
   
 
-  openEdit(){
+  openEdit(id:any){
+    localStorage.setItem('idperfil',JSON.stringify(id))
     this.matDialog.open(ModalInterestComponent);
   }
 

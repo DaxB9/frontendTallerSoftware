@@ -14,7 +14,7 @@ export class ModifyPostComponent implements OnInit {
   @Input() solicitudId!: bigint;
   preview: any = [];
   date!:Date;
-  body: string = '';
+  comentario: string = '';
 
   constructor(private previewService: PreviewService, public activeModal: NgbActiveModal) { }
 
@@ -23,10 +23,10 @@ export class ModifyPostComponent implements OnInit {
 
   onSubmit(form: NgForm): void {
     const solicitudId = this.solicitudId;
-    const content = form.value.content;
-    const date = this.date;
+    const comentario = form.value.comentario;
+    //const date = this.date;
 
-    this.previewService.updatePost(solicitudId, content, date)
+    this.previewService.updatePost(solicitudId, comentario)
       .subscribe({
         next: (response) => {
           console.log('La solicitud se ha enviado correctamente:', response);

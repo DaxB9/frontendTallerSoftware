@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
 import {Category} from "../models/category";
 import {HttpClient} from "@angular/common/http";
+import { SubCategoryPost } from '../models/SubCategoryPost';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,10 @@ export class CategoryService {
 
   getSubCategory(id: number): Observable<any>{
     return this.http.get<any>('http://localhost:8080/v1/intereses/mostrar/'+id);
+  }
+
+  postSubInteresrs(subInteres: SubCategoryPost){
+    return this.http.post<Event>('http://localhost:8080/v1/usuarios/asignar-interes',subInteres );
   }
 
 }

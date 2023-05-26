@@ -34,6 +34,7 @@ import {ModifyPostComponent} from "./components/panel/view-posts/modify-post/mod
 import { ModalInterestComponent } from './components/ed-profile/modal-interest/modal-interest.component';
 import { UserViewComponent } from './user-view/user-view.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import {MispublicacionesComponent} from "./components/mispublicaciones/mispublicaciones.component";
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     EdProfileComponent,
     ModalInterestComponent,
     UserViewComponent,
-    ProfileComponent
+    ProfileComponent,
+    MispublicacionesComponent
   ],
   imports: [
     BrowserModule,
