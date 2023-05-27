@@ -21,8 +21,10 @@ export class AddEventsComponent implements OnInit {
   selectedModality: string= "";
   selectedScope: string = "";
 
-  category: Category[]=[];  
+  category: Category[]=[];
   categoryaux: Category[]=[];
+
+  categoryaux2: any[]=[];
   publicoAux!:string;
   nevent: Event=new Event();
   lldata!: string;
@@ -76,7 +78,7 @@ export class AddEventsComponent implements OnInit {
     this.categoryService.getCategory().subscribe(
       data => {
         this.category = data;
-        // make a loop 
+        // make a loop
         console.log('data');
         console.log(this.category);
       },
@@ -87,12 +89,13 @@ export class AddEventsComponent implements OnInit {
   printcategoryaus(){
     console.log(this.categoryaux);
   }
-  addCategory(cat:Category){
-    if(this.categoryaux.find(element => element == cat)){
+  addCategory(cat:any){
+    if(this.categoryaux2.find(element => element == cat)){
       this.delCategory(cat);
     }else{
-      this.categoryaux.push(cat);
+      this.categoryaux2.push(cat);
     }
+    console.log('Data: ',this.categoryaux2)
   }
 
   cambiaPublico(){
@@ -109,8 +112,8 @@ export class AddEventsComponent implements OnInit {
       //console.log(this.publicoAux);
     }
   }
-  delCategory(cat:Category){
-    this.categoryaux=this.categoryaux.filter((item) => item !== cat);
+  delCategory(cat:any){
+    this.categoryaux2=this.categoryaux2.filter((item) => item !== cat);
   }
 
   postEvent(titulo:string, descripcion:string, lldata:string){
@@ -133,7 +136,7 @@ export class AddEventsComponent implements OnInit {
           this.nevent.link=lldata;
         }
         //this.nevent.categoriaDTOS=this.category;
-        this.nevent.interesesDTOS=this.categoryaux;
+        this.nevent.interesesDTOS=this.categoryaux2;
         //this.nevent.categoriaDTOS=[]
         this.nevent.publico=this.publicoAux;
         console.log('Categorias  seleccionadas en el push: ',this.nevent.interesesDTOS);

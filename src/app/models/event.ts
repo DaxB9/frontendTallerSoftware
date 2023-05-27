@@ -7,6 +7,6 @@ export class Event{
   id_imagen!: string;
   lugar!: string;
   link!: string;
-  interesesDTOS: Category[] = [];
+  interesesDTOS: any[] = [];
   publico!:string;
 }
