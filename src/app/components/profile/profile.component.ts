@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-profile',
@@ -8,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 export class ProfileComponent {
   rows: string[][] = [];
   selected: boolean[][] = [];
+  dialog: any;
 
   constructor() {
     this.rows = [
@@ -17,6 +19,8 @@ export class ProfileComponent {
     ];
 
     this.selected = this.rows.map(row => Array(row.length).fill(false));
+
+
   }
 
   onCheckboxChange(rowIdx: number, optionIdx: number) {
@@ -26,5 +30,7 @@ export class ProfileComponent {
     // Aquí puedes realizar las acciones necesarias con las opciones seleccionadas
     console.log(this.selected);
   }
+
+
 }
 

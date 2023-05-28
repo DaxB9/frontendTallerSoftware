@@ -1,13 +1,23 @@
 <section class="all">
 
 
-    <img class="img-profile" src="https://freesvg.org/img/abstract-user-flat-4.png">
+  <img class="img-profile" src="https://freesvg.org/img/abstract-user-flat-4.png">
 
-    <!-- <button class="btn-interest">EDITAR INTERESES</button> -->
-    <button type="button" class="btn-interest" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-      EDITAR INTERESES
-    </button>
+  <!-- <button class="btn-interest">EDITAR INTERESES</button> -->
+  <button type="button" class="btn-interest" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    EDITAR INTERESES
+  </button>
 
+  <!-- Boton para añadir carreras con un cmbo box -->
+
+  <!-- <button class="btn-interest">EDITAR INTERESES</button> -->
+  <button type="button" class="btn-carrears" data-bs-toggle="modal_carrears" data-bs-target="#staticBackdrop_carrears">
+    AGREGAR CARRERAS EN INTERESES
+  </button>
+
+  <!-- alertdialog con el boton btn-carrears -->
+
+  
 
   <section class="personal-Information">
     <!-- hacer un formualario, el cual extraera datos de la base de datos
@@ -42,27 +52,27 @@
           <mat-icon> email</mat-icon>
           <h2>Correo Electronico:</h2>
           <label class="txt">marcelo.miranda@ucb.edu.bo</label>
+        </div>
       </div>
-     </div>
-     <div class="row">
+      <div class="row">
         <div class="col">
           <mat-icon>work</mat-icon>
           <h2>Carrera:</h2>
           <label class="txt">Ingenieria de Sistemas</label>
         </div>
-      <div class="col">
-        <mat-icon>accessibility_new</mat-icon>
-        <h2>Genero:</h2>
-        <label class="txt">Masculino</label>
+        <div class="col">
+          <mat-icon>accessibility_new</mat-icon>
+          <h2>Genero:</h2>
+          <label class="txt">Masculino</label>
+        </div>
       </div>
-     </div>
 
     </div>
 
     <div>
       <button class="btn-edit-personal-info"> EDITAR INFORMACION PERSONAL</button>
 
-      </div>
+    </div>
 
     <h1 class="lbl-title">DATOS DE DOMICILIO</h1>
 
@@ -132,7 +142,8 @@
   </section>
 </section>
 
-<div class="modal modal-xl fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal modal-xl fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -143,9 +154,9 @@
         <div class="row">
           <div class="col-6">
             <h4>Añadir Categorias</h4>
-              <!-- Panel con checklist, en 3 columnas, y 5 filas -->
+            <!-- Panel con checklist, en 3 columnas, y 5 filas -->
 
-              <!-- <div class="container">
+            <!-- <div class="container">
                 <h2>Lista de opciones culturales</h2>
                 <hr>
 
@@ -173,36 +184,35 @@
                 <button class="btn btn-primary" (click)="submitOptions()">Guardar</button>
               </div> -->
 
-              <div class="container">
-                <h2>Lista de Intereses Culturales</h2>
-                <hr>
+            <div class="container">
+              <h2>Lista de Intereses Culturales</h2>
+              <hr>
 
-                <form>
-                  <div class="form-group" *ngFor="let row of rows; let rowIdx = index">
-                    <div class="row">
-                      <div class="col" *ngFor="let option of row; let optionIdx = index">
-                        <input type="checkbox"
-                               [checked]="selected[rowIdx][optionIdx]"
-                               (change)="onCheckboxChange(rowIdx, optionIdx)">
-                        <label>{{ option }}</label>
-                      </div>
+              <form>
+                <div class="form-group" *ngFor="let row of rows; let rowIdx = index">
+                  <div class="row">
+                    <div class="col" *ngFor="let option of row; let optionIdx = index">
+                      <input type="checkbox" [checked]="selected[rowIdx][optionIdx]"
+                        (change)="onCheckboxChange(rowIdx, optionIdx)">
+                      <label>{{ option }}</label>
                     </div>
                   </div>
-                </form>
+                </div>
+              </form>
 
-                <hr>
+              <hr>
 
-                <button class="btn btn-success" (click)="submitOptions()">GUARDAR</button>
-                <!-- btn cancel -->
+              <button class="btn btn-success" (click)="submitOptions()">GUARDAR</button>
+              <!-- btn cancel -->
 
-                <button class="btn btn-danger" (click)="submitOptions()">CANCELAR</button>
-              </div>
+              <button class="btn btn-danger" (click)="submitOptions()">CANCELAR</button>
+            </div>
 
 
-              <!-- <div class="container">
+            <!-- <div class="container">
                 <h2>Lista de Subintereses </h2>
                 <hr> -->
-                <!-- <form>
+            <!-- <form>
                   <div class="form-group" *ngFor="let row of rows; let rowIdx = index">
                     <div class="row">
                       <div class="col" *ngFor="let option of row; let optionIdx = index">
@@ -215,7 +225,7 @@
                   </div>
                 </form> -->
 
-                <!-- <form>
+            <!-- <form>
                   <div class="form-group" *ngFor="let row of rows; let i = index">
                     <div class="row">
                       <div class="col">
@@ -234,16 +244,71 @@
                   </div>
                 </form> -->
 
-                <hr>
+            <hr>
 
-                <!-- <button class="btn btn-success" (click)="submitOptions()">GUARDAR</button> -->
-                <!-- btn cancel -->
+            <!-- <button class="btn btn-success" (click)="submitOptions()">GUARDAR</button> -->
+            <!-- btn cancel -->
 
-                <!-- <button class="btn btn-danger" (click)="submitOptions()">CANCELAR</button> -->
-              <!-- </div> -->
+            <!-- <button class="btn btn-danger" (click)="submitOptions()">CANCELAR</button> -->
+            <!-- </div> -->
 
 
 
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn-btn-primary" data-bs-dismiss="modal">Agregar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="modal_carrears modal-xl fade" id="staticBackdrop_carrears" data-bs-backdrop="static" data-bs-keyboard="false"
+  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="staticBackdropLabel">Agregar intereses</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-6">
+            <h4>Añadir Categorias</h4>
+
+
+            <div class="container">
+              <h2>Lista de Intereses Culturales</h2>
+              <hr>
+
+              <form>
+                <div class="form-group" *ngFor="let row of rows; let rowIdx = index">
+                  <div class="row">
+                    <div class="col" *ngFor="let option of row; let optionIdx = index">
+                      <input type="checkbox" [checked]="selected[rowIdx][optionIdx]"
+                        (change)="onCheckboxChange(rowIdx, optionIdx)">
+                      <label>{{ option }}</label>
+                    </div>
+                  </div>
+                </div>
+              </form>
+
+              <hr>
+
+              <button class="btn btn-success" (click)="submitOptions()">GUARDAR</button>
+              <!-- btn cancel -->
+
+              <button class="btn btn-danger" (click)="submitOptions()">CANCELAR</button>
+            </div>
+
+            <hr>
 
           </div>
         </div>
