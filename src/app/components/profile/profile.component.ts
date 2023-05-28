@@ -31,6 +31,14 @@ export class ProfileComponent {
     console.log(this.selected);
   }
 
+  opcionSeleccionada!: string;
+  opciones: string[] = ['Opción 1', 'Opción 2', 'Opción 3'];
+
+  onSeleccionarOpcion() {
+    // Lógica a realizar cuando se selecciona una opción
+    console.log('Opción seleccionada:', this.opcionSeleccionada);
+  }
+
 
 }
 

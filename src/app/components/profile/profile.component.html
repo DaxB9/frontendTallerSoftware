@@ -8,16 +8,17 @@
     EDITAR INTERESES
   </button>
 
-  <!-- Boton para añadir carreras con un cmbo box -->
 
-  <!-- <button class="btn-interest">EDITAR INTERESES</button> -->
-  <button type="button" class="btn-carrears" data-bs-toggle="modal_carrears" data-bs-target="#staticBackdrop_carrears">
-    AGREGAR CARRERAS EN INTERESES
-  </button>
+<!-- crear un combo box con opciones -->
+<select [(ngModel)]="opcionSeleccionada" (change)="onSeleccionarOpcion()">
+  <option *ngFor="let opcion of opciones" [value]="opcion">{{ opcion }}</option>
+</select>
 
-  <!-- alertdialog con el boton btn-carrears -->
 
-  
+
+
+
+
 
   <section class="personal-Information">
     <!-- hacer un formualario, el cual extraera datos de la base de datos
