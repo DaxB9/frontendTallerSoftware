@@ -31,16 +31,46 @@ export class ProfileComponent {
     console.log(this.selected);
   }
 
-  opcionSeleccionada!: string;
-  opciones: string[] = ['Ingenieroa de sistemas', 'Ingenieria Civil', 'Ingenieria Mecatromica',
-  'Ingenieira Industrial', 'Ingenieira Biomedica', 'Ingenieria Ambiental'
-];
 
-  onSeleccionarOpcion() {
-    // Lógica a realizar cuando se selecciona una opción
-    console.log('Opción seleccionada:', this.opcionSeleccionada);
+
+
+  opcionPadre!: string;
+  opcionPadres: string[] = ['Ingenierias', 'Ciencias Economicas', 'Ciencias Sociales', 'Diseño y Comunicacion Visual', 'Ciencias Politicas'];
+
+  opcionHijo!: string;
+  opcionesHijo: string[] = [];
+
+  onSeleccionarOpcionPadre() {
+    if (this.opcionPadre === 'Ingenierias') {
+      this.opcionesHijo = ['Ingenieira Ambiental', 'Ingenieira Biomedica', 'Ingenieira Bioquimica y Bioporcesos',
+                           'Ingenieria Civil', 'Ingenieira en Energia', 'ingenieria en Logistica y analisis de cadenas de suministros',
+                           'Ingenieria en multimedia e interactividad Digital', 'Ingenieria Industrial',
+                           'Ingenieira Quimica', 'Ingenieria Mecatronica','Ingenieria en Sistemas', 'Ingenieria en Telecomunicaciones'
+                          ];
+    }  else if (this.opcionPadre === 'Ciencias Economicas') {
+      this.opcionesHijo = ['Opción D', 'Opción E', 'Opción F'];
+    } else if(this.opcionPadre == 'Ciencias Sociales'){
+      this.opcionesHijo = ['Opción G', 'Opción H', 'Opción I'];
+    }
+    else if(this.opcionPadre == 'Diseño y Comunicacion Visua'){
+      this.opcionesHijo = ['Opción J', 'Opción K', 'Opción L'];
+    }
+    else if(this.opcionPadre == 'Ciencias Politicas'){
+      this.opcionesHijo = ['Opción M', 'Opción N', 'Opción O'];
+    }
+    else {
+      this.opcionesHijo = [];
+    }
+
+    // Restablecer la opción seleccionada en el combo box hijo
+    this.opcionHijo = '';
+
   }
+  //opcion hija
 
 
+
+  onSeleccionarOpcionHijo() {
+    console.log('Opción seleccionada:', this.opcionHijo);
+  }
 }
-

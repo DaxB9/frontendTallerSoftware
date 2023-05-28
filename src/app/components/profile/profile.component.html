@@ -13,12 +13,29 @@
   </section>
 
 <!-- crear un combo box con opciones -->
-<select class="boxCarrear" [(ngModel)]="opcionSeleccionada" (change)="onSeleccionarOpcion()">
+<!-- <select class="boxCarrear" [(ngModel)]="opcionSeleccionada" (change)="onSeleccionarOpcion()">
   <option value="" enabled selected>(Seleccione una opción)</option>
   <option *ngFor="let opcion of opciones" [value]="opcion">{{ opcion }}</option>
+</select> -->
+
+<select class="boxCarrear" [(ngModel)]="opcionPadre" (change)="onSeleccionarOpcionPadre()">
+  <option value="">(Seleccione un Departamanto)</option>
+  <option *ngFor="let opcion of opcionPadres" [value]="opcion">{{ opcion }}</option>
+  <!-- <option value="opcion1">Opción 1</option>
+  <option value="opcion2">Opción 2</option> -->
 </select>
 
-
+<select class="boxCarrear" [(ngModel)]="opcionHijo" (change)="onSeleccionarOpcionHijo()">
+  <option value="">(Seleccione una Carrera)</option>
+  <option *ngFor="let opcion of opcionesHijo" [value]="opcion">{{ opcion }}</option>
+  <!-- <option value="">(Seleccione una Carrera)</option>
+  <option *ngIf="opcionPadre === 'opcion1'" value="opcionA">Opción A</option>
+  <option *ngIf="opcionPadre === 'opcion1'" value="opcionB">Opción B</option>
+  <option *ngIf="opcionPadre === 'opcion1'" value="opcionC">Opción C</option>
+  <option *ngIf="opcionPadre === 'opcion2'" value="opcionD">Opción D</option>
+  <option *ngIf="opcionPadre === 'opcion2'" value="opcionE">Opción E</option>
+  <option *ngIf="opcionPadre === 'opcion2'" value="opcionF">Opción F</option> -->
+</select>
 
 
 
