@@ -32,7 +32,9 @@ export class ProfileComponent {
   }
 
   opcionSeleccionada!: string;
-  opciones: string[] = ['Opción 1', 'Opción 2', 'Opción 3'];
+  opciones: string[] = ['Ingenieroa de sistemas', 'Ingenieria Civil', 'Ingenieria Mecatromica',
+  'Ingenieira Industrial', 'Ingenieira Biomedica', 'Ingenieria Ambiental'
+];
 
   onSeleccionarOpcion() {
     // Lógica a realizar cuando se selecciona una opción

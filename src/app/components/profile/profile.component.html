@@ -8,9 +8,13 @@
     EDITAR INTERESES
   </button>
 
+  <section class="title-seleccionCarrera">
+    <h1 class="lbl-title">Selecciona tu carrera de Interes</h1>
+  </section>
 
 <!-- crear un combo box con opciones -->
-<select [(ngModel)]="opcionSeleccionada" (change)="onSeleccionarOpcion()">
+<select class="boxCarrear" [(ngModel)]="opcionSeleccionada" (change)="onSeleccionarOpcion()">
+  <option value="" enabled selected>(Seleccione una opción)</option>
   <option *ngFor="let opcion of opciones" [value]="opcion">{{ opcion }}</option>
 </select>
 
