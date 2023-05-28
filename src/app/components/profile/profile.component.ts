@@ -42,21 +42,24 @@ export class ProfileComponent {
 
   onSeleccionarOpcionPadre() {
     if (this.opcionPadre === 'Ingenierias') {
-      this.opcionesHijo = ['Ingenieira Ambiental', 'Ingenieira Biomedica', 'Ingenieira Bioquimica y Bioporcesos',
-                           'Ingenieria Civil', 'Ingenieira en Energia', 'ingenieria en Logistica y analisis de cadenas de suministros',
+      this.opcionesHijo = ['Ingenieria Ambiental', 'Ingenieria Biomedica', 'Ingenieria Bioquimica y Bioporcesos',
+                           'Ingenieria Civil', 'Ingenieria en Energia', 'Ingenieriaen Logistica y analisis de cadenas de suministros',
                            'Ingenieria en multimedia e interactividad Digital', 'Ingenieria Industrial',
-                           'Ingenieira Quimica', 'Ingenieria Mecatronica','Ingenieria en Sistemas', 'Ingenieria en Telecomunicaciones'
+                           'Ingenieria Quimica', 'Ingenieria Mecatronica','Ingenieria en Sistemas', 'Ingenieria en Telecomunicaciones'
                           ];
     }  else if (this.opcionPadre === 'Ciencias Economicas') {
-      this.opcionesHijo = ['Opción D', 'Opción E', 'Opción F'];
+      this.opcionesHijo = ['Administracion de Empresas', 'Administracion Turistica', 'Contaduria Publica',
+                          'Economia', 'Economia  e inteligencia de negocios', 'Ingenieria en innovacion empresarial',
+                          'Ingenieria Comercial','Marketing y Medios Digitales'
+                          ];
     } else if(this.opcionPadre == 'Ciencias Sociales'){
-      this.opcionesHijo = ['Opción G', 'Opción H', 'Opción I'];
+      this.opcionesHijo = ['Comunicacion Social', 'Filosofia y Letras', 'Psicologia', 'Psicopedagogia'];
     }
-    else if(this.opcionPadre == 'Diseño y Comunicacion Visua'){
-      this.opcionesHijo = ['Opción J', 'Opción K', 'Opción L'];
+    else if(this.opcionPadre == 'Diseño y Comunicacion Visual'){
+      this.opcionesHijo = ['Arquitectura', 'Arquitectura de Interiores', 'Diseño Digital', 'Diseño gráfico y Comunicacion Visual'];
     }
     else if(this.opcionPadre == 'Ciencias Politicas'){
-      this.opcionesHijo = ['Opción M', 'Opción N', 'Opción O'];
+      this.opcionesHijo = ['Ciencias Politicas y relaciones internacionales', 'Derecho'];
     }
     else {
       this.opcionesHijo = [];
