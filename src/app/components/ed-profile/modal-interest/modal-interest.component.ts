@@ -13,11 +13,17 @@ import { SubCategory } from 'src/app/models/subCategory';
 export class ModalInterestComponent implements OnInit{
   interests: Category[] = [];
 
+  interestss= [{imagen:"https://picsum.photos/id/237/200/300",nombre_interes:"interes 1",subIntereses:[{nombre:"si1", check: true},{nombre:"si2", check: false}]},
+  {imagen:"https://picsum.photos/id/237/200/300",nombre_interes:"interes 2",subIntereses:[{nombre:"si1", check: true},{nombre:"si2", check: false}]},
+  {imagen:"https://picsum.photos/id/237/200/300",nombre_interes:"interes 3",subIntereses:[{nombre:"si1", check: true}]},
+  {imagen:"https://picsum.photos/id/237/200/300",nombre_interes:"interes 3",subIntereses:[{nombre:"si1", check: true},{nombre:"si2", check: false}]}];
+
+
   interestsUser:[]=[];
 
   SubCategory2:SubCategoryPost=new SubCategoryPost();
 
-  aux:number=0 
+  aux:number=0
   profileId:number = 123465;
 
   subcategorias: Array<any>=[];
@@ -28,11 +34,11 @@ export class ModalInterestComponent implements OnInit{
     this.GetSubInteresesByid(this.profileId);
     this.getInterests();
   }
-  
+
   getInterests(){
     this.CategoryService.getCategory().subscribe(
-      (interests) => { 
-        this.interests = interests; 
+      (interests) => {
+        this.interests = interests;
         //console.log(this.interests);
         //console.log(interests.length);
 
@@ -55,7 +61,7 @@ export class ModalInterestComponent implements OnInit{
           if(subU.nombre===sub.nombre){
             sub.check=true
           }
-        });        
+        });
       });
     });
     //console.log(this.interests)
@@ -83,7 +89,7 @@ export class ModalInterestComponent implements OnInit{
 
 
           this.subcategorias.push(sub.id_subinteres);
-          
+
         }
 
       });

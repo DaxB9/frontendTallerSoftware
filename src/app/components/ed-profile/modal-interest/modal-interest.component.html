@@ -1,7 +1,30 @@
 <div class="container mw-100" style="padding: 0.5rem; height: 30rem; width: 41rem">
-  <p class="fs-2 text-center fw-bold">Intereses</p>
+  <figure class="text-center">
+    <h1 class="bold-heading">Intereses</h1>
+  </figure>
 
-  <div class="d-flex flex-wrap justify-content-center" >
+  <div class="row">
+    <h3 *ngIf="interestss.length === 0">No se han registrado intereses.</h3>
+    <div class="col-md-6" *ngFor="let i of interestss">
+      <mat-card>
+          <img class="card-img-top" [src]="i.imagen" style="width: auto; height: auto;  margin: 0 0 20px">
+          <mat-card-header>
+              <mat-card-title>{{i.nombre_interes}}</mat-card-title>
+              <mat-card-subtitle>Sub Intereses</mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content>
+            <div *ngFor="let si of i.subIntereses">
+              <input type="checkbox" class="btn-check" id={{si.nombre}} autocomplete="off" [checked]="si.check" (change)="onChange($event)">
+              <label class="btn btn-outline-primary" for={{si.nombre}}>{{si.nombre}}</label>
+            </div>
+          </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <!--<div class="d-flex flex-wrap justify-content-center">
+    <h3 *ngIf="interestss.length === 0">No se han registrado intereses.</h3>
     <div class="card text-center" style="width: 18rem; margin: 10px;" *ngFor="let i of interests">
       <img class="card-img-top" [src]="i.imagen" style="width: auto; height: 100px;">
       <div class="card-body">
@@ -13,9 +36,10 @@
           </div>
       </div>
     </div>
-  </div>
-  <div class="flex-1 text-center row">
-    <div class="d-grid gap-2 col-4">
+  </div>-->
+
+  <div class="flex-1 row">
+    <div class="d-grid gap-2 col-12 mt-3">
       <button class="btn btn-primary" type="button" (click)="Guardar()">Guardar</button>
     </div>
   </div>
