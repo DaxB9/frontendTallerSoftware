@@ -15,7 +15,8 @@
             <img src="{{datosPerfil.picture}}"  style="width: 225px; height:225px; margin: 0 0 20px" class="rounded">
           </div>
         </div>
-        <div class="col-8">
+        <div class="col-8 ">
+          <div>
           <figure class="text-center">
             <h2>Datos Personales</h2>
           </figure>
@@ -98,19 +99,22 @@
               </div>
             </div>
           </form>
+          </div>
 
-          <div class="container">
+
+          <div class="container custom-divider">
             <figure class="text-center">
-              <h2>intereses</h2>
+              <h2>Intereses</h2>
             </figure>
             <div>
               <ul class="list-interest">
+                <li *ngIf="intereses.length === 0">El usuario no tiene intereses registrados.</li>
                 <li *ngFor="let interest of intereses">{{interest.nombre}}</li>
               </ul>
             </div>
             <div class="flex-1 text-center row">
-              <div class="d-grid gap-2 col-4">
-                <button class="btn btn-primary" type="button" (click)="openEdit(datosPerfil.userid)">Editar intereses</button>
+              <div class="d-grid  col-12">
+                <button class="btn btn-primary " type="button" (click)="openEdit(datosPerfil.userid)">Editar intereses</button>
               </div>
             </div>
           </div>
@@ -118,13 +122,4 @@
       </div>
     </mat-card-content>
   </mat-card>
-  <div class="row">
-
-    <div class="col-4">
-
-    </div>
-    <div class="col-8">
-
-    </div>
-  </div>
 </div>

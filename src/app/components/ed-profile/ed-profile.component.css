@@ -5,5 +5,10 @@
 }
 li{
     list-style: none;
-    margin-right: 20px; 
+    margin-right: 20px;
+}
+
+.custom-divider {
+  border-top: 1px solid rgba(0, 0, 0, 0.338);
+  margin: 10px 0;
 }
