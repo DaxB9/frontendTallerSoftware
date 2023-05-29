@@ -58,11 +58,15 @@
               <label for="carrera" class="form-label">Carrera</label>
               <input type="text" name="carrera" [(ngModel)]="datosPerfil.career" class="form-control" id="carrera" >
             </div>
-            <div>
+
+
+            <div class="mb-3">
               <label for="tipo_usuario" class="form-label">Tipo de Usuario</label>
-              <select name="" id="tipo-usuario">
-                <option value="estudiante">Estudiante</option>
-                <option value="docente">Empresa</option>
+              <select class="form-select" aria-label="Disabled select example">
+                <option selected>Seleccione el tipo de usuario</option>
+                <option value="1">Estudiante</option>
+                <option value="2">Docente</option>
+                <option value="3">Empresa</option>
               </select>
             </div>
 
