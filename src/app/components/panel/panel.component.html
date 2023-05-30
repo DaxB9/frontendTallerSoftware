@@ -8,6 +8,7 @@
   <button class="btn btn-danger mx-2" style="font-size: 20px; margin-left: 750px;"(click)="filtrar(2)">Rechazado</button>
   <button class="btn btn-success mx-2" style="font-size: 20px;" (click)="filtrar(1)">Aprobado</button>
   <button class="btn btn-warning mx-2" style="font-size: 20px;" (click)="filtrar(0)">Pendiente</button>
+  <ngx-daterangepicker-material [(ngModel)]="selectedDateRange" [locale]="{ format: 'YYYY-MM-DD' }" (selected)="filtrarPorFecha()"></ngx-daterangepicker-material>
 
   <!-- <div>
     <button (click)="null">Aceptar  </button>

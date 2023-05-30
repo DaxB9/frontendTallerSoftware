@@ -7,7 +7,8 @@ export class DataService {
   constructor(private http: HttpClient) {}
 
   sendData(objetounico: any) {
-    const url = 'http://localhost:8080/api/data';
+    const url = 'http://localhost:8080/v1/usuarios/create';
+    console.log('enviando datos');
     return this.http.post(url, objetounico);
   }
 }

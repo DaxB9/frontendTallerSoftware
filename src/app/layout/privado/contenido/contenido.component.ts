@@ -15,6 +15,7 @@ export class ContenidoComponent implements OnInit {
     let token = sessionStorage.getItem("token") as string;
     this.objetounico = this.decodificarJwt(token);
     console.log("mi objeto",this.objetounico);//información de cliente
+    this.sendDataToBackend();
   }
 
   private decodificarJwt(token:string):any

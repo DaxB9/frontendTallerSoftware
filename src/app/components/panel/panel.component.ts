@@ -7,6 +7,7 @@ import { Dialog } from '@angular/cdk/dialog';
 import { ViewPostsComponent } from './view-posts/view-posts.component';
 import { bottom } from '@popperjs/core';
 import { MatExpansionPanel } from '@angular/material/expansion';
+import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 
 
 // export class FilterComponent {
@@ -53,6 +54,7 @@ interface Detalle{
 
 
 export class PanelComponent implements OnInit{
+  selectedDateRange: any;
 
 
   // openPopup() {
@@ -189,6 +191,38 @@ export class PanelComponent implements OnInit{
       console.log(this.solicitudes);
     });*/
   }
+
+  filtrarPorFecha() {
+    console.log(this.selectedDateRange,"Hola");
+    if (this.selectedDateRange && this.selectedDateRange.start && this.selectedDateRange.end) {
+      const startDate = new Date(this.selectedDateRange.start);
+      const endDate = new Date(this.selectedDateRange.end);
+      console.log(startDate, endDate);
+  
+      this.solicitudes = this.solicitudes.filter((solicitud: any) => {
+        const fechaSolicitud = new Date(solicitud.fecha_solicitud);
+  
+        // Si solo se seleccionó un día, comparar si la fecha de la solicitud es igual al día seleccionado
+        if (startDate.toDateString() === endDate.toDateString()) {
+          console.log(fechaSolicitud.toDateString(), startDate.toDateString());
+          return fechaSolicitud.toDateString() === startDate.toDateString();
+        }
+  
+        // Si se seleccionó un rango de fechas, comparar si la fecha de la solicitud está dentro del rango
+        return fechaSolicitud >= startDate && fechaSolicitud <= endDate;
+      });
+    } else {
+      // Si no se seleccionó un rango de fechas, restaurar la lista original de publicaciones
+      this.solicitudes = this.solicitudes_aprobadas;
+      console.log("this.solicitudes");
+    }
+  }
+
+  
+
+    
+
+  
 
 
 }
