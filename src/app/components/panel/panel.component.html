@@ -8,8 +8,23 @@
   <button class="btn btn-danger mx-2" style="font-size: 20px; margin-left: 750px;"(click)="filtrar(2)">Rechazado</button>
   <button class="btn btn-success mx-2" style="font-size: 20px;" (click)="filtrar(1)">Aprobado</button>
   <button class="btn btn-warning mx-2" style="font-size: 20px;" (click)="filtrar(0)">Pendiente</button>
-  <ngx-daterangepicker-material [(ngModel)]="selectedDateRange" [locale]="{ format: 'YYYY-MM-DD' }" (selected)="filtrarPorFecha()"></ngx-daterangepicker-material>
-
+  <div class="date-filter">
+    <mat-form-field style="font-size: 20px;margin-top: 20px; width: max-content; height: max-content;">
+      <mat-label style="font-size: 20px;">Fecha inicio:</mat-label>
+      <input matInput [matDatepicker]="startDatePicker" [(ngModel)]="selectedStartDate">
+      <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #startDatePicker></mat-datepicker>
+    </mat-form-field>
+  
+    <mat-form-field style="font-size: 20px;margin-top: 20px; width: max-content; height: max-content;">
+      <mat-label style="font-size: 20px;">Fecha fin:</mat-label>
+      <input matInput [matDatepicker]="endDatePicker" [(ngModel)]="selectedEndDate">
+      <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #endDatePicker></mat-datepicker>
+    </mat-form-field>
+  
+    <button class="btn btn-primary" (click)="filtrarPorFechas()" style="font-size: 20px;">Filtrar</button>
+  </div>
   <!-- <div>
     <button (click)="null">Aceptar  </button>
     <button (click)="null">Rechazar</button>

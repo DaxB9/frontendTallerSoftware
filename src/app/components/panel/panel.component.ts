@@ -9,6 +9,11 @@ import { bottom } from '@popperjs/core';
 import { MatExpansionPanel } from '@angular/material/expansion';
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 
+import { MatDatepickerInput } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { NativeDateAdapter } from '@angular/material/core';
+
+
 
 // export class FilterComponent {
 //   acceptar: boolean = false;
@@ -55,6 +60,9 @@ interface Detalle{
 
 export class PanelComponent implements OnInit{
   selectedDateRange: any;
+
+  public selectedStartDate: Date = new Date();
+  public selectedEndDate: Date = new Date();
 
 
   // openPopup() {
@@ -215,6 +223,19 @@ export class PanelComponent implements OnInit{
       // Si no se seleccionó un rango de fechas, restaurar la lista original de publicaciones
       this.solicitudes = this.solicitudes_aprobadas;
       console.log("this.solicitudes");
+    }
+  }
+    
+  
+  // Filtrar las solicitudes según el rango de fechas seleccionado
+  filtrarPorFechas() {
+    if (this.selectedStartDate && this.selectedEndDate) {
+      console.log("uwu",this.selectedStartDate, this.selectedEndDate);
+      this.solicitudes = this.solicitudes.filter((solicitud: Solicitud) => {
+        const fechaSolicitud = new Date(solicitud.fecha);
+        console.log("agh",fechaSolicitud, this.selectedStartDate, this.selectedEndDate);
+        return fechaSolicitud >= this.selectedStartDate && fechaSolicitud <= this.selectedEndDate;
+      });
     }
   }
 

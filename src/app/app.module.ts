@@ -36,6 +36,10 @@ import { UserViewComponent } from './user-view/user-view.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import {MispublicacionesComponent} from "./components/mispublicaciones/mispublicaciones.component";
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 @NgModule({
   declarations: [
@@ -78,6 +82,9 @@ import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
     NgxPaginationModule,
     NgbModule,
     NgxDaterangepickerMd.forRoot(),
+    BsDatepickerModule.forRoot(),
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
 
 

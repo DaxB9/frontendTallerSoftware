@@ -248,3 +248,12 @@
   white-space: normal;
 } */
 
+.date-filter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.date-filter mat-form-field {
+  margin-right: 10px;
+}
