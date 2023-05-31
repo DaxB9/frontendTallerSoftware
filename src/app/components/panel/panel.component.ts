@@ -199,42 +199,28 @@ export class PanelComponent implements OnInit{
       console.log(this.solicitudes);
     });*/
   }
-
-  filtrarPorFecha() {
-    console.log(this.selectedDateRange,"Hola");
-    if (this.selectedDateRange && this.selectedDateRange.start && this.selectedDateRange.end) {
-      const startDate = new Date(this.selectedDateRange.start);
-      const endDate = new Date(this.selectedDateRange.end);
-      console.log(startDate, endDate);
-  
-      this.solicitudes = this.solicitudes.filter((solicitud: any) => {
-        const fechaSolicitud = new Date(solicitud.fecha_solicitud);
-  
-        // Si solo se seleccionó un día, comparar si la fecha de la solicitud es igual al día seleccionado
-        if (startDate.toDateString() === endDate.toDateString()) {
-          console.log(fechaSolicitud.toDateString(), startDate.toDateString());
-          return fechaSolicitud.toDateString() === startDate.toDateString();
-        }
-  
-        // Si se seleccionó un rango de fechas, comparar si la fecha de la solicitud está dentro del rango
-        return fechaSolicitud >= startDate && fechaSolicitud <= endDate;
-      });
-    } else {
-      // Si no se seleccionó un rango de fechas, restaurar la lista original de publicaciones
-      this.solicitudes = this.solicitudes_aprobadas;
-      console.log("this.solicitudes");
-    }
-  }
-    
   
   // Filtrar las solicitudes según el rango de fechas seleccionado
-  filtrarPorFechas() {
+  filtrarPorFechasSolicitud() {
     if (this.selectedStartDate && this.selectedEndDate) {
       console.log("uwu",this.selectedStartDate, this.selectedEndDate);
-      this.solicitudes = this.solicitudes.filter((solicitud: Solicitud) => {
-        const fechaSolicitud = new Date(solicitud.fecha);
+      //this.solicitudes = this.solicitudes.filter((solicitud: { fecha_solicitud: Date; }) => solicitud.fecha_solicitud >= this.selectedStartDate && solicitud.fecha_solicitud <= this.selectedEndDate);
+      this.solicitudes = this.solicitudes.filter((solicitud: any) => {
+        const fechaSolicitud = new Date(solicitud.fecha_solicitud);
         console.log("agh",fechaSolicitud, this.selectedStartDate, this.selectedEndDate);
         return fechaSolicitud >= this.selectedStartDate && fechaSolicitud <= this.selectedEndDate;
+      });
+    }
+  }
+
+  filtrarPorFechasRevisado() {
+    if (this.selectedStartDate && this.selectedEndDate) {
+      console.log("jjj",this.selectedStartDate, this.selectedEndDate);
+      //this.solicitudes = this.solicitudes.filter((solicitud: { fecha_solicitud: Date; }) => solicitud.fecha_solicitud >= this.selectedStartDate && solicitud.fecha_solicitud <= this.selectedEndDate);
+      this.solicitudes = this.solicitudes.filter((solicitud: any) => {
+        const fechaRevisado = new Date(solicitud.fecha_revisado);
+        console.log("aaaa",fechaRevisado, this.selectedStartDate, this.selectedEndDate);
+        return fechaRevisado >= this.selectedStartDate && fechaRevisado <= this.selectedEndDate;
       });
     }
   }
