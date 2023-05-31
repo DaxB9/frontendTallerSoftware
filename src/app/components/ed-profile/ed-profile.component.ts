@@ -37,6 +37,8 @@ export class EdProfileComponent implements OnInit{
   data: any = [];
   objetounico:any = {};
 
+  carreras:any=[];
+
   ngOnInit(): void{
     console.log('El componente se ha inicializado');
       this.profile.GetProfileById(this.profileId)
@@ -52,6 +54,11 @@ export class EdProfileComponent implements OnInit{
       .subscribe(Response => {
         this.intereses = Response
      });
+
+     this.profile.GetMajors()
+     .subscribe(Response => {
+       this.carreras = Response
+    });
   }
 
   

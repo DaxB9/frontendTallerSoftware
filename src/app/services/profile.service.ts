@@ -21,4 +21,8 @@ export class ProfileService {
     postProfile(id: number, profile: any){
       return this.http.post<Event>('http://localhost:8080/v1/usuarios/profile/'+id, profile);
     }
+
+    public GetMajors(){
+      return this.http.get('http://localhost:8080/v1/usuarios/carrer');
+  }
 }
