@@ -5,6 +5,7 @@ import { ModalInterestComponent } from './modal-interest/modal-interest.componen
 import Swal from'sweetalert2';
 import { ProfileService } from 'src/app/services/profile.service';
 import { Timestamp } from 'rxjs';
+import { DataService } from 'src/app/core/data.service';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class EdProfileComponent implements OnInit{
   // telefono: string = "77788999"
   // correoPersonal: string ="personal@gmail.com"
 
-  constructor(private matDialog:MatDialog, private profile: ProfileService){}
+  constructor(private matDialog:MatDialog, private profile: ProfileService, private dataService: DataService){}
 
   profileId:number = 123465;
 
@@ -33,13 +34,23 @@ export class EdProfileComponent implements OnInit{
   intereses:any = [];
 
   datos: any = [];
+  data: any = [];
+  objetounico:any = {};
 
   ngOnInit(): void{
     console.log('El componente se ha inicializado');
       this.profile.GetProfileById(this.profileId)
       .subscribe(Response => {
-        this.datosPerfil = Response
+        let token = sessionStorage.getItem("token") as string;
+        this.objetounico = this.decodificarJwt(token);
+        console.log("mi objeto: ",this.objetounico);//información de cliente
+        this.datosPerfil = this.objetounico;
      });
+
+    /* this.dataService.getProfile().subscribe((data:any) => {
+      this.datos = data;
+      console.log(this.datos);
+    });*/
      
 
      this.profile.GetSubInteresesById(this.profileId)
@@ -96,6 +107,16 @@ export class EdProfileComponent implements OnInit{
       showCancelButton: false,
       confirmButtonText: 'Ok',
     })
+  }
+  private decodificarJwt(token:string):any
+  {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
   }
 
   
