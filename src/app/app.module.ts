@@ -39,6 +39,8 @@ import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { DescriptionComponent } from './components/description/description.component';
+import {MatGridListModule} from "@angular/material/grid-list";
 
 
 @NgModule({
@@ -62,7 +64,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     ModalInterestComponent,
     UserViewComponent,
     ProfileComponent,
-    MispublicacionesComponent
+    MispublicacionesComponent,
+    DescriptionComponent
   ],
   imports: [
     BrowserModule,
@@ -85,6 +88,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     BsDatepickerModule.forRoot(),
     MatDatepickerModule,
     MatNativeDateModule,
+    MatGridListModule,
   ],
 
 

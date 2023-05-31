@@ -25,6 +25,7 @@ export class AddEventsComponent implements OnInit {
   categoryaux: Category[]=[];
 
   categoryaux2: any[]=[];
+  publicoAux2: any[]=[];
   publicoAux!:string;
   nevent: Event=new Event();
   lldata!: string;
@@ -103,15 +104,29 @@ export class AddEventsComponent implements OnInit {
     //console.log(this.publicoAux);
   }
   addPublic(publico:string){
-    if(this.publicoAux.includes(publico)){
-      let aux= this.publicoAux.split('-'+publico);
-      this.publicoAux=aux[0]+aux[1];
-      //console.log(this.publicoAux);
+    if(this.publicoAux2[0].includes(publico)){
+      let aux= this.publicoAux2[0].split('-'+publico);
+      this.publicoAux2[0]=aux[0]+aux[1];
+      console.log(this.publicoAux2);
+      //this.publicoAux2[0]="";
     }else{
-      this.publicoAux=this.publicoAux+'-'+publico;
-      //console.log(this.publicoAux);
+      this.publicoAux2[0]=this.publicoAux2[0]+'-'+publico;
+      console.log(this.publicoAux2);
     }
   }
+
+  addPublic2(publico: string){
+    if(this.publicoAux2[1].includes(publico)){
+      let aux= this.publicoAux2[1].split('-'+publico);
+      this.publicoAux2[1]=aux[0]+aux[1];
+      console.log(this.publicoAux2);
+      //this.publicoAux2[0]="";
+    }else{
+      this.publicoAux2[1]=this.publicoAux2[1]+'-'+publico;
+      console.log(this.publicoAux2);
+    }
+  }
+
   delCategory(cat:any){
     this.categoryaux2=this.categoryaux2.filter((item) => item !== cat);
   }
@@ -138,7 +153,7 @@ export class AddEventsComponent implements OnInit {
         //this.nevent.categoriaDTOS=this.category;
         this.nevent.interesesDTOS=this.categoryaux2;
         //this.nevent.categoriaDTOS=[]
-        this.nevent.publico=this.publicoAux;
+        this.nevent.publico= (this.publicoAux2[0]+"/"+this.publicoAux2[1]);
         console.log('Categorias  seleccionadas en el push: ',this.nevent.interesesDTOS);
         console.log(this.nevent);
         this.eventService.postTarjeta(this.nevent).subscribe({

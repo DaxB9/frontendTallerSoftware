@@ -7,6 +7,11 @@ import { ProfileService } from 'src/app/services/profile.service';
 import { Timestamp } from 'rxjs';
 import { DataService } from 'src/app/core/data.service';
 
+interface tipoUsuario {
+  id: number;
+  nombre: string;
+}
+
 
 @Component({
   selector: 'app-ed-profile',
@@ -28,6 +33,9 @@ export class EdProfileComponent implements OnInit{
   constructor(private matDialog:MatDialog, private profile: ProfileService, private dataService: DataService){}
 
   profileId:number = 123465;
+  opcionSeleccionado: string  = '0';
+  verSeleccion: string        = '';
+
 
   datosPerfil: any = [];
 
@@ -38,6 +46,24 @@ export class EdProfileComponent implements OnInit{
   objetounico:any = {};
 
   carreras:any=[];
+  value:any=[];
+
+  tipoUsuarios: tipoUsuario[] = [
+    {
+      id: 1,
+      nombre: 'Estudiante',
+    },
+    {
+      id: 2,
+      nombre: 'Docente'
+    },
+    {
+      id: 3,
+      nombre: 'Administrativo'
+    }]
+
+
+  
 
   ngOnInit(): void{
     console.log('El componente se ha inicializado');
@@ -61,7 +87,25 @@ export class EdProfileComponent implements OnInit{
     });
   }
 
-  
+  capturar() {
+    // Pasamos el valor seleccionado a la variable verSeleccion
+    this.verSeleccion = this.opcionSeleccionado;
+    console.log(this.tipoUsuarios);
+}
+
+// ShowSelected()
+// {
+
+// /* Para obtener el texto */
+// var combo = document.getElementById("tipo");
+// combo?.addEventListener('change',function(){
+//   var selectedOption =  combo?.options[combo?.selectedIndex].value;
+// })
+
+// }
+
+
+
 
   openEdit(id:any){
     localStorage.setItem('idperfil',JSON.stringify(id))
