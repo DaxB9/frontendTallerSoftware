@@ -1,22 +1,29 @@
-<div class="container mw-100" style="padding: 0.5rem; height: 30rem; width: 41rem">
+<div class="container mw-100" style="padding: 0.5rem; height: 35rem; width: 50rem">
   <figure class="text-center">
     <h1 class="bold-heading">Intereses</h1>
   </figure>
 
   <div class="row">
-    <h3 *ngIf="interestss.length === 0">No se han registrado intereses.</h3>
-    <div class="col-md-6" *ngFor="let i of interestss">
-      <mat-card>
-          <img class="card-img-top" [src]="i.imagen" style="width: auto; height: auto;  margin: 0 0 20px">
+    <figure class="text-center">
+      <h3 *ngIf="interests.length === 0">No se han registrado intereses.</h3>
+    </figure>
+    <div class="col-md-6" *ngFor="let i of interests">
+      <mat-card class="mt-3">
+        <figure class="text-center">
+          <img class="card-img-top" [src]="i.imagen" style="width: auto; height: 200px;  margin: 0 0 20px">
+        </figure>
           <mat-card-header>
               <mat-card-title>{{i.nombre_interes}}</mat-card-title>
               <mat-card-subtitle>Sub Intereses</mat-card-subtitle>
           </mat-card-header>
-
           <mat-card-content>
             <div *ngFor="let si of i.subIntereses">
-              <input type="checkbox" class="btn-check" id={{si.nombre}} autocomplete="off" [checked]="si.check" (change)="onChange($event)">
-              <label class="btn btn-outline-primary" for={{si.nombre}}>{{si.nombre}}</label>
+              <div class="form-check mt-1">
+                <input class="form-check-input" type="checkbox" [checked]="si.check" value="" id="subcategorias" (change)="onChange($event)">
+                <label class="form-check-label font-weight-normal" for="subcategorias">
+                  {{si.nombre}}
+                </label>
+              </div>
             </div>
           </mat-card-content>
       </mat-card>

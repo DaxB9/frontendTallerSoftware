@@ -13,10 +13,10 @@ import { SubCategory } from 'src/app/models/subCategory';
 export class ModalInterestComponent implements OnInit{
   interests: Category[] = [];
 
-  interestss= [{imagen:"https://picsum.photos/id/237/200/300",nombre_interes:"interes 1",subIntereses:[{nombre:"si1", check: true},{nombre:"si2", check: false}]},
-  {imagen:"https://picsum.photos/id/237/200/300",nombre_interes:"interes 2",subIntereses:[{nombre:"si1", check: true},{nombre:"si2", check: false}]},
-  {imagen:"https://picsum.photos/id/237/200/300",nombre_interes:"interes 3",subIntereses:[{nombre:"si1", check: true}]},
-  {imagen:"https://picsum.photos/id/237/200/300",nombre_interes:"interes 3",subIntereses:[{nombre:"si1", check: true},{nombre:"si2", check: false}]}];
+ // interestss= [{imagen:"https://picsum.photos/id/237/200/300",nombre_interes:"interes 1",subIntereses:[{nombre:"si1", check: true},{nombre:"si2", check: true}]},
+ // {imagen:"https://picsum.photos/id/237/200/300",nombre_interes:"interes 2",subIntereses:[{nombre:"si1", check: true},{nombre:"si2", check: false}]},
+ // {imagen:"https://picsum.photos/id/237/200/300",nombre_interes:"interes 3",subIntereses:[{nombre:"si1", check: false}]},
+ // {imagen:"https://picsum.photos/id/237/200/300",nombre_interes:"interes 3",subIntereses:[{nombre:"si1", check: false},{nombre:"si2", check: true}]}];
 
 
   interestsUser:[]=[];
@@ -86,7 +86,6 @@ export class ModalInterestComponent implements OnInit{
           console.log(sub)
           console.log("actualizar")
           console.log()
-
 
           this.subcategorias.push(sub.id_subinteres);
 

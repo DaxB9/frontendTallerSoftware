@@ -1,6 +1,6 @@
 .text {
     display: -webkit-box;
-    max-width: 300px;
+    max-width: 350px;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
