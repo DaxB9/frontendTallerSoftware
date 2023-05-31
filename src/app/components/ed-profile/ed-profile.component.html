@@ -54,9 +54,16 @@
               </div> -->
             </div>
 
-            <div class="mb-3">
+            <!--<div class="mb-3">
               <label for="carrera" class="form-label">Carrera</label>
               <input type="text" name="carrera" [(ngModel)]="datosPerfil.career" class="form-control" id="carrera" >
+            </div>-->
+            <div class="mb-3">
+              <label for="carrera" class="form-label">Carrera</label>
+              <select class="form-select" aria-label="Disabled select example">
+                <option selected>Seleccione la carrera</option>
+                <option *ngFor="let m of carreras; let aux=index" [value]="aux">{{m}}</option>
+              </select>
             </div>
 
 
