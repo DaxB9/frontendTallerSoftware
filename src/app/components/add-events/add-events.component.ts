@@ -25,7 +25,7 @@ export class AddEventsComponent implements OnInit {
   categoryaux: Category[]=[];
 
   categoryaux2: any[]=[];
-  publicoAux2: any[]=[];
+  publicoAux2: string[]=["",""];
   publicoAux!:string;
   nevent: Event=new Event();
   lldata!: string;
