@@ -43,7 +43,26 @@
 </div>
 
 
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <mat-toolbar class="nav" color="primary">
+      <mat-toolbar-row>
+        <button class="btn-inicio" mat-button [matMenuTriggerFor]="inicio">Inicio</button>
+        <mat-menu  #inicio="matMenu">
+          <button mat-menu-item routerLink="/add-events"> Nuevos </button>
+          <button mat-menu-item routerLink="/recomm-posts"> Recomendados </button>
+          <button mat-menu-item [matMenuTriggerFor]="categorias"> Categoria
+            <mat-menu  #categorias="matMenu" >
+              <button mat-menu-item routerLink="/add-events"> titulo1 </button>
+              <button mat-menu-item routerLink="/add-posts"> titulo2 </button>
+              <button mat-menu-item routerLink="/add-posts"> titulo 3 </button>
+            </mat-menu>
+          </button>
 
+<<<<<<< Updated upstream
 <mat-toolbar class="nav" color="primary">
   <mat-toolbar-row>
     <button style="padding-left: 20px;" class="btn-item" mat-button [matMenuTriggerFor]="menu1">Inicio</button>
@@ -142,3 +161,46 @@
     </button>
   </mat-toolbar-row>
 </mat-toolbar>
+=======
+        </mat-menu>
+
+        <button style="padding-left: 20px;" class="btn-item" mat-button routerLink="/panel">Panel</button>
+        <button style="padding-left: 20px;" class="btn-item" mat-button>Quienes Somos?</button>
+
+        <button style="padding-left: 20px;" class="btn-item" mat-button>Eventos</button>
+
+
+        <button  style="padding-left: 20px;" class="btn-item" routerLink="/edit-profile" mat-button>Blog</button>
+        <button style="padding-left: 20px;" class="btn-item" mat-button>Contacto</button>
+        <button style="padding-left: 20px;" class="btn-item"  routerLink="/profile" mat-button>Perfil</button>
+        <button style="padding-left: 20px;" class="btn-item" mat-button [matMenuTriggerFor]="menu">Formularios</button>
+
+        <mat-menu  #menu="matMenu">
+          <button mat-menu-item routerLink="/add-events"> Eventos </button>
+          <button mat-menu-item routerLink="/add-posts"> Publicaciones </button>
+
+        </mat-menu>
+
+        
+      
+        <button style="padding-left: 20px;" routerLink="/edit-profile" class="btn-item" mat-button>
+        Intereses
+        </button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <button style="padding-left: 20px;" routerLink="/modificaciones" class="btn-item" mat-button>
+          Mis Publicaciones
+        </button>
+        <span class="spacer"></span>
+        <button class="btn-item" mat-icon-button>
+          <mat-icon>search</mat-icon>
+        </button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button (click)="cerrarSesion()" style="padding-left: 20px;" class="btn-item" mat-button>
+        Log Out
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div>
+  </nav> 
+>>>>>>> Stashed changes
