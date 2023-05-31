@@ -46,11 +46,6 @@ export class EdProfileComponent implements OnInit{
         console.log("mi objeto: ",this.objetounico);//información de cliente
         this.datosPerfil = this.objetounico;
      });
-
-    /* this.dataService.getProfile().subscribe((data:any) => {
-      this.datos = data;
-      console.log(this.datos);
-    });*/
      
 
      this.profile.GetSubInteresesById(this.profileId)

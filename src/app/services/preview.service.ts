@@ -10,7 +10,7 @@ export class PreviewService {
     console.log('Servicio HTTP:');
    }
   public updatePost(id: bigint, comentario: string) {
-    return this.http.post(`http://localhost:8080/solicitud/comentario/${id}`, {comentario: comentario});
+    return this.http.post(`http://localhost:8080/solicitud/comentario/${id}`, {comentario: comentario, estado: '3'});
     return this.http.post(`http://localhost:8080/solicitud/comentario/${id}`, {estado: '2'});
   }
 
@@ -44,4 +44,9 @@ export class PreviewService {
   //       catchError(this.handleError) // then handle the error
   //     );
   // }
+
+  public getHistorial(id: bigint){
+    console.log('id: ',id);
+    return this.http.get('http://localhost:8080/solicitud/comentarios/'+id);
+  }
 }
