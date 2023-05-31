@@ -1,11 +1,11 @@
 <div class="container">
   <h1>MIS PUBLICACIONES</h1>
   <div class="card-container">
-    <div class="card" *ngFor="let publicacion of publicaciones" (click)="abrirModal(publicacion)">
+    <div class="card" *ngFor="let publicacion of publicaciones" (click)="abrirModal(publicacion.solicitudid)">
       <img src="{{ publicacion.imagen }}" alt="{{ publicacion.titulo }}">
       <div class="card-content">
-        <h2>{{ publicacion.titulo }}</h2>
-        <p>{{ publicacion.descripcion }}</p>
+        <h2>Título: {{ publicacion.descripcion }}</h2>
+        <h5>Fecha de Solicitud: {{obtenerFecha1(publicacion.fecha_solicitud)}} </h5>
       </div>
     </div>
   </div>
@@ -13,24 +13,42 @@
 
 <div class="modal" *ngIf="modalVisible">
   <div class="modal-content">
-    <h2>{{ publicacionSeleccionada?.titulo }}</h2>
+    <h2>{{ publi }}</h2>
     <form>
       <div class="form-group">
         <label for="titulo">Título:</label>
-        <input type="text" id="titulo" [(ngModel)]="publicacionSeleccionada.titulo" name="titulo" required>
+        <input type="text" id="titulo" [(ngModel)]="publi.titulo" name="titulo" required>
       </div>
       <div class="form-group">
         <label for="descripcion">Descripción:</label>
-        <textarea id="descripcion" [(ngModel)]="publicacionSeleccionada.descripcion" name="descripcion" required></textarea>
+        <textarea id="descripcion" [(ngModel)]="publi.descripcion" name="descripcion" required></textarea>
       </div>
-      <div class="form-group">
+      <div class="mb-3">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Presencial" [(ngModel)]="selectedModality" [ngModelOptions]="{standalone: true}">
+          <label class="form-check-label" for="inlineRadio1">Presencial</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Virtual" [(ngModel)]="selectedModality" [ngModelOptions]="{standalone: true}">
+          <label class="form-check-label" for="inlineRadio2">Virtual</label>
+        </div>
+      </div>
+      <div class="mb-3" *ngIf="selectedModality === 'Presencial'">
+        <label for="location" class="form-label">Agregar Ubicación</label>
+        <input #linklugar type="text" class="form-control" id="location" placeholder="Agregue la ubicación del evento" formControlName="linklugar" [(ngModel)]="lldata">
+      </div>
+      <div class="mb-3" *ngIf="selectedModality === 'Virtual'">
+        <label for="location" class="form-label">Agregar Link del Evento</label>
+        <input #linklugar type="text" class="form-control" id="link" placeholder="Agregue el link del evento" formControlName="linklugar" [(ngModel)]="lldata" >
+      </div>
+      <!-- <div class="form-group">
         <label for="edad">Edad:</label>
         <select id="edad" [(ngModel)]="publicacionSeleccionada.edad" name="edad" (change)="mostrarRangosEdad()" required>
           <option value="16-30">16-30</option>
           <option value="31-60">31-60</option>
           <option value="61+">61+</option>
         </select>
-      </div>
+      </div> -->
 
 
       <!--<div class="form-group" *ngIf="publicacionSeleccionada.edad === '16-30'">
@@ -51,15 +69,15 @@
         <label for="checkbox3">Checkbox 3</label>
       </div>-->
 
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="publico">Público:</label>
         <select id="publico" [(ngModel)]="publicacionSeleccionada.publico" name="publico" required>
           <option value="general">General</option>
           <option value="adulto">Adulto</option>
           <option value="infantil">Infantil</option>
         </select>
-      </div>
-      <button className="btng" type="submit">Guardar</button>
+      </div>-->
+      <button className="btng" type="submit" (click)="guardarCambios()">Guardar</button>
     </form>
     <button (click)="cerrarModal()">Cerrar</button>
   </div>

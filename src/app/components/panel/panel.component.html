@@ -99,8 +99,9 @@
 
         <td><button name="{{solicitud.solicitudid}}" class="btn-view-Detail"  (click)="openDialog(solicitud.solicitudid )">Ver Detalle</button></td>
         <td class="tr-cont" style="font-style: italic; font-size:18px; font-weight: bold;"[ngClass]="getEstadoClass(solicitud.estado) ">
-          <ng-container *ngIf="solicitud.estado === 1; else rechazado">Aprobado</ng-container>
-          <ng-template #rechazado>Rechazado</ng-template>
+          <ng-container *ngIf="solicitud.estado === 1;">Aprobado</ng-container>
+          <ng-container *ngIf="solicitud.estado === 2;">Rechazado</ng-container>
+          <ng-container *ngIf="solicitud.estado === 0;">Pendiente</ng-container>
         </td>
         <td class="tr-cont" style="font-style: italic; font-size:18px; font-weight: bold;">{{solicitud.publico}}</td>
         </tr>
