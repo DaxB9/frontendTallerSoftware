@@ -32,7 +32,7 @@ export class EdProfileComponent implements OnInit{
 
   constructor(private matDialog:MatDialog, private profile: ProfileService, private dataService: DataService){}
 
-  profileId:number = 123465;
+  profileId:string = '';
   opcionSeleccionado: string  = '0';
   verSeleccion: string        = '';
 
@@ -48,31 +48,26 @@ export class EdProfileComponent implements OnInit{
   carreras:any=[];
   value:any=[];
 
-  tipoUsuarios: tipoUsuario[] = [
-    {
-      id: 1,
-      nombre: 'Estudiante',
-    },
-    {
-      id: 2,
-      nombre: 'Docente'
-    },
-    {
-      id: 3,
-      nombre: 'Administrativo'
-    }]
+  tipoUsuarios: string[] = ["Estudiante","Docente","Administrador"];
 
 
   
 
   ngOnInit(): void{
+
+    let token = sessionStorage.getItem("token") as string;
+    this.objetounico = this.decodificarJwt(token);
+
+     this.profileId = this.objetounico.sub;
+
+     console.log("mi objeto: ",this.objetounico);//información de cliente
+
+
     console.log('El componente se ha inicializado');
       this.profile.GetProfileById(this.profileId)
       .subscribe(Response => {
-        let token = sessionStorage.getItem("token") as string;
-        this.objetounico = this.decodificarJwt(token);
-        console.log("mi objeto: ",this.objetounico);//información de cliente
-        this.datosPerfil = this.objetounico;
+        
+        this.datosPerfil = Response;
      });
      
 
@@ -89,8 +84,14 @@ export class EdProfileComponent implements OnInit{
 
   capturar() {
     // Pasamos el valor seleccionado a la variable verSeleccion
+    console.log(this.verSeleccion,"  === ",this.opcionSeleccionado)
     this.verSeleccion = this.opcionSeleccionado;
-    console.log(this.tipoUsuarios);
+    console.log(this.verSeleccion,"  === ",this.opcionSeleccionado)
+}
+capturar2(nombre:string) {
+  // Pasamos el valor seleccionado a la variable verSeleccion
+  this.verSeleccion = nombre;
+  console.log(this.verSeleccion,"  === ",this.opcionSeleccionado)
 }
 
 // ShowSelected()

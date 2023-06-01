@@ -69,14 +69,17 @@
 
             <div class="mb-3">
               <label  for="tipo_usuario" class="form-label">Tipo de Usuario</label>
-              <select id="tipo" name="tipo" onchange="ShowSelected();" class="form-select" aria-label="Disabled select example">
-                <option selected>Seleccione el tipo de usuario</option>
-                <option value="1">Estudiante</option>
-                <option value="2">Docente</option>
-                <option value="3">Administrativo</option>
+              <select [(ngModel)]="opcionSeleccionado" (change)="capturar()" class="form-select" aria-label="Disabled select example">
+                <option value = "0" selected>Seleccione el tipo de usuario</option>
+
+                <option *ngFor="let dato of tipoUsuarios" [value]="dato"(selectedIndex) ="capturar2(dato)">
+                  {{dato}}
+                </option>
+                <!-- <option value="2">Docente</option>
+                <option value="3">Administrativo</option> -->
               </select>
 
-              <script type="text/javascript">
+              <!-- <script type="text/javascript">
                 function ShowSelected()
                 {
                 /* Para obtener el valor */
@@ -88,7 +91,7 @@
                 var selected = combo.options[combo.selectedIndex].text;
                 alert(selected);
                 }
-                </script>
+                </script> -->
               
             </div>
 
