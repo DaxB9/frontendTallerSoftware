@@ -6,7 +6,7 @@
   </figure>
   <mat-card flex flex-gt-xs="30">
     <figure class="text-center">
-      <h2 class="bold-heading">Información del Usuario</h2>
+      <h3 class="bold-heading">Información del Usuario</h3>
     </figure>
     <mat-card-content>
       <div class="row">
@@ -19,6 +19,7 @@
           <div>
           <figure class="text-center">
             <h2 class="bold-heading">Datos Personales</h2>
+            <hr width="100%" color="black"/> 
           </figure>
           <form>
             <div class="mb-3">
@@ -66,8 +67,10 @@
                 
               </select>
             </div>
+            <!--
+              Selected Value: {{majorSelected}}
+            -->
             
-            Selected Value: {{majorSelected}}
 
 
             <div class="mb-3">
@@ -80,7 +83,8 @@
 
               </select>
             </div>
-            Selected Value: {{tipoSelected}}
+            
+            <!-- Selected Value: {{tipoSelected}}-->
 
             <!-- <figure class="text-center">
               <h2>Datos Domicilio</h2>
@@ -108,7 +112,7 @@
             </div> -->
             <div class="flex-1 text-center row">
               <div class="d-grid gap-2 col-6">
-                <button class="btn btn-primary" type="button" (click)="confirmationPerfilUpdate()">Editar Perfil</button>
+                <button class="btn btn-primary" type="button" (click)="confirmationPerfilUpdate()">Guardar Cambios</button>
               </div>
               <div class="d-grid gap-2 col-6">
                 <button class="btn btn-danger" type="button">Cancelar</button>
@@ -125,7 +129,7 @@
             <div>
               <ul class="list-interest">
                 <li *ngIf="intereses.length === 0">El usuario no tiene intereses registrados.</li>
-                <li *ngFor="let interest of intereses">{{interest.nombre}}</li>
+                <li *ngFor="let interest of intereses"><h3 style="font-weight: bold; ">{{interest.nombre}}</h3></li>
               </ul>
             </div>
             <div class="flex-1 text-center row">

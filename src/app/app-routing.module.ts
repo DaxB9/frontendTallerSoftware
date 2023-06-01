@@ -36,7 +36,7 @@ const routes: Routes = [
 
   { path: 'view-posts', component: ViewPostsComponent, canActivate: [PermisosRutasService]}, //canActivate: [PermisosRutasService]
   {
-    path: 'edit-profile', component: EdProfileComponent
+    path: 'edit-profile', component: EdProfileComponent, canActivate: [PermisosRutasService]
   },
   {
     path:'select-interest/:name',component:SelectInterestComponent, canActivate: [PermisosRutasService]
