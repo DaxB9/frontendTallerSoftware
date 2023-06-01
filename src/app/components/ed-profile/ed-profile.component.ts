@@ -48,7 +48,10 @@ export class EdProfileComponent implements OnInit{
   carreras:any=[];
   value:any=[];
 
-  tipoUsuarios: string[] = ["Estudiante","Docente","Administrador"];
+  tipoUsuarios: tipoUsuario[] = [
+    {id:1,nombre:"Estudiante"},
+    {id:2,nombre:"Docente"},
+    {id:3,nombre:"Administrador"}];
 
   majorSelected=1;
   tipoSelected=1;
@@ -82,6 +85,7 @@ export class EdProfileComponent implements OnInit{
      this.profile.GetMajors()
      .subscribe(Response => {
        this.carreras = Response
+       console.log(Response);
     });
   }
 

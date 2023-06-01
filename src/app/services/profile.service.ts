@@ -23,6 +23,6 @@ export class ProfileService {
     }
 
     public GetMajors(){
-      return this.http.get('http://localhost:8080/v1/usuarios/carrer');
+      return this.http.get('http://localhost:8080/carrera/');
   }
 }

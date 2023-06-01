@@ -62,9 +62,11 @@
               <label for="carrera" class="form-label">Carrera</label>
               <select [(ngModel)]="majorSelected"class="form-select" aria-label="Disabled select example" name="carrera">
                 <option >Seleccione la carrera</option>
-                <option *ngFor="let m of carreras; let aux=index" [value]="aux">{{m}}</option>
+                <option *ngFor="let m of carreras; let aux=index" [value]="m.id_carrera">{{m.carrera}}</option>
+                
               </select>
             </div>
+            
             Selected Value: {{majorSelected}}
 
 
@@ -72,8 +74,8 @@
               <label  for="tipo_usuario" class="form-label">Tipo de Usuario</label>
               <select [(ngModel)]="tipoSelected" class="form-select" aria-label="Disabled select example" name="tipo">
                 <option >Seleccione el tipo</option>
-                <option *ngFor="let dato of tipoUsuarios; let aux=index" [value]="aux">
-                  {{dato}}
+                <option *ngFor="let dato of tipoUsuarios; let aux=index" [value]="dato.id">
+                  {{dato.nombre}}
                 </option>
 
               </select>
