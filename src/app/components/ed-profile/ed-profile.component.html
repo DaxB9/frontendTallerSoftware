@@ -60,40 +60,25 @@
             </div>-->
             <div class="mb-3">
               <label for="carrera" class="form-label">Carrera</label>
-              <select class="form-select" aria-label="Disabled select example">
-                <option selected>Seleccione la carrera</option>
+              <select [(ngModel)]="majorSelected"class="form-select" aria-label="Disabled select example" name="carrera">
+                <option >Seleccione la carrera</option>
                 <option *ngFor="let m of carreras; let aux=index" [value]="aux">{{m}}</option>
               </select>
             </div>
+            Selected Value: {{majorSelected}}
 
 
             <div class="mb-3">
               <label  for="tipo_usuario" class="form-label">Tipo de Usuario</label>
-              <select [(ngModel)]="opcionSeleccionado" (change)="capturar()" class="form-select" aria-label="Disabled select example">
-                <option value = "0" selected>Seleccione el tipo de usuario</option>
-
-                <option *ngFor="let dato of tipoUsuarios" [value]="dato"(selectedIndex) ="capturar2(dato)">
+              <select [(ngModel)]="tipoSelected" class="form-select" aria-label="Disabled select example" name="tipo">
+                <option >Seleccione el tipo</option>
+                <option *ngFor="let dato of tipoUsuarios; let aux=index" [value]="aux">
                   {{dato}}
                 </option>
-                <!-- <option value="2">Docente</option>
-                <option value="3">Administrativo</option> -->
-              </select>
 
-              <!-- <script type="text/javascript">
-                function ShowSelected()
-                {
-                /* Para obtener el valor */
-                var cod = document.getElementById("tipo").value;
-                alert(cod);
-                 
-                /* Para obtener el texto */
-                var combo = document.getElementById("tipo");
-                var selected = combo.options[combo.selectedIndex].text;
-                alert(selected);
-                }
-                </script> -->
-              
+              </select>
             </div>
+            Selected Value: {{tipoSelected}}
 
             <!-- <figure class="text-center">
               <h2>Datos Domicilio</h2>

@@ -50,10 +50,13 @@ export class EdProfileComponent implements OnInit{
 
   tipoUsuarios: string[] = ["Estudiante","Docente","Administrador"];
 
+  majorSelected=1;
+  tipoSelected=1;
 
-  
 
   ngOnInit(): void{
+
+    
 
     let token = sessionStorage.getItem("token") as string;
     this.objetounico = this.decodificarJwt(token);
@@ -165,6 +168,5 @@ capturar2(nombre:string) {
 
     return JSON.parse(jsonPayload);
   }
-
   
 }
