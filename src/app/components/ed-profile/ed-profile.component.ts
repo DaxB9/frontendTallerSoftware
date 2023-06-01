@@ -53,8 +53,8 @@ export class EdProfileComponent implements OnInit{
     {id:2,nombre:"Docente"},
     {id:3,nombre:"Administrador"}];
 
-  majorSelected=1;
-  tipoSelected=1;
+  majorSelected=0;
+  tipoSelected=0;
 
 
   ngOnInit(): void{
@@ -74,6 +74,8 @@ export class EdProfileComponent implements OnInit{
       .subscribe(Response => {
         
         this.datosPerfil = Response;
+        this.majorSelected=this.datosPerfil.career;
+        this.tipoSelected=this.datosPerfil.usertype;
      });
      
 
