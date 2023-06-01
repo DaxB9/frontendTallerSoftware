@@ -10,7 +10,7 @@ export class RecommendedService {
     console.log('Servicio HTTP:');
    }
 
-   public getRecomendaciones(id: number){
+   public getRecomendaciones(id: string){
     return this.http.get('http://localhost:8080/eventosol/rec/'+id);
    }
 }
