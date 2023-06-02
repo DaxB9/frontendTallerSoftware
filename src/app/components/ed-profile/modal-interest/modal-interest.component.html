@@ -1,4 +1,4 @@
-<div class="container mw-100" style="padding: 0.5rem; height: 35rem; width: 50rem">
+<div class="container mw-100" style="padding: 0.5rem; height: 40rem; width: 65rem">
   <figure class="text-center">
     <h1 class="bold-heading">Intereses</h1>
   </figure>
@@ -33,7 +33,7 @@
   <div class="d-flex flex-wrap justify-content-center">
     <!-- <h3 *ngIf="interestss.length === 0">No se han registrado intereses.</h3> -->
     <div class="card text-center" style="width: 18rem; margin: 10px;" *ngFor="let i of interests">
-      <img class="card-img-top" [src]="'http://localhost:8080/solicitud/imagen4/'+ i.imagen" style="width: auto; height: 100px;">
+      <img class="card-img-top" [src]="'http://localhost:8080/solicitud/imagen4/'+ i.imagen" style="width: auto; height: 150px;">
       <div class="card-body">
         <h5 class="card-title fw-semibold fs-5">{{i.nombre_interes}}</h5>
         <p class="fs-5 text-center ">Subintereses</p>
