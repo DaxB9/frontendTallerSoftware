@@ -13,7 +13,7 @@
                 <img mat-card-image [src]="post.image"  style="width: 250px; height:250px; margin: 0 0 20px" />
               </div> -->
               <div class="col-6 mt-1 text-center" >
-                <img src="https://picsum.photos/200"  style="width: 250px; height:250px; margin: 0 0 20px" />
+                <img [src]="'http://localhost:8080/solicitud/imagen4/'+ post.id_imagen"  style="width: 250px; height:250px; margin: 0 0 20px" />
               </div>
               <div class="col-6 mt-1">
                 <h1 class="ll-post__title text-primary text-center">
