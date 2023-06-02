@@ -20,7 +20,8 @@ export class ModalInterestComponent implements OnInit{
 
 
   interestsUser:[]=[];
-
+  
+  imagenes:any=[];
   SubCategory2:SubCategoryPost=new SubCategoryPost();
 
   aux:number=0
@@ -37,9 +38,17 @@ export class ModalInterestComponent implements OnInit{
     this.objetounico = this.decodificarJwt(token);
 
     this.profileId = this.objetounico.sub;
-
     this.GetSubInteresesByid(this.profileId);
     this.getInterests();
+
+  }
+  getImagen(nombre:string){
+    this.CategoryService.getImagen(nombre).subscribe(
+      (imagenes) => {
+        this.imagenes = imagenes;
+        //console.log(this.interests);
+        console.log(nombre);
+    });
   }
 
   getInterests(){
@@ -48,9 +57,7 @@ export class ModalInterestComponent implements OnInit{
         this.interests = interests;
         //console.log(this.interests);
         //console.log(interests.length);
-
         this.SelectUser();
-
     });
   }
   GetSubInteresesByid(id:string){
