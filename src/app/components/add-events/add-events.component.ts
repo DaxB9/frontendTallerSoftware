@@ -34,6 +34,15 @@ export class AddEventsComponent implements OnInit {
   cardImageBase64!: string;
 
   imageid!:string;
+
+  checkbox1: boolean =false;
+  checkbox2: boolean =false;
+  checkbox3: boolean =false;
+  checkbox4: boolean =false;
+  checkbox5: boolean =false;
+  checkbox6: boolean =false;
+  checkbox7: boolean =false;
+
   constructor(private categoryService:CategoryService, private eventService:EventService){}
 
   public newEventForm = new FormGroup({
@@ -102,7 +111,8 @@ export class AddEventsComponent implements OnInit {
     this.publicoAux=this.selectedScope;
     //console.log(this.publicoAux);
   }
-  addPublic(publico:string){
+  addPublic(publico:string, checkNumber: number){
+    this.invalidateCheckbox(checkNumber);
     if(this.publicoAux.includes(publico)){
       let aux= this.publicoAux.split('-'+publico);
       this.publicoAux=aux[0]+aux[1];
@@ -111,6 +121,30 @@ export class AddEventsComponent implements OnInit {
       this.publicoAux=this.publicoAux+'-'+publico;
       //console.log(this.publicoAux);
     }
+  }
+  invalidateCheckbox(checkNumber: number){
+    /*this.checkbox1 = false;
+    this.checkbox2 = false;
+    this.checkbox3 = false;
+    this.checkbox4 = false;
+    this.checkbox5 = false;
+    this.checkbox6 = false;
+    this.checkbox7 = false;*/
+
+    if (checkNumber === 1) {
+      this.checkbox6 = false;
+      this.checkbox7 = false;
+    } else if (checkNumber === 3) {
+      this.checkbox5 = false;
+      this.checkbox6 = false;
+    } else if (checkNumber === 5) {
+      this.checkbox3 = false;
+    } else if (checkNumber === 6) {
+      this.checkbox1 = false;
+    } else if (checkNumber === 7) {
+      this.checkbox1 = false;
+    }
+
   }
   delCategory(cat:any){
     this.categoryaux2=this.categoryaux2.filter((item) => item !== cat);
