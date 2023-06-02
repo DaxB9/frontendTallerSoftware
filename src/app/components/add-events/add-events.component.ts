@@ -18,7 +18,7 @@ export class AddEventsComponent implements OnInit {
 
   checkedY=false;
   checkedO=false;
-  
+
 
   titulo: string = "";
   subtitulo: string = "";
@@ -30,7 +30,10 @@ export class AddEventsComponent implements OnInit {
   categoryaux: Category[]=[];
 
   categoryaux2: any[]=[];
+  //preguntar si publicAux2 ==1, 2 ,3 y mostrar texto
   publicoAux2: string[]=["",""];
+
+
   publicoAux!:string;
   nevent: Event=new Event();
   lldata!: string;
@@ -124,8 +127,11 @@ export class AddEventsComponent implements OnInit {
     if(this.publicoAux2[1].includes(publico)){
       let aux= this.publicoAux2[1].split('-'+publico);
       this.publicoAux2[1]=aux[0]+aux[1];
+
       console.log(this.publicoAux2);
       //this.publicoAux2[0]="";
+     //preguntar el valor de publicAux2
+
     }else{
       this.publicoAux2[1]=this.publicoAux2[1]+'-'+publico;
       console.log(this.publicoAux2);
