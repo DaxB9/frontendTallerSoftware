@@ -41,6 +41,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DescriptionComponent } from './components/description/description.component';
 import {MatGridListModule} from "@angular/material/grid-list";
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import {MatGridListModule} from "@angular/material/grid-list";
     UserViewComponent,
     ProfileComponent,
     MispublicacionesComponent,
-    DescriptionComponent
+    DescriptionComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

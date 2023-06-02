@@ -18,6 +18,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { EditInterestComponent } from './components/profile/edit-interest/edit-interest.component';
 import {MispublicacionesComponent} from "./components/mispublicaciones/mispublicaciones.component";
 import {DescriptionComponent} from "./components/description/description.component";
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
   { path: 'add-posts',    component: AddPostsComponent, canActivate: [PermisosRutasService]}, //canActivate: [PermisosRutasService]
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'edit-interest', component: EditInterestComponent, canActivate: [PermisosRutasService]},
   { path: 'modificaciones', component: MispublicacionesComponent, canActivate: [PermisosRutasService]},
   { path: 'description', component: DescriptionComponent, canActivate: [PermisosRutasService]},
+  { path: 'contact', component: ContactComponent, canActivate: [PermisosRutasService]},
 
   //EJEMPLO DE USO:
   // { path: 'panel', component: PanelComponent, canActivate: [PermisosRutasService]},
