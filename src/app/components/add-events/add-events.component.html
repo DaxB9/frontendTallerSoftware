@@ -108,67 +108,13 @@
             </div>
             <div class="col-6">
               <h4>Alcance</h4>
-              <h4>Público</h4>
-                <div class="col-6">
-
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="student" [(ngModel)]="checkbox1" (change)="addPublic('2', 1)" >
-                    <label class="form-check-label" for="student">
-                      Estudiantes
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="teacher" [(ngModel)]="checkbox2" (change)="addPublic('3', 2)" >
-                    <label class="form-check-label" for="teacher">
-                      Docente
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="thirdAge" [(ngModel)]="checkbox3" (change)="addPublic('4', 3)">
-                    <label class="form-check-label" for="thirdAge">
-                      Tercera Edad
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="administrative" [(ngModel)]="checkbox4" (change)="addPublic('5', 4)">
-                    <label class="form-check-label" for="administrative">
-                      Administrativo
-                    </label>
-                  </div>
-
-                </div>
               <div class="row">
-                <h4>Edad</h4>
-                <div class="col-6">
-
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="age1" [(ngModel)]="checkbox5" (change)="addPublic('2', 5)" [disabled]="checkbox3 ">
-                    <label class="form-check-label" for="age1">
-                      16 - 30
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="age2" [(ngModel)]="checkbox6" (change)="addPublic('3', 6)" [disabled]="checkbox1 || checkbox3">
-                    <label class="form-check-label" for="age2">
-                      30 - 60
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="age3" [(ngModel)]="checkbox7" (change)="addPublic('4', 7)" [disabled]="checkbox1">
-                    <label class="form-check-label" for="age3">
-                      60 - 99
-                    </label>
-                  </div>
-
-                </div>
-              </div>
-              <!--<div class="row">
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="scope1" value="Edad" [(ngModel)]="selectedScope" (change)="cambiaPublico()">
+                  <!-- <input class="form-check-input" type="radio" name="inlineRadioOptions" id="scope1" value="Edad" [(ngModel)]="selectedScope" (change)="cambiaPublico()"> -->
                   <label class="form-check-label">Edad</label>
                 </div>
                 <div class="row">
-                  <div class="col-6" ><!--*ngIf="selectedScope === 'Edad'"
+                  <div class="col-6" ><!--*ngIf="selectedScope === 'Edad'" -->
                     <div class="form-check">
                       <input class="form-check-input" type="checkbox" value="" id="age1" (change)="addPublic('2')">
                       <label class="form-check-label" for="age1">
@@ -190,13 +136,13 @@
                   </div>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="scope2" value="Público" [(ngModel)]="selectedScope" (change)="cambiaPublico()">
+                  <!-- <input class="form-check-input" type="radio" name="inlineRadioOptions" id="scope2" value="Público" [(ngModel)]="selectedScope" (change)="cambiaPublico()"> -->
                   <label class="form-check-label" >Público</label>
                 </div>
               </div>
               <div class="row">
 
-                <div class="col-6">
+                <div class="col-6"> <!--*ngIf="selectedScope === 'Público'"-->
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="student" (change)="addPublic2('2')">
                     <label class="form-check-label" for="student">
@@ -221,7 +167,7 @@
                       Administrativo
                     </label>
                   </div>
-                </div>-->
+                </div>
               </div>
             </div>
           </div>
@@ -233,5 +179,4 @@
       </div>
     </div>
   </div>
-
-
+</div>

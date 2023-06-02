@@ -23,8 +23,9 @@ export class AddEventsComponent implements OnInit {
 
   category: Category[]=[];
   categoryaux: Category[]=[];
-  publicoAux2:[]=[]
+
   categoryaux2: any[]=[];
+  publicoAux2: string[]=["",""];
   publicoAux!:string;
   nevent: Event=new Event();
   lldata!: string;
@@ -34,15 +35,6 @@ export class AddEventsComponent implements OnInit {
   cardImageBase64!: string;
 
   imageid!:string;
-
-  checkbox1: boolean =false;
-  checkbox2: boolean =false;
-  checkbox3: boolean =false;
-  checkbox4: boolean =false;
-  checkbox5: boolean =false;
-  checkbox6: boolean =false;
-  checkbox7: boolean =false;
-
   constructor(private categoryService:CategoryService, private eventService:EventService){}
 
   public newEventForm = new FormGroup({
@@ -111,41 +103,30 @@ export class AddEventsComponent implements OnInit {
     this.publicoAux=this.selectedScope;
     //console.log(this.publicoAux);
   }
-  addPublic(publico:string, checkNumber: number){
-    this.invalidateCheckbox(checkNumber);
-    if(this.publicoAux.includes(publico)){
-      let aux= this.publicoAux.split('-'+publico);
-      this.publicoAux=aux[0]+aux[1];
-      //console.log(this.publicoAux);
+  addPublic(publico:string){
+    if(this.publicoAux2[0].includes(publico)){
+      let aux= this.publicoAux2[0].split('-'+publico);
+      this.publicoAux2[0]=aux[0]+aux[1];
+      console.log(this.publicoAux2);
+      //this.publicoAux2[0]="";
     }else{
-      this.publicoAux=this.publicoAux+'-'+publico;
-      //console.log(this.publicoAux);
+      this.publicoAux2[0]=this.publicoAux2[0]+'-'+publico;
+      console.log(this.publicoAux2);
     }
   }
-  invalidateCheckbox(checkNumber: number){
-    /*this.checkbox1 = false;
-    this.checkbox2 = false;
-    this.checkbox3 = false;
-    this.checkbox4 = false;
-    this.checkbox5 = false;
-    this.checkbox6 = false;
-    this.checkbox7 = false;*/
 
-    if (checkNumber === 1) {
-      this.checkbox6 = false;
-      this.checkbox7 = false;
-    } else if (checkNumber === 3) {
-      this.checkbox5 = false;
-      this.checkbox6 = false;
-    } else if (checkNumber === 5) {
-      this.checkbox3 = false;
-    } else if (checkNumber === 6) {
-      this.checkbox1 = false;
-    } else if (checkNumber === 7) {
-      this.checkbox1 = false;
+  addPublic2(publico: string){
+    if(this.publicoAux2[1].includes(publico)){
+      let aux= this.publicoAux2[1].split('-'+publico);
+      this.publicoAux2[1]=aux[0]+aux[1];
+      console.log(this.publicoAux2);
+      //this.publicoAux2[0]="";
+    }else{
+      this.publicoAux2[1]=this.publicoAux2[1]+'-'+publico;
+      console.log(this.publicoAux2);
     }
-
   }
+
   delCategory(cat:any){
     this.categoryaux2=this.categoryaux2.filter((item) => item !== cat);
   }
@@ -172,7 +153,7 @@ export class AddEventsComponent implements OnInit {
         //this.nevent.categoriaDTOS=this.category;
         this.nevent.interesesDTOS=this.categoryaux2;
         //this.nevent.categoriaDTOS=[]
-        this.nevent.publico=this.publicoAux;
+        this.nevent.publico= (this.publicoAux2[0]+"/"+this.publicoAux2[1]);
         console.log('Categorias  seleccionadas en el push: ',this.nevent.interesesDTOS);
         console.log(this.nevent);
         this.eventService.postTarjeta(this.nevent).subscribe({
