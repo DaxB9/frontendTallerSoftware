@@ -30,7 +30,17 @@
                   Agregar Público Destino
                 </button>
               </div>
-              <li *ngFor="let interest of publicoAux2">{{interest  }}</li>
+              
+              <h3>Sub Intereses:</h3>
+              <li *ngFor="let interest of categoryaux2">{{interest.nombre}}</li>
+
+              <h3>Edad:</h3>
+              <li *ngFor="let interest of t">{{interest}}</li>
+
+              <h3>Publico:</h3>
+              <li *ngFor="let interest of t2">{{interest}}</li>
+
+              <!-- <li *ngFor="let interest of publicoAux2">{{interest}}</li> -->
               <!-- preguntar el valr de publicoAux2, e imprimir texto -->
 
 

@@ -34,6 +34,12 @@ export class AddEventsComponent implements OnInit {
   publicoAux2: string[]=["",""];
 
 
+  t2:any[]=[];
+  t:any[]=[];
+
+  verPublico:string[]=["",""];
+  verEdad:string[]=["",""];
+
   publicoAux!:string;
   nevent: Event=new Event();
   lldata!: string;
@@ -111,16 +117,72 @@ export class AddEventsComponent implements OnInit {
     this.publicoAux=this.selectedScope;
     //console.log(this.publicoAux);
   }
+
+  edad(edad:string){
+    switch (edad) {
+      case '2':
+        return '16-30';
+      case '3':
+        return '30-60';
+      case '4':
+        return '60-99';
+      default:
+        return 'No selecciono una edad';
+    }
+  }
+
+  tipo(tipo:string){
+    switch (tipo) {
+      case '2':
+        return 'Estudiantes';
+      case '3':
+        return 'Docente';
+      case '4':
+        return 'Tercera Edad';
+      case '5':
+        return 'Administrativo';
+      default:
+        return 'No selecciono un tipo';
+    }
+  }
+
+  mostrar(){
+    let aux2= this.verEdad[0].split(',');
+    aux2.shift();
+    this.t=aux2;
+  }
+
+  mostrar2(){
+    let aux2= this.verPublico[0].split(',');
+    aux2.shift();
+    this.t2=aux2;
+  }
+
   addPublic(publico:string){
     if(this.publicoAux2[0].includes(publico)){
       let aux= this.publicoAux2[0].split('-'+publico);
       this.publicoAux2[0]=aux[0]+aux[1];
+
       console.log(this.publicoAux2);
+
+      console.log("edad:  " )
+      let aux2= this.verEdad[0].split(','+this.edad(publico));
+      this.verEdad[0]=aux2[0]+aux2[1];
+
+      console.log(this.publicoAux2);
+      
       //this.publicoAux2[0]="";
     }else{
       this.publicoAux2[0]=this.publicoAux2[0]+'-'+publico;
       console.log(this.publicoAux2);
+
+      this.verEdad[0]=this.verEdad+this.edad(publico);
+
+      console.log(this.verEdad);
     }
+
+    this.mostrar();
+
   }
 
   addPublic2(publico: string){
@@ -129,13 +191,25 @@ export class AddEventsComponent implements OnInit {
       this.publicoAux2[1]=aux[0]+aux[1];
 
       console.log(this.publicoAux2);
+
+      let aux2= this.verPublico[0].split(','+this.tipo(publico));
+      this.verPublico[0]=aux2[0]+aux2[1];
+
+      console.log(this.publicoAux2);
       //this.publicoAux2[0]="";
      //preguntar el valor de publicAux2
 
     }else{
       this.publicoAux2[1]=this.publicoAux2[1]+'-'+publico;
       console.log(this.publicoAux2);
+
+      this.verPublico[0]=this.verPublico+this.tipo(publico);
+
+      console.log(this.verPublico);
     }
+
+    this.mostrar2();
+    console.log(this.verPublico);
   }
 
   delCategory(cat:any){
