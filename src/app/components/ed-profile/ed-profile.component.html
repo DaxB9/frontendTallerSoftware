@@ -110,21 +110,18 @@
                 <input type="text" name="correoPersonal" [(ngModel)]="correoPersonal" class="form-control" id="correoPersonal">
               </div>
             </div> -->
-            <div class="flex-1 text-center row">
-              <div class="d-grid gap-2 col-6">
+            <div class="flex-1 row justify-content-md-center">
+              <div class="d-grid col-6 text-center">
                 <button class="btn btn-primary" type="button" (click)="confirmationPerfilUpdate()">Guardar Cambios</button>
-              </div>
-              <div class="d-grid gap-2 col-6">
-                <button class="btn btn-danger" type="button">Cancelar</button>
               </div>
             </div>
           </form>
           </div>
 
 
-          <div class="container custom-divider">
+          <div class="container custom-divider" style="padding-top: 1rem;">
             <figure class="text-center">
-              <h2>Intereses</h2>
+              <h2 class="bold-heading">Intereses</h2>
             </figure>
             <div>
               <ul class="list-interest">
@@ -132,8 +129,8 @@
                 <li *ngFor="let interest of intereses"><h3 style="font-weight: bold; ">{{interest.nombre}}</h3></li>
               </ul>
             </div>
-            <div class="flex-1 text-center row">
-              <div class="d-grid  col-12">
+            <div class="flex-1 row justify-content-md-center">
+              <div class="d-grid  col-6">
                 <button class="btn btn-primary " type="button" (click)="openEdit(datosPerfil.userid)">Editar intereses</button>
               </div>
             </div>
