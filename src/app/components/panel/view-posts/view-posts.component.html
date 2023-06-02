@@ -135,18 +135,15 @@
   </section>
 
   <div className=" historial">
-    <h2>HISTORIAL DE MODIFICACIONES</h2>
-    <ul>
-      <div class="row">
-        <h4>Solicitud: {{solicitudId}}</h4>
-        <div class="col-4">
-          <h3>Fecha</h3>
+    <h2>HISTORIAL DE COMENTARIOS</h2>
+    <div *ngFor="let comentario of comentarios">
+      <ul>
+        <div class="row">
+          <h4>Comentario: {{comentario.comentario}}</h4>
         </div>
-        <div class="col-4">
-          <h3>Comentario</h3>
-        </div>
-      </div>
-    </ul>
+      </ul>
+    </div>
+    
   </div>
 
 </div>

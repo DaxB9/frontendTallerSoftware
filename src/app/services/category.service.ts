@@ -22,4 +22,9 @@ export class CategoryService {
     return this.http.post<Event>('http://localhost:8080/v1/usuarios/asignar-interes',subInteres );
   }
 
+  // No se utiliza se puede poner la direccion directo en HTML
+  getImagen(id: string){
+    return this.http.get<any>('http://localhost:8080/solicitud/imagen4/'+id);
+  }
+
 }

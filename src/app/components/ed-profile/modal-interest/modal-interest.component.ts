@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
 import { Category } from 'src/app/models/category';
 import { ProfileService } from 'src/app/services/profile.service';
@@ -20,19 +20,35 @@ export class ModalInterestComponent implements OnInit{
 
 
   interestsUser:[]=[];
-
+  
+  imagenes:any=[];
   SubCategory2:SubCategoryPost=new SubCategoryPost();
 
   aux:number=0
-  profileId:number = 123465;
+  profileId:string = "123465";
 
   subcategorias: Array<any>=[];
+  objetounico:any = {};
 
   constructor(private CategoryService: CategoryService, private profileService: ProfileService){}
 
   ngOnInit(): void {
+
+    let token = sessionStorage.getItem("token") as string;
+    this.objetounico = this.decodificarJwt(token);
+
+    this.profileId = this.objetounico.sub;
     this.GetSubInteresesByid(this.profileId);
     this.getInterests();
+
+  }
+  getImagen(nombre:string){
+    this.CategoryService.getImagen(nombre).subscribe(
+      (imagenes) => {
+        this.imagenes = imagenes;
+        //console.log(this.interests);
+        console.log(nombre);
+    });
   }
 
   getInterests(){
@@ -41,12 +57,10 @@ export class ModalInterestComponent implements OnInit{
         this.interests = interests;
         //console.log(this.interests);
         //console.log(interests.length);
-
         this.SelectUser();
-
     });
   }
-  GetSubInteresesByid(id:number){
+  GetSubInteresesByid(id:string){
     this.profileService.GetSubInteresesById(id).subscribe(
       (interests) => { this.interestsUser = interests; console.log(this.interestsUser);}
     );
@@ -106,8 +120,19 @@ export class ModalInterestComponent implements OnInit{
       }
     });
     console.log('post exitoso');
-    window.location.reload();
+    // window.location.reload();
 
+  }
+
+  private decodificarJwt(token:string):any
+  {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
   }
 
 }

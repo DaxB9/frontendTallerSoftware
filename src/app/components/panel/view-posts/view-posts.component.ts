@@ -37,15 +37,20 @@ export class ViewPostsComponent   implements OnInit{
   }
 
   ngOnInit(): void {
-      console.log('El componente se ha inicializado');
+      console.log('El componente se ha inicializado de comentarios');
       this.previewService.getById(this.solicitudId)
       .subscribe(Response => {
         this.preview = Response
         this.getImagen(this.preview.id_imagen);
      });
-     
-     
+      this.previewService.getHistorial(this.solicitudId)
+      .subscribe(Response => {
+        this.comentarios = Response
+        console.log('comentarios:',this.comentarios);
+      });
+
   }
+
   openModifyPostDialog(): void {
     const modalRef = this.modalService.open(ModifyPostComponent); // 3. Abre el componente ModifyPostComponent en un modal
     modalRef.componentInstance.solicitudId = this.solicitudId; // Pasamos el ID de la solicitud al componente ModifyPostComponent
@@ -92,9 +97,11 @@ export class ViewPostsComponent   implements OnInit{
   photo!:string;
   location!:string;
   date!:Date;
+  data: any = [];
 
   titleEvent!:string;
   descriptionEvent!: string;
+  comentarios: any = [];
 
   onSubmit(): void {
     console.log('Formulario enviado');

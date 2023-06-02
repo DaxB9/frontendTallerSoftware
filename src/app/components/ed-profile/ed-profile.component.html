@@ -6,7 +6,7 @@
   </figure>
   <mat-card flex flex-gt-xs="30">
     <figure class="text-center">
-      <h2 class="bold-heading">Información del Usuario</h2>
+      <h3 class="bold-heading">Información del Usuario</h3>
     </figure>
     <mat-card-content>
       <div class="row">
@@ -19,6 +19,7 @@
           <div>
           <figure class="text-center">
             <h2 class="bold-heading">Datos Personales</h2>
+            <hr width="100%" color="black"/> 
           </figure>
           <form>
             <div class="mb-3">
@@ -54,21 +55,36 @@
               </div> -->
             </div>
 
-            <div class="mb-3">
+            <!--<div class="mb-3">
               <label for="carrera" class="form-label">Carrera</label>
               <input type="text" name="carrera" [(ngModel)]="datosPerfil.career" class="form-control" id="carrera" >
+            </div>-->
+            <div class="mb-3">
+              <label for="carrera" class="form-label">Carrera</label>
+              <select [(ngModel)]="majorSelected"class="form-select" aria-label="Disabled select example" name="carrera">
+                <option >Seleccione la carrera</option>
+                <option *ngFor="let m of carreras; let aux=index" [value]="m.id_carrera">{{m.carrera}}</option>
+                
+              </select>
             </div>
+            <!--
+              Selected Value: {{majorSelected}}
+            -->
+            
 
 
             <div class="mb-3">
-              <label for="tipo_usuario" class="form-label">Tipo de Usuario</label>
-              <select class="form-select" aria-label="Disabled select example">
-                <option selected>Seleccione el tipo de usuario</option>
-                <option value="1">Estudiante</option>
-                <option value="2">Docente</option>
-                <option value="3">Empresa</option>
+              <label  for="tipo_usuario" class="form-label">Tipo de Usuario</label>
+              <select [(ngModel)]="tipoSelected" class="form-select" aria-label="Disabled select example" name="tipo">
+                <option >Seleccione el tipo</option>
+                <option *ngFor="let dato of tipoUsuarios; let aux=index" [value]="dato.id">
+                  {{dato.nombre}}
+                </option>
+
               </select>
             </div>
+            
+            <!-- Selected Value: {{tipoSelected}}-->
 
             <!-- <figure class="text-center">
               <h2>Datos Domicilio</h2>
@@ -94,30 +110,27 @@
                 <input type="text" name="correoPersonal" [(ngModel)]="correoPersonal" class="form-control" id="correoPersonal">
               </div>
             </div> -->
-            <div class="flex-1 text-center row">
-              <div class="d-grid gap-2 col-6">
-                <button class="btn btn-primary" type="button" (click)="confirmationPerfilUpdate()">Editar Perfil</button>
-              </div>
-              <div class="d-grid gap-2 col-6">
-                <button class="btn btn-danger" type="button">Cancelar</button>
+            <div class="flex-1 row justify-content-md-center">
+              <div class="d-grid col-6 text-center">
+                <button class="btn btn-primary" type="button" (click)="confirmationPerfilUpdate()">Guardar Cambios</button>
               </div>
             </div>
           </form>
           </div>
 
 
-          <div class="container custom-divider">
+          <div class="container custom-divider" style="padding-top: 1rem;">
             <figure class="text-center">
-              <h2>Intereses</h2>
+              <h2 class="bold-heading">Intereses</h2>
             </figure>
             <div>
               <ul class="list-interest">
                 <li *ngIf="intereses.length === 0">El usuario no tiene intereses registrados.</li>
-                <li *ngFor="let interest of intereses">{{interest.nombre}}</li>
+                <li *ngFor="let interest of intereses"><h3 style="font-weight: bold; ">{{interest.nombre}}</h3></li>
               </ul>
             </div>
-            <div class="flex-1 text-center row">
-              <div class="d-grid  col-12">
+            <div class="flex-1 row justify-content-md-center">
+              <div class="d-grid  col-6">
                 <button class="btn btn-primary " type="button" (click)="openEdit(datosPerfil.userid)">Editar intereses</button>
               </div>
             </div>

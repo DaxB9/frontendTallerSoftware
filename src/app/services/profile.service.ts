@@ -11,14 +11,18 @@ export class ProfileService {
     console.log('Servicio HTTP:');
    }
 
-    public GetProfileById(id: number){
+    public GetProfileById(id: string){
         return this.http.get('http://localhost:8080/v1/usuarios/'+id);
     }
-    public GetSubInteresesById(id: number): Observable<any>{
+    public GetSubInteresesById(id: string): Observable<any>{
         return this.http.get('http://localhost:8080/v1/usuarios/subintereses/'+id);
     }
 
-    postProfile(id: number, profile: any){
+    postProfile(id: string, profile: any){
       return this.http.post<Event>('http://localhost:8080/v1/usuarios/profile/'+id, profile);
     }
+
+    public GetMajors(){
+      return this.http.get('http://localhost:8080/carrera/');
+  }
 }

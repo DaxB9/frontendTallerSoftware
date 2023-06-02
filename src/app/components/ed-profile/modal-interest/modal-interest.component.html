@@ -3,7 +3,7 @@
     <h1 class="bold-heading">Intereses</h1>
   </figure>
 
-  <div class="row">
+  <!-- <div class="row">
     <figure class="text-center">
       <h3 *ngIf="interests.length === 0">No se han registrado intereses.</h3>
     </figure>
@@ -28,12 +28,12 @@
           </mat-card-content>
       </mat-card>
     </div>
-  </div>
+  </div> -->
 
-  <!--<div class="d-flex flex-wrap justify-content-center">
-    <h3 *ngIf="interestss.length === 0">No se han registrado intereses.</h3>
+  <div class="d-flex flex-wrap justify-content-center">
+    <!-- <h3 *ngIf="interestss.length === 0">No se han registrado intereses.</h3> -->
     <div class="card text-center" style="width: 18rem; margin: 10px;" *ngFor="let i of interests">
-      <img class="card-img-top" [src]="i.imagen" style="width: auto; height: 100px;">
+      <img class="card-img-top" [src]="'http://localhost:8080/solicitud/imagen4/'+ i.imagen" style="width: auto; height: 100px;">
       <div class="card-body">
         <h5 class="card-title fw-semibold fs-5">{{i.nombre_interes}}</h5>
         <p class="fs-5 text-center ">Subintereses</p>
@@ -43,10 +43,10 @@
           </div>
       </div>
     </div>
-  </div>-->
+  </div>
 
-  <div class="flex-1 row">
-    <div class="d-grid gap-2 col-12 mt-3">
+  <div class="flex-1 row justify-content-md-center" style="padding-bottom: 1.5rem;">
+    <div class="d-grid gap-2 col-6 mt-3">
       <button class="btn btn-primary" type="button" (click)="Guardar()">Guardar</button>
     </div>
   </div>
