@@ -41,7 +41,7 @@ export class ViewPostsComponent   implements OnInit{
       this.previewService.getById(this.solicitudId)
       .subscribe(Response => {
         this.preview = Response
-        this.getImagen(this.preview.id_imagen);
+        //this.getImagen(this.preview.id_imagen);
      });
       this.previewService.getHistorial(this.solicitudId)
       .subscribe(Response => {

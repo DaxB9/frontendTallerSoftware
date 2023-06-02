@@ -27,6 +27,7 @@ export class RecommendedPostComponent implements OnInit{
     console.log('El componente se ha inicializado');
       this.recommended.getRecomendaciones(this.solicitudId)
       .subscribe(Response => {
+        console.log(Response);
         this.posts = Response
      });
   }

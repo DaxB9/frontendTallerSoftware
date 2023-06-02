@@ -25,6 +25,7 @@ export class SelectPostComponent implements OnInit {
     console.log('El componente se ha inicializado');
     this.previewService.getById(id1)
     .subscribe(Response => {
+      console.log(Response);
       this.preview = Response
    });
   }

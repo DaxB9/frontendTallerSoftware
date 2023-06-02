@@ -13,7 +13,7 @@
 
 <div class="modal" *ngIf="modalVisible">
   <div class="modal-content">
-    <h2>{{ publi }}</h2>
+    <h2>{{ publi.solcitudid }}</h2>
     <form>
       <div class="form-group">
         <label for="titulo">Título:</label>
@@ -23,24 +23,16 @@
         <label for="descripcion">Descripción:</label>
         <textarea id="descripcion" [(ngModel)]="publi.descripcion" name="descripcion" required></textarea>
       </div>
-      <div class="mb-3">
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Presencial" [(ngModel)]="selectedModality" [ngModelOptions]="{standalone: true}">
-          <label class="form-check-label" for="inlineRadio1">Presencial</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Virtual" [(ngModel)]="selectedModality" [ngModelOptions]="{standalone: true}">
-          <label class="form-check-label" for="inlineRadio2">Virtual</label>
-        </div>
+      <div class="form-group" *ngIf="publi.lugar === '' ">
+        <label for="link" class="form-label">Link</label>
+        <input type="text" class="form-control" id="link" placeholder="Agregue el link del evento" name="link" [(ngModel)]="publi.link" required>
       </div>
-      <div class="mb-3" *ngIf="selectedModality === 'Presencial'">
-        <label for="location" class="form-label">Agregar Ubicación</label>
-        <input #linklugar type="text" class="form-control" id="location" placeholder="Agregue la ubicación del evento" formControlName="linklugar" [(ngModel)]="lldata">
+      <div class="form-group" *ngIf="publi.link === '' ">
+        <label for="location" class="form-label">Lugar</label>
+        <input type="text" class="form-control" id="location" placeholder="Agregue la ubicación del evento" name="lugar" [(ngModel)]="publi.lugar" required>
       </div>
-      <div class="mb-3" *ngIf="selectedModality === 'Virtual'">
-        <label for="location" class="form-label">Agregar Link del Evento</label>
-        <input #linklugar type="text" class="form-control" id="link" placeholder="Agregue el link del evento" formControlName="linklugar" [(ngModel)]="lldata" >
-      </div>
+
+      <img src="C:/Users/Nikolai Lopez/OneDrive/Escritorio/ProyTallerDeSoftware/images/{{publi.id_imagen}}" alt="">
       <!-- <div class="form-group">
         <label for="edad">Edad:</label>
         <select id="edad" [(ngModel)]="publicacionSeleccionada.edad" name="edad" (change)="mostrarRangosEdad()" required>
