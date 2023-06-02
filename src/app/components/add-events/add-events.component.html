@@ -116,13 +116,13 @@
                 <div class="row">
                   <div class="col-6" ><!--*ngIf="selectedScope === 'Edad'" -->
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="age1" (change)="addPublic('2')">
+                      <input class="form-check-input" type="checkbox" value="" id="age1" (change)="addPublic('2')" (change)="onChangeY($event)" [disabled]="checkedO ? true: null">
                       <label class="form-check-label" for="age1">
                         16 - 30
                       </label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="age2" (change)="addPublic('3')">
+                      <input class="form-check-input" type="checkbox" value="" id="age2" (change)="addPublic('3')" >
                       <label class="form-check-label" for="age2">
                         30 - 60
                       </label>
@@ -156,7 +156,7 @@
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="thirdAge" (change)="addPublic2('4')">
+                    <input class="form-check-input" type="checkbox" value="" id="thirdAge" (change)="addPublic2('4')" (change)="onChangeO($event)" [disabled]="checkedY ? true: null">
                     <label class="form-check-label" for="thirdAge">
                       Tercera Edad
                     </label>

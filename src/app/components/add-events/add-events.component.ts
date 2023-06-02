@@ -15,6 +15,11 @@ import {FileSend} from "../../models/file";
   styleUrls: ['./add-events.component.css']
 })
 export class AddEventsComponent implements OnInit {
+
+  checkedY=false;
+  checkedO=false;
+  
+
   titulo: string = "";
   subtitulo: string = "";
   descripcion: string = "";
@@ -228,6 +233,24 @@ export class AddEventsComponent implements OnInit {
       showCancelButton: false,
       confirmButtonText: 'Ok',
     })
+  }
+
+  onChangeO($event:any) {
+    if($event.target.checked){
+      this.checkedO=true
+    }
+    else{
+      this.checkedO=false
+    }
+  }
+
+  onChangeY($event:any) {
+    if($event.target.checked){
+      this.checkedY=true
+    }
+    else{
+      this.checkedY=false
+    }
   }
 
 }
