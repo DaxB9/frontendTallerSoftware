@@ -32,7 +32,8 @@
         <input type="text" class="form-control" id="location" placeholder="Agregue la ubicación del evento" name="lugar" [(ngModel)]="publi.lugar" required>
       </div>
 
-      <img src="C:/Users/Nikolai Lopez/OneDrive/Escritorio/ProyTallerDeSoftware/images/{{publi.id_imagen}}" alt="">
+      <img class="postImage" [src]="'http://localhost:8080/solicitud/imagen4/'+ publi.id_imagen" style="width: 300px; height: 200px;"  alt="avatar">
+      <br>
       <!-- <div class="form-group">
         <label for="edad">Edad:</label>
         <select id="edad" [(ngModel)]="publicacionSeleccionada.edad" name="edad" (change)="mostrarRangosEdad()" required>
