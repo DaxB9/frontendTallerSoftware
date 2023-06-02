@@ -6,6 +6,7 @@ import Swal from'sweetalert2';
 import { ProfileService } from 'src/app/services/profile.service';
 import { Timestamp } from 'rxjs';
 import { DataService } from 'src/app/core/data.service';
+import { EditProfile } from 'src/app/models/editProfile';
 
 interface tipoUsuario {
   id: number;
@@ -37,7 +38,8 @@ export class EdProfileComponent implements OnInit{
   verSeleccion: string        = '';
 
 
-  datosPerfil: any = [];
+  datosPerfil2: EditProfile = new EditProfile();
+  datosPerfil:any=[];
 
   intereses:any = [];
 
@@ -53,7 +55,7 @@ export class EdProfileComponent implements OnInit{
     {id:2,nombre:"Docente"},
     {id:3,nombre:"Administrador"}];
 
-  majorSelected=0;
+  majorSelected="0";
   tipoSelected=0;
 
 
@@ -143,11 +145,26 @@ capturar2(nombre:string) {
   }
 
   successUpdateProfile(){
+
+    this.datosPerfil2.userId= this.datosPerfil.userId;
+    this.datosPerfil2.googleId= this.datosPerfil.googleId;
+    this.datosPerfil2.usertype=this.tipoSelected;
+    this.datosPerfil2.family_name=this.datosPerfil.family_name;
+    this.datosPerfil2.given_name=this.datosPerfil.given_name;
+    this.datosPerfil2.hd=this.datosPerfil.hd;
+    this.datosPerfil2.email=this.datosPerfil.email;
+    this.datosPerfil2.picture=this.datosPerfil.picture;
+    this.datosPerfil2.nickname=this.datosPerfil.nickname;
+    this.datosPerfil2.birthday=this.datosPerfil.birthday;
+    this.datosPerfil2.career=this.majorSelected;
+
+    console.log(this.majorSelected);
+    console.log(this.tipoSelected);
   
 
-    this.profile.postProfile(this.profileId,this.datosPerfil).subscribe({
+    this.profile.postProfile(this.profileId,this.datosPerfil2).subscribe({
       next:() => {
-        console.log(this.datosPerfil);
+        console.log(this.datosPerfil2);
 
       },
       error:(errorResponse) => {
