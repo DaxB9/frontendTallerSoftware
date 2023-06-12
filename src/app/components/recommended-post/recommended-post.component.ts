@@ -30,6 +30,8 @@ export class RecommendedPostComponent implements OnInit{
         console.log(Response);
         this.posts = Response
      });
+
+     console.log(this.posts);
   }
 
   //Datos de prueba
